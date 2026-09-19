@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowRight, Check, ChevronDown, Globe2, Handshake, Layers3, Menu, Network, Play, Sparkles, X, Zap } from "lucide-react";
+import { ArrowRight, Check, ChevronDown, Globe2, Handshake, Menu, Network, X } from "lucide-react";
 import { toast } from "sonner";
 
 const heroImage = "/manus-storage/property-source-devices-transparent_ae62f96f.png";
@@ -61,7 +61,6 @@ export default function Home() {
           <div className="absolute -bottom-24 left-[4%] size-72 rounded-full bg-[#b7e44c]/10 blur-3xl" />
           <div className="container relative z-10 grid items-center gap-10 lg:grid-cols-[.84fr_1.16fr]">
             <div className="max-w-[540px] pb-10 lg:pb-24">
-              <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-2 text-[11px] font-bold uppercase tracking-[.18em] text-[#b7e44c]"><Sparkles size={14} /> The global exchange is open</div>
               <h1 className="font-display text-[clamp(3.3rem,6.2vw,6.2rem)] font-semibold leading-[.92] tracking-[-.065em]">Your marketplace.<br /><span className="text-[#b7e44c]">The world's inventory.</span></h1>
               <p className="mt-7 max-w-[470px] text-lg leading-8 text-white/70">Launch a free, white-label real estate marketplace for your community — and connect your members to a global exchange hub built for direct transactions.</p>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row"><button onClick={goToRegistration} className="rounded-full bg-[#b7e44c] px-6 py-4 text-sm font-bold text-[#12352b] shadow-[0_12px_32px_rgba(183,228,76,.18)] transition hover:-translate-y-0.5 hover:bg-[#d1f37e]">Set up your free marketplace <ArrowRight className="ml-2 inline" size={16} /></button><a href="#how-it-works" className="rounded-full border border-white/20 px-6 py-4 text-center text-sm font-bold text-white transition hover:border-white/50">See how it works <ChevronDown className="ml-2 inline" size={16} /></a></div>
