@@ -4,6 +4,7 @@ import { toast } from "sonner";
 
 const heroImage = "/manus-storage/property-source-hero_49845c0a.png";
 const networkImage = "/manus-storage/property-source-network_538c191d.png";
+const mapImage = "/manus-storage/property-source-world-map_d3b0c44e.png";
 
 const partnerTypes = [
   { icon: "01", title: "Real estate communities", text: "Give your members a branded marketplace without rebuilding your business from scratch." },
@@ -52,6 +53,9 @@ export default function Home() {
       <main id="top">
         <section className="relative min-h-[720px] overflow-hidden bg-[#092d25] pt-32 text-white lg:min-h-[790px]">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_25%,rgba(86,179,137,.18),transparent_30%),linear-gradient(115deg,#092d25_0%,#0b3b2d_45%,#092d25_100%)]" />
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-[72%] bg-cover bg-[position:center_top] bg-no-repeat opacity-45 mix-blend-screen" style={{ backgroundImage: `url(${mapImage})` }} />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#092d25]/95 via-[#092d25]/55 to-[#092d25]/10" />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#092d25] to-transparent" />
           <div className="absolute -bottom-24 left-[4%] size-72 rounded-full bg-[#b7e44c]/10 blur-3xl" />
           <div className="container relative z-10 grid items-center gap-10 lg:grid-cols-[.84fr_1.16fr]">
             <div className="max-w-[540px] pb-10 lg:pb-24">
