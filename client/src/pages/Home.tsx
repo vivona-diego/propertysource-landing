@@ -59,9 +59,9 @@ export default function Home() {
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#092d25]/95 via-[#092d25]/55 to-[#092d25]/10" />
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#092d25] to-transparent" />
           <div className="absolute -bottom-24 left-[4%] size-72 rounded-full bg-[#b7e44c]/10 blur-3xl" />
-          <div className="container relative z-10 grid items-center gap-10 lg:grid-cols-[.84fr_1.16fr]">
-            <div className="max-w-[540px] pb-10 lg:pb-24">
-              <h1 className="font-display text-[clamp(3.3rem,6.2vw,6.2rem)] font-semibold leading-[.92] tracking-[-.065em]">Create your marketplace.<br /><span className="text-[#b7e44c]">Give your Members access.</span></h1>
+          <div className="container relative z-10 grid items-center gap-10 lg:grid-cols-[.98fr_1.02fr]">
+            <div className="max-w-[640px] pb-10 lg:pb-24">
+              <h1 className="font-display text-[clamp(3.3rem,6.2vw,6.2rem)] font-semibold leading-[.92] tracking-[-.065em]">Create your marketplace.<span className="mt-4 block whitespace-nowrap text-[clamp(1.55rem,3.1vw,2.9rem)] leading-none tracking-[-.045em] text-[#b7e44c]">Give your Members access.</span></h1>
               <p className="mt-7 max-w-[470px] text-lg leading-8 text-white/70">Launch a free, white-label real estate marketplace for your community — and connect your members to a global exchange hub built for direct transactions.</p>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row"><button onClick={goToRegistration} className="rounded-full bg-[#b7e44c] px-6 py-4 text-sm font-bold text-[#12352b] shadow-[0_12px_32px_rgba(183,228,76,.18)] transition hover:-translate-y-0.5 hover:bg-[#d1f37e]">Set up your free marketplace <ArrowRight className="ml-2 inline" size={16} /></button><a href="#how-it-works" className="rounded-full border border-white/20 px-6 py-4 text-center text-sm font-bold text-white transition hover:border-white/50">See how it works <ChevronDown className="ml-2 inline" size={16} /></a></div>
               <div className="mt-12 flex items-center gap-8 border-t border-white/10 pt-6 text-xs text-white/55"><span><b className="block font-display text-2xl text-white">$0</b>to launch</span><span><b className="block font-display text-2xl text-white">1</b>connected hub</span><span><b className="block font-display text-2xl text-white">∞</b>marketplace reach</span></div>
