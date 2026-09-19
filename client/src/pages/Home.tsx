@@ -5,6 +5,7 @@ import { toast } from "sonner";
 const heroImage = "/manus-storage/property-source-devices-transparent_ae62f96f.png";
 const networkImage = "/manus-storage/property-source-network_538c191d.png";
 const mapImage = "/manus-storage/property-source-world-map_d3b0c44e.png";
+const logoImage = "/manus-storage/Property_Source_Logo_Green_b7a58ad8.png";
 
 const partnerTypes = [
   { icon: "01", title: "Real estate communities", text: "Give your members a branded marketplace without rebuilding your business from scratch." },
@@ -35,9 +36,8 @@ export default function Home() {
     <div className="min-h-screen overflow-x-hidden bg-[#f7f8f2] text-[#12352b]">
       <header className="absolute inset-x-0 top-0 z-40">
         <div className="container flex items-center justify-between py-5">
-          <a href="#top" className="flex items-center gap-3" aria-label="Property Source Exchange home">
-            <span className="grid size-10 place-items-center rounded-[14px] bg-[#b7e44c] text-[#12352b] shadow-[0_8px_24px_rgba(183,228,76,.22)]"><Network size={21} strokeWidth={2.4} /></span>
-            <span className="leading-none"><strong className="block font-display text-[15px] tracking-[-.02em] text-white">PROPERTY SOURCE</strong><span className="text-[10px] font-bold uppercase tracking-[.24em] text-[#b7e44c]">Exchange</span></span>
+          <a href="#top" className="flex items-center" aria-label="Property Source Exchange home">
+            <img src={logoImage} alt="Property Source Exchange" className="h-12 w-auto rounded-xl bg-white/95 p-1 shadow-[0_8px_24px_rgba(0,0,0,.16)]" />
           </a>
           <nav className="hidden items-center gap-8 text-[13px] font-semibold text-white/75 md:flex">
             <a className="transition-colors hover:text-white" href="#network">The network</a>
