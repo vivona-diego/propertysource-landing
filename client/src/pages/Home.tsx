@@ -39,7 +39,7 @@ export default function Home() {
       <header className="absolute inset-x-0 top-0 z-40">
         <div className="container flex items-center justify-between py-5">
           <a href="#top" className="flex items-center" aria-label="Property Source Exchange home">
-            <img src={logoImage} alt="Property Source Exchange" className="h-12 w-auto rounded-xl bg-white/95 p-1 shadow-[0_8px_24px_rgba(0,0,0,.16)]" />
+            <span className="inline-flex items-center rounded-full bg-white px-4 py-2 shadow-[0_8px_24px_rgba(0,0,0,.16)]"><img src={logoImage} alt="Property Source Exchange" className="h-9 w-auto" /></span>
           </a>
           <nav className="hidden items-center gap-8 text-[13px] font-semibold text-white/75 md:flex">
             <a className="transition-colors hover:text-white" href="#network">The network</a>
