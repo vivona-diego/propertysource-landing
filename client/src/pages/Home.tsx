@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ArrowRight, Check, ChevronDown, Globe2, Handshake, Layers3, Menu, Network, Play, Sparkles, X, Zap } from "lucide-react";
 import { toast } from "sonner";
 
-const heroImage = "/manus-storage/property-source-hero_49845c0a.png";
+const heroImage = "/manus-storage/property-source-devices-transparent_ae62f96f.png";
 const networkImage = "/manus-storage/property-source-network_538c191d.png";
 const mapImage = "/manus-storage/property-source-world-map_d3b0c44e.png";
 
@@ -65,7 +65,7 @@ export default function Home() {
               <div className="mt-9 flex flex-col gap-3 sm:flex-row"><button onClick={openForm} className="rounded-full bg-[#b7e44c] px-6 py-4 text-sm font-bold text-[#12352b] shadow-[0_12px_32px_rgba(183,228,76,.18)] transition hover:-translate-y-0.5 hover:bg-[#d1f37e]">Set up your free marketplace <ArrowRight className="ml-2 inline" size={16} /></button><a href="#how-it-works" className="rounded-full border border-white/20 px-6 py-4 text-center text-sm font-bold text-white transition hover:border-white/50">See how it works <ChevronDown className="ml-2 inline" size={16} /></a></div>
               <div className="mt-12 flex items-center gap-8 border-t border-white/10 pt-6 text-xs text-white/55"><span><b className="block font-display text-2xl text-white">$0</b>to launch</span><span><b className="block font-display text-2xl text-white">1</b>connected hub</span><span><b className="block font-display text-2xl text-white">∞</b>marketplace reach</span></div>
             </div>
-            <div className="relative -mr-8 lg:-mr-24"><div className="absolute -inset-5 rounded-[40px] bg-[#56b389]/10 blur-3xl" /><img src={heroImage} alt="Laptop, desktop monitor, and mobile phone displaying a connected property marketplace" className="relative w-full rounded-[28px] object-cover shadow-[0_30px_90px_rgba(0,0,0,.38)]" /><div className="absolute bottom-5 left-5 flex items-center gap-3 rounded-2xl border border-white/15 bg-[#092d25]/80 px-4 py-3 backdrop-blur-md"><span className="grid size-9 place-items-center rounded-xl bg-[#b7e44c] text-[#12352b]"><Globe2 size={19} /></span><span className="text-xs font-semibold text-white">Connected across<br /><b className="text-[#b7e44c]">every continent</b></span></div></div>
+            <div className="relative -mr-8 lg:-mr-24"><div className="absolute inset-12 rounded-full bg-[#56b389]/20 blur-3xl" /><img src={heroImage} alt="Isolated laptop, desktop monitor, mobile phone, house models, and keys displaying a connected property marketplace" className="relative w-full object-contain drop-shadow-[0_30px_45px_rgba(0,0,0,.38)]" /><div className="absolute bottom-5 left-5 flex items-center gap-3 rounded-2xl border border-white/15 bg-[#092d25]/80 px-4 py-3 backdrop-blur-md"><span className="grid size-9 place-items-center rounded-xl bg-[#b7e44c] text-[#12352b]"><Globe2 size={19} /></span><span className="text-xs font-semibold text-white">Connected across<br /><b className="text-[#b7e44c]">every continent</b></span></div></div>
           </div>
           <div className="absolute bottom-0 left-0 right-0 h-16 bg-[#f7f8f2] [clip-path:polygon(0_100%,100%_30%,100%_100%)]" />
         </section>
