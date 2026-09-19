@@ -27,7 +27,7 @@ export default function Home() {
   const [showForm, setShowForm] = useState(false);
 
   const openForm = () => setShowForm(true);
-  const goToRegistration = () => { window.location.href = registrationUrl; };
+  const goToRegistration = () => { window.open(registrationUrl, "_blank", "noopener,noreferrer"); };
   const submitForm = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setShowForm(false);
