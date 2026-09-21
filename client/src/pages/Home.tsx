@@ -18,7 +18,7 @@ const strategicPartners = [
   { name: "Alpha Funding", src: "/manus-storage/alpha-funding-white_f6c3c8bb.png", scale: 1 },
   { name: "Axe Capital", src: "/manus-storage/axe-capital-white_c3e9dd8e.png", scale: 1.18 },
   { name: "Brick City Capital", src: "/manus-storage/brick-city-capital-white_78db2366.png", scale: 1 },
-  { name: "D1 Funds", src: "/manus-storage/d1-funds-white_b42b5051.png", scale: 1.75 },
+  { name: "D1 Funds", src: "/manus-storage/d1-funds-white-fitted_ec6b6025.png", scale: 1 },
   { name: "Velocity Lending", src: "/manus-storage/velocity-lending-white_8a70b112.png", scale: 1.55 },
   { name: "Residential Capital Partners", src: "/manus-storage/residential-capital-partners-white_5edf301b.png", scale: 1 },
   { name: "Private Money Lenders", src: "/manus-storage/private-money-lenders-white_eae7029e.png", scale: 1.16 },
