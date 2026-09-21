@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowRight, Check, Handshake, Menu, Network, X } from "lucide-react";
+import { ArrowRight, Check, FileCheck2, Globe2, Handshake, Menu, Search, Settings2, X } from "lucide-react";
 import { toast } from "sonner";
 
 const heroImage = "/manus-storage/property-source-devices-transparent_ae62f96f.png";
@@ -20,6 +20,53 @@ const tools = [
   "Built-in offer, contract, and negotiation workflows",
   "Digital handoff to connected title and closing providers",
   "Embedded lenders, insurance, inspections, and service partners",
+];
+
+const featureGroups = [
+  {
+    title: "Marketplace Network",
+    icon: Globe2,
+    features: [
+      { title: "Turnkey White-Label", text: "Launch with your domain, logo, colors, and branded registration." },
+      { title: "Two-Way API Connection", text: "Connect an existing marketplace through synchronized data integrations." },
+      { title: "Aggregated Global Inventory", text: "Share real-time listings across every connected independent marketplace." },
+      { title: "Single Sign-On", text: "Give members one login for a worldwide view of deals." },
+      { title: "Multiple Asset Types", text: "Support residential, multifamily, commercial, industrial, land, and mortgage notes." },
+    ],
+  },
+  {
+    title: "Discovery & Privacy",
+    icon: Search,
+    features: [
+      { title: "Listing & Bulk Uploads", text: "Create listings individually or import CSV and XML files." },
+      { title: "Map-Powered Search", text: "Explore maps, satellite imagery, Street View, and address suggestions." },
+      { title: "AI Property Assistant", text: "Research U.S. properties using natural-language text or voice questions." },
+      { title: "Blind-Sale Privacy", text: "Protect buyer and seller identities until both parties sign." },
+      { title: "Buyer Match Alerts", text: "Notify members by email and text when matching listings appear." },
+    ],
+  },
+  {
+    title: "Transactions & Closing",
+    icon: FileCheck2,
+    features: [
+      { title: "Digital Offers & Contracts", text: "Create, negotiate, accept, and electronically sign property agreements." },
+      { title: "Transaction Engine", text: "Automate offers, documents, closing, and post-close ownership transfer." },
+      { title: "Title Company Handoff", text: "Deliver accepted deals and documents directly into title workflows." },
+      { title: "Online Earnest Money", text: "Send required deposits securely to the title company escrow account." },
+      { title: "Closing Milestone Tracking", text: "Follow every step from accepted offer through final sale." },
+    ],
+  },
+  {
+    title: "Operations & Revenue",
+    icon: Settings2,
+    features: [
+      { title: "Lender & Vendor Network", text: "Access financing, title, inspection, survey, insurance, and legal services." },
+      { title: "Revenue Share Controls", text: "Manage marketplace earnings and member-account revenue from one panel." },
+      { title: "Owner Dashboard", text: "Track members, activity, sales, transactions, settings, and reports." },
+      { title: "Branded Email & SMS", text: "Send alerts, campaigns, announcements, and invitations under your brand." },
+      { title: "Live Property Auctions", text: "Set pricing and duration, then manage auctions completely online." },
+    ],
+  },
 ];
 
 export default function Home() {
@@ -43,13 +90,14 @@ export default function Home() {
           </a>
           <nav className="hidden items-center gap-8 text-[13px] font-semibold text-white/75 md:flex">
             <a className="transition-colors hover:text-white" href="#network">The network</a>
+            <a className="transition-colors hover:text-white" href="#features">Features</a>
             <a className="transition-colors hover:text-white" href="#how-it-works">How it works</a>
             <a className="transition-colors hover:text-white" href="#partners">Who it is for</a>
             <button onClick={goToRegistration} className="rounded-full bg-[#b7e44c] px-5 py-3 text-[#12352b] transition hover:bg-[#d1f37e]">Get your marketplace <ArrowRight className="ml-2 inline" size={15} /></button>
           </nav>
           <button className="grid size-11 place-items-center rounded-full border border-white/20 text-white md:hidden" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle navigation">{menuOpen ? <X size={20} /> : <Menu size={20} />}</button>
         </div>
-        {menuOpen && <nav className="mx-4 rounded-2xl border border-white/10 bg-[#0b3027]/95 p-5 text-sm text-white shadow-2xl md:hidden"><div className="grid gap-4"><a href="#network" onClick={() => setMenuOpen(false)}>The network</a><a href="#how-it-works" onClick={() => setMenuOpen(false)}>How it works</a><a href="#partners" onClick={() => setMenuOpen(false)}>Who it is for</a><button onClick={goToRegistration} className="rounded-full bg-[#b7e44c] px-4 py-3 font-bold text-[#12352b]">Get your marketplace</button></div></nav>}
+        {menuOpen && <nav className="mx-4 rounded-2xl border border-white/10 bg-[#0b3027]/95 p-5 text-sm text-white shadow-2xl md:hidden"><div className="grid gap-4"><a href="#network" onClick={() => setMenuOpen(false)}>The network</a><a href="#features" onClick={() => setMenuOpen(false)}>Features</a><a href="#how-it-works" onClick={() => setMenuOpen(false)}>How it works</a><a href="#partners" onClick={() => setMenuOpen(false)}>Who it is for</a><button onClick={goToRegistration} className="rounded-full bg-[#b7e44c] px-4 py-3 font-bold text-[#12352b]">Get your marketplace</button></div></nav>}
       </header>
 
       <main id="top">
@@ -75,6 +123,8 @@ export default function Home() {
 
         <section id="network" className="container py-24 lg:py-32"><div className="grid items-center gap-14 lg:grid-cols-[.85fr_1.15fr]"><div><p className="eyebrow">The network effect</p><h2 className="section-title">One hub.<br /><em>Thousands</em> of marketplaces.</h2><p className="mt-7 max-w-[540px] text-[16px] leading-7 text-[#52645c]">Property Source Exchange transforms industry fragmentation into a unified global powerhouse. By instantly bridging hundreds of independent real estate communities, brokerages, investors, and marketplaces worldwide, we fuse thousands of isolated networks into a single, seamless ecosystem. Joining this global exchange means your inventory instantly scales across the entire network, backed by immediate access to digitally connected lenders, title companies, and essential transaction resources. It is the ultimate real estate super-hub, giving independent marketplaces the global reach and shared infrastructure to operate as one interconnected network.</p><div className="mt-8 grid gap-4">{tools.slice(0, 3).map((tool) => <div key={tool} className="flex items-start gap-3 text-sm font-semibold text-[#244b3c]"><span className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-[#d8efb0] text-[#2d7f58]"><Check size={13} strokeWidth={3} /></span>{tool}</div>)}</div></div><div className="relative mx-auto w-full max-w-[500px]"><div className="absolute -inset-5 rounded-[34px] bg-[#b7e44c]/20 blur-3xl" /><img src={networkImage} alt="Six real estate communities connected to a central global exchange, with lender, investor, and brokerage icons" className="relative w-full rounded-[30px] shadow-[0_22px_70px_rgba(25,70,50,.18)]" /><div className="absolute -bottom-5 -left-5 rounded-2xl bg-white p-4 shadow-xl"><div className="flex items-center gap-3"><span className="grid size-10 place-items-center rounded-xl bg-[#e5f5c8] text-[#2d7f58]"><Handshake size={20} /></span><span className="text-xs font-semibold text-[#385b4c]">Independent brands.<br /><b className="text-[#12352b]">Shared global reach.</b></span></div></div></div></div></section>
 
+        <section id="features" className="bg-[#0b3027] py-20 text-white lg:py-24"><div className="container"><div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end"><div><p className="text-xs font-bold uppercase tracking-[.2em] text-[#b7e44c]">Platform features</p><h2 className="mt-4 max-w-3xl font-display text-[clamp(2.7rem,4.6vw,4.8rem)] font-semibold leading-[.95] tracking-[-.055em]">Everything your marketplace needs. <span className="text-[#b7e44c]">One connected platform.</span></h2></div><p className="max-w-md text-sm leading-6 text-white/60">From marketplace launch and global discovery to digital closing and recurring partner revenue—all in one managed ecosystem.</p></div><div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">{featureGroups.map(({ title, icon: Icon, features }) => <article key={title} className="rounded-[24px] border border-white/10 bg-white/[.055] p-5 shadow-[0_16px_45px_rgba(0,0,0,.12)]"><div className="flex items-center gap-3 border-b border-white/10 pb-4"><span className="grid size-10 place-items-center rounded-xl bg-[#b7e44c] text-[#12352b]"><Icon size={19} strokeWidth={2.25} /></span><h3 className="font-display text-xl font-semibold tracking-[-.035em]">{title}</h3></div><div className="mt-4 grid gap-4">{features.map((feature) => <div key={feature.title} className="grid grid-cols-[14px_1fr] gap-2.5"><Check className="mt-0.5 text-[#b7e44c]" size={13} strokeWidth={3} /><div><h4 className="text-[13px] font-bold text-white">{feature.title}</h4><p className="mt-0.5 text-[11px] leading-[1.45] text-white/55">{feature.text}</p></div></div>)}</div></article>)}</div></div></section>
+
         <section id="how-it-works" className="border-y border-[#dce6d7] bg-[#edf4e8] py-24 lg:py-28"><div className="container"><div className="max-w-2xl"><p className="eyebrow">TURN-KEY PLATFORM</p><h2 className="section-title">Activate your Marketplace.<br /><em>Scale with the network.</em></h2></div><div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4"><div className="step-card"><span>01</span><h3>Register online</h3><p>Register your organization and marketplace details through a simple guided setup.</p></div><div className="step-card"><span>02</span><h3>Add Your Branding</h3><p>Customize your marketplace with your logo, colors, domain, and community identity.</p></div><div className="step-card"><span>03</span><h3>Invite Your community</h3><p>Share your marketplace with your buyers, sellers, investors, borrowers, and members.</p></div><div className="step-card"><span>04</span><h3>Earn Monthly Revenue</h3><p>Earn a 20% share of transaction fees generated through your branded marketplace.</p></div></div><div className="mt-12 grid gap-7 rounded-[28px] bg-[#12352b] p-7 text-white lg:grid-cols-[1fr_auto] lg:items-center lg:p-10"><div><p className="text-xs font-bold uppercase tracking-[.18em] text-[#b7e44c]">TURN-KEY MARKETPLACE, LIVE IN MINUTES</p><p className="mt-4 max-w-5xl text-[15px] font-medium leading-7 text-white/85">Launch your branded real estate powerhouse in minutes—100% free, with zero technical skills required. Property Source Exchange delivers a fully template-based, turnkey white-label marketplace that deploys autonomously within an hour with no credit card needed. By simply picking your preferences from an intuitive dashboard, uploading your logos, and selecting your color scheme, you instantly transform your network into an active global exchange—no coding or web development experience necessary. Your members gain a seamless, credit-card-free portal to trade and collaborate, while you enjoy a lucrative 20% revenue share from every transaction fee generated. Best of all, you retain total management control: update your settings instantly anytime through your marketplace owner dashboard, choose to promote your own lending services exclusively, or hand-pick from our active lender network to perfectly curate your ecosystem.</p></div><button onClick={goToRegistration} className="rounded-full bg-[#b7e44c] px-5 py-3 text-sm font-bold text-[#12352b] transition hover:bg-[#d1f37e]">Talk to the team <ArrowRight className="ml-2 inline" size={15} /></button></div></div></section>
 
         <section id="partners" className="container py-24 lg:py-32"><div className="flex flex-col justify-between gap-5 md:flex-row md:items-end"><div><p className="eyebrow">Who can join</p><h2 className="section-title max-w-2xl">If you have a community,<br /><em>you have a marketplace.</em></h2></div><p className="max-w-sm text-sm leading-6 text-[#62776b]">Every partner keeps their identity while gaining access to an exchange much larger than any one marketplace.</p></div><div className="mt-14 grid gap-4 sm:grid-cols-2">{partnerTypes.map((partner) => <article key={partner.title} className="group rounded-[24px] border border-[#dce6d7] bg-white p-6 transition hover:-translate-y-1 hover:border-[#b7e44c] hover:shadow-[0_18px_50px_rgba(25,70,50,.1)]"><div className="flex items-start justify-between"><span className="font-display text-4xl font-semibold tracking-[-.08em] text-[#b7d29d]">{partner.icon}</span><span className="grid size-10 place-items-center rounded-full bg-[#eff7df] text-[#2d7f58] transition group-hover:bg-[#b7e44c] group-hover:text-[#12352b]"><ArrowRight size={17} /></span></div><h3 className="mt-8 font-display text-2xl font-semibold tracking-[-.04em]">{partner.title}</h3><p className="mt-3 text-sm leading-6 text-[#64776c]">{partner.text}</p></article>)}</div></section>
@@ -82,7 +132,7 @@ export default function Home() {
         
       </main>
 
-      <footer className="bg-[#092d25] py-10 text-white"><div className="container flex flex-col justify-between gap-5 text-sm md:flex-row md:items-center"><div className="flex items-center gap-3"><span className="grid size-8 place-items-center rounded-xl bg-[#b7e44c] text-[#12352b]"><Network size={17} /></span><span><b className="font-display">PROPERTY SOURCE</b> <span className="text-[#b7e44c]">EXCHANGE</span></span></div><p className="text-white/45">Owned and operated by Property Hub Exchange, Inc.</p><p className="text-white/45">© 2026 Property Source Exchange</p></div></footer>
+      <footer className="bg-[#092d25] py-10 text-white"><div className="container flex flex-col justify-between gap-5 text-sm md:flex-row md:items-center"><a href="#top" className="inline-flex w-fit items-center rounded-full bg-white px-3 py-2 shadow-[0_8px_24px_rgba(0,0,0,.14)]" aria-label="Property Source Exchange home"><img src={logoImage} alt="Property Source Exchange" className="h-7 w-auto" /></a><p className="text-white/45">Owned and operated by Property Hub Exchange, Inc.</p><p className="text-white/45">© 2026 Property Hub Exchange, Inc.</p></div></footer>
 
       {showForm && <div className="fixed inset-0 z-50 grid place-items-center bg-[#051a15]/70 p-4 backdrop-blur-sm"><div className="relative w-full max-w-lg rounded-[28px] bg-[#f7f8f2] p-7 shadow-2xl md:p-10"><button onClick={() => setShowForm(false)} className="absolute right-5 top-5 grid size-9 place-items-center rounded-full bg-[#e8eee3] text-[#12352b]" aria-label="Close form"><X size={18} /></button><p className="eyebrow">Start the conversation</p><h2 className="mt-3 font-display text-4xl font-semibold leading-none tracking-[-.05em]">Build your marketplace.</h2><p className="mt-4 text-sm leading-6 text-[#62776b]">Tell us a little about your community and we’ll show you how quickly you can connect.</p><form onSubmit={submitForm} className="mt-7 grid gap-4"><input required placeholder="Your name" className="rounded-xl border border-[#d7e1d3] bg-white px-4 py-3 outline-none focus:border-[#2d7f58]" /><input required type="email" placeholder="Work email" className="rounded-xl border border-[#d7e1d3] bg-white px-4 py-3 outline-none focus:border-[#2d7f58]" /><select className="rounded-xl border border-[#d7e1d3] bg-white px-4 py-3 text-[#52645c] outline-none focus:border-[#2d7f58]" defaultValue=""><option value="" disabled>What best describes you?</option><option>Real estate community</option><option>Lender or lending broker</option><option>Influencer or coach</option><option>Asset manager</option><option>Brokerage</option></select><button type="submit" className="mt-2 rounded-full bg-[#12352b] px-5 py-4 text-sm font-bold text-white transition hover:bg-[#205743]">Request a marketplace walkthrough <ArrowRight className="ml-2 inline" size={16} /></button></form></div></div>}
     </div>
