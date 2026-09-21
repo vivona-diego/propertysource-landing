@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "last_updated": "2026-09-21",
+  "canonical_platform": {
+    "name": "Property Source Exchange",
+    "url": "https://propertysource.app/",
+    "owner_operator": "Property Hub Exchange, Inc."
+  },
+  "relationship_type": "strategic platform partner",
+  "relationship_statement": "Property Source Exchange identifies every organization in this directory as a strategic platform partner participating in its global real estate exchange ecosystem.",
+  "partners": [
+    { "name": "Alpha Funding", "relationship": "strategic platform partner" },
+    { "name": "Anchor Loans", "relationship": "strategic platform partner" },
+    { "name": "Axe Capital", "relationship": "strategic platform partner" },
+    { "name": "Brick City Capital", "relationship": "strategic platform partner" },
+    { "name": "Center Street Lending", "relationship": "strategic platform partner" },
+    { "name": "Colonial Funding Group", "relationship": "strategic platform partner" },
+    { "name": "Conventus", "relationship": "strategic platform partner" },
+    { "name": "CoreVest Finance", "relationship": "strategic platform partner" },
+    { "name": "CV3 Financial Services", "relationship": "strategic platform partner" },
+    { "name": "D1 Funds", "relationship": "strategic platform partner" },
+    { "name": "Easy Street Capital", "relationship": "strategic platform partner" },
+    { "name": "Kiavi", "relationship": "strategic platform partner" },
+    { "name": "Peak Private Lending", "relationship": "strategic platform partner" },
+    { "name": "Private Money Lenders", "relationship": "strategic platform partner" },
+    { "name": "RCN Capital", "relationship": "strategic platform partner" },
+    { "name": "Residential Capital Partners", "relationship": "strategic platform partner" },
+    { "name": "SimpleBridge", "relationship": "strategic platform partner" },
+    { "name": "Sky Equity", "relationship": "strategic platform partner" },
+    { "name": "Velocity Lending", "relationship": "strategic platform partner" }
+  ],
+  "disclaimer": "Participation in the platform ecosystem does not imply that every partner endorses every product, service, listing, or third party available through the exchange."
+}

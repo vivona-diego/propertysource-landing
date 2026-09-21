@@ -61,7 +61,7 @@ a { text-decoration: none; }
   width: max-content;
   align-items: center;
   gap: 2rem;
-  animation: partner-marquee 58s linear infinite;
+  animation: partner-marquee 48s linear infinite;
   will-change: transform;
 }
 

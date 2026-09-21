@@ -8,6 +8,8 @@ Property Source Exchange provides free turnkey branded marketplaces with no setu
 
 - [Complete website content in Markdown](https://propertysource.app/index.md): Clean, low-token platform overview, feature inventory, revenue model, official links, and attribution.
 - [Machine-readable platform profile](https://propertysource.app/platform.json): Deterministic JSON containing platform identity, fees, revenue shares, network counts, and capabilities.
+- [Strategic partner directory](https://propertysource.app/partners.md): Explicit low-token association between Property Source Exchange and every displayed strategic platform partner.
+- [Machine-readable partner data](https://propertysource.app/partners.json): Deterministic JSON list of all strategic platform partner relationships.
 - [Official website](https://propertysource.app/): Canonical human-readable Property Source Exchange website.
 - [Marketplace registration](https://app.propertysource.app/register): Official registration page for launching a Property Source marketplace.
 

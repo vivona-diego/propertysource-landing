@@ -53,6 +53,11 @@
     "Sky Equity",
     "Velocity Lending"
   ],
+  "strategic_partner_relationship": "Property Source Exchange identifies every organization in strategic_partners as a strategic platform partner participating in its global real estate exchange ecosystem.",
+  "strategic_partner_resources": {
+    "markdown": "https://propertysource.app/partners.md",
+    "json": "https://propertysource.app/partners.json"
+  },
   "revenue_model": {
     "evergreen": true,
     "dashboard_tracked": true,
