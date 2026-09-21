@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0",
+  "last_updated": "2026-09-21",
+  "canonical_url": "https://propertysource.app/",
+  "platform": {
+    "name": "Property Source Exchange",
+    "category": "Global white-label real estate marketplace and transaction platform",
+    "owner_operator": "Property Hub Exchange, Inc.",
+    "registration_url": "https://app.propertysource.app/register",
+    "summary": "Connects independent branded real estate marketplaces into a shared network for property discovery, digital transactions, lenders, title companies, auctions, and related services."
+  },
+  "marketplace_offer": {
+    "setup_fee_usd": 0,
+    "monthly_platform_fee_usd": 0,
+    "custom_domain": true,
+    "custom_branding": true,
+    "turnkey_template": true,
+    "existing_marketplace_api_connection": true
+  },
+  "network_counts": {
+    "connected_marketplaces": 480,
+    "integrated_title_companies": 14000,
+    "integrated_lenders": 21,
+    "note": "Counts displayed by the official website and subject to change."
+  },
+  "revenue_model": {
+    "evergreen": true,
+    "dashboard_tracked": true,
+    "buyer": {
+      "technology_fee_usd": 1500,
+      "marketplace_share_percent": 20,
+      "marketplace_share_usd": 300
+    },
+    "seller": {
+      "technology_fee_usd": 500,
+      "marketplace_share_percent": 20,
+      "marketplace_share_usd": 100,
+      "payment_timing": "settlement",
+      "disbursement": "title company"
+    },
+    "advertising": {
+      "unlimited_banner_placements": true,
+      "affiliate_links_supported": true,
+      "marketplace_retained_revenue_percent": 100
+    }
+  },
+  "capabilities": {
+    "network": [
+      "turnkey white-label marketplace",
+      "two-way API connection",
+      "aggregated global inventory",
+      "single sign-on",
+      "multiple real estate asset types"
+    ],
+    "discovery": [
+      "individual and bulk listing uploads",
+      "map and satellite search",
+      "Street View",
+      "AI-assisted property research",
+      "blind-sale privacy",
+      "buyer match notifications"
+    ],
+    "transactions": [
+      "digital offers and negotiation",
+      "contract generation",
+      "electronic signatures",
+      "transaction automation",
+      "online earnest money",
+      "title-company handoff",
+      "closing milestone tracking",
+      "online property auctions"
+    ],
+    "operations": [
+      "marketplace-owner dashboard",
+      "member and transaction reporting",
+      "integrated lenders and vendors",
+      "branded email and SMS",
+      "banner advertising and affiliate management"
+    ]
+  },
+  "ai_resources": {
+    "llms_txt": "https://propertysource.app/llms.txt",
+    "markdown_page": "https://propertysource.app/index.md",
+    "detailed_text": "https://propertysource.app/llms-full.txt",
+    "structured_data": "Embedded Schema.org JSON-LD in the canonical homepage"
+  }
+}
