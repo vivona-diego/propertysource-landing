@@ -8,6 +8,30 @@ const mapImage = "/manus-storage/property-source-world-map_d3b0c44e.png";
 const logoImage = "/manus-storage/Property_Source_Logo_Green_b7a58ad8.png";
 const registrationUrl = "https://app.propertysource.app/register";
 
+const strategicPartners = [
+  { name: "Kiavi", src: "/manus-storage/kiavi-white_1d9736de.png", scale: 1 },
+  { name: "RCN Capital", src: "/manus-storage/rcn-capital-white_3a708ee1.png", scale: 1 },
+  { name: "Anchor Loans", src: "/manus-storage/anchor-loans-white_27fa5998.png", scale: 1 },
+  { name: "CoreVest Finance", src: "/manus-storage/corevest-finance-white_0767fb13.png", scale: 1 },
+  { name: "Conventus", src: "/manus-storage/conventus-white_a375f48b.png", scale: 1.2 },
+  { name: "Easy Street Capital", src: "/manus-storage/easy-street-capital-white_3b03b92e.png", scale: 1 },
+  { name: "Alpha Funding", src: "/manus-storage/alpha-funding-white_f6c3c8bb.png", scale: 1 },
+  { name: "Axe Capital", src: "/manus-storage/axe-capital-white_c3e9dd8e.png", scale: 1.18 },
+  { name: "Brick City Capital", src: "/manus-storage/brick-city-capital-white_78db2366.png", scale: 1 },
+  { name: "D1 Funds", src: "/manus-storage/d1-funds-white_b42b5051.png", scale: 1.75 },
+  { name: "Velocity Lending", src: "/manus-storage/velocity-lending-white_8a70b112.png", scale: 1.55 },
+  { name: "Residential Capital Partners", src: "/manus-storage/residential-capital-partners-white_5edf301b.png", scale: 1 },
+  { name: "Private Money Lenders", src: "/manus-storage/private-money-lenders-white_eae7029e.png", scale: 1.16 },
+  { name: "Colonial Funding Group", src: "/manus-storage/colonial-funding-white_72f62f51.png", scale: 1 },
+  { name: "CV3 Financial Services", src: "/manus-storage/cv3-financial-white_80b47451.png", scale: 1 },
+  { name: "Peak Private Lending", src: "/manus-storage/peak-private-lending-white_15c799f2.png", scale: 1.1 },
+  { name: "Center Street Lending", src: "/manus-storage/center-street-lending-white_d238ff5c.png", scale: 1 },
+  { name: "Sky Equity", src: "/manus-storage/sky-equity-white_77d50edc.png", scale: 1 },
+  { name: "SimpleBridge", textMark: "SimpleBridge", scale: 1 },
+];
+
+const strategicPartnerRail = [...strategicPartners, ...strategicPartners];
+
 const partnerTypes = [
   { icon: "01", title: "Real estate communities", text: "Give your members a branded marketplace without rebuilding your business from scratch." },
   { icon: "02", title: "Lenders & brokers", text: "Turn every borrower relationship into a connected buying and selling channel." },
@@ -109,11 +133,12 @@ export default function Home() {
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#092d25] to-transparent" />
           <div className="absolute -bottom-24 left-[4%] size-72 rounded-full bg-[#b7e44c]/10 blur-3xl" />
           <div className="container relative z-10 grid items-center gap-10 lg:grid-cols-[.98fr_1.02fr]">
-            <div className="max-w-[640px] pb-10 lg:pb-24">
+            <div className="min-w-0 max-w-[640px] pb-10 lg:pb-24">
               <h1 className="font-display text-[clamp(3.3rem,6.2vw,6.2rem)] font-semibold leading-[.92] tracking-[-.065em]">Create your marketplace.<span className="mt-4 block text-[clamp(1.1rem,2.35vw,2.1rem)] leading-tight tracking-[-.035em] text-[#b7e44c]"><span className="block whitespace-nowrap">Give your Members access</span><span className="mt-1 block whitespace-nowrap">to property deals around the world</span></span></h1>
               <p className="mt-7 max-w-[560px] text-[16px] leading-7 text-white/70">Go live today with a free, turnkey real estate marketplace featuring a custom domain name and branding tailored to your community. Pay zero setup fees and zero monthly costs—and, best of all, earn 20% of every transaction fee generated through your marketplace. We provide and manage the infrastructure; you only need to promote your marketplace to your community. Your marketplace will display every on-market and off-market listing posted to the platform by every connected marketplace. You can also offer 50-state live auctions directly from your marketplace—all while earning a 20% revenue share on every transaction.</p>
               <div className="mt-9 flex"><button onClick={goToRegistration} className="rounded-full bg-[#b7e44c] px-6 py-4 text-sm font-bold text-[#12352b] shadow-[0_12px_32px_rgba(183,228,76,.18)] transition hover:-translate-y-0.5 hover:bg-[#d1f37e]">Set up your free marketplace <ArrowRight className="ml-2 inline" size={16} /></button></div>
-              <div className="mt-12 flex items-center gap-8 border-t border-white/10 pt-6 text-xs text-white/55"><span className="text-center"><b className="block font-display text-2xl text-white">14K</b>integrated Title Companies</span><span className="text-center"><b className="block font-display text-2xl text-white">21</b>Integrated Lenders</span><span className="text-center"><b className="block font-display text-2xl text-white">480</b>Connected Marketplaces</span></div>
+              <div className="mt-9 border-y border-white/10 py-4"><p className="mb-3 text-[9px] font-bold uppercase tracking-[.24em] text-white/38">Strategic platform partners</p><div className="partner-marquee" role="region" aria-label="Strategic platform partners"><div className="partner-marquee-track">{strategicPartnerRail.map((partner, index) => <div key={`${partner.name}-${index}`} className="partner-logo" aria-hidden={index >= strategicPartners.length}>{partner.src ? <img src={partner.src} alt={index < strategicPartners.length ? `${partner.name}, strategic platform partner` : ""} style={{ transform: `scale(${partner.scale})` }} /> : <span className="partner-text-mark" style={{ transform: `scale(${partner.scale})` }}>{partner.textMark}</span>}</div>)}</div></div></div>
+              <div className="mt-6 grid grid-cols-3 items-start gap-2 text-[10px] leading-4 text-white/55 sm:gap-6 sm:text-xs"><span className="min-w-0 text-center"><b className="block font-display text-2xl text-white">14K</b>integrated Title Companies</span><span className="min-w-0 text-center"><b className="block font-display text-2xl text-white">21</b>Integrated Lenders</span><span className="min-w-0 text-center"><b className="block font-display text-2xl text-white">480</b>Connected Marketplaces</span></div>
             </div>
             <div className="relative -mr-8 lg:-mr-24"><div className="absolute inset-12 rounded-full bg-[#56b389]/20 blur-3xl" /><img src={heroImage} alt="Isolated laptop, desktop monitor, mobile phone, house models, and keys displaying a connected property marketplace" className="relative w-full object-contain drop-shadow-[0_30px_45px_rgba(0,0,0,.38)]" /></div>
           </div>
@@ -135,7 +160,7 @@ export default function Home() {
         
       </main>
 
-      <footer className="bg-[#092d25] py-10 text-white"><div className="container flex flex-col justify-between gap-5 text-sm md:flex-row md:items-center"><a href="#top" className="inline-flex w-fit items-center rounded-full bg-white px-3 py-2 shadow-[0_8px_24px_rgba(0,0,0,.14)]" aria-label="Property Source Exchange home"><img src={logoImage} alt="Property Source Exchange" className="h-7 w-auto" /></a><p className="text-white/45">Owned and operated by Property Hub Exchange, Inc.</p><p className="text-white/45">© 2026 Property Hub Exchange, Inc.</p></div></footer>
+      <footer className="bg-[#092d25] py-10 text-white"><div className="container grid gap-7 text-sm md:grid-cols-[auto_1fr_auto] md:items-start"><a href="#top" className="inline-flex w-fit items-center rounded-full bg-white px-3 py-2 shadow-[0_8px_24px_rgba(0,0,0,.14)]" aria-label="Property Source Exchange home"><img src={logoImage} alt="Property Source Exchange" className="h-7 w-auto" /></a><p className="text-white/45 md:text-center">Owned and operated by Property Hub Exchange, Inc.</p><div className="space-y-1.5 text-white/45 md:text-right"><p>© 2026 Property Hub Exchange, Inc.</p><address className="not-italic"><p>8 The Green, Suite A</p><p>Dover, Delaware 19901</p></address><p><a className="transition-colors hover:text-white" href="tel:+19412072090">941-207-2090</a></p><p><a className="transition-colors hover:text-white" href="mailto:platform@propertysource.app">platform@propertysource.app</a></p></div></div></footer>
 
       {showForm && <div className="fixed inset-0 z-50 grid place-items-center bg-[#051a15]/70 p-4 backdrop-blur-sm"><div className="relative w-full max-w-lg rounded-[28px] bg-[#f7f8f2] p-7 shadow-2xl md:p-10"><button onClick={() => setShowForm(false)} className="absolute right-5 top-5 grid size-9 place-items-center rounded-full bg-[#e8eee3] text-[#12352b]" aria-label="Close form"><X size={18} /></button><p className="eyebrow">Start the conversation</p><h2 className="mt-3 font-display text-4xl font-semibold leading-none tracking-[-.05em]">Build your marketplace.</h2><p className="mt-4 text-sm leading-6 text-[#62776b]">Tell us a little about your community and we’ll show you how quickly you can connect.</p><form onSubmit={submitForm} className="mt-7 grid gap-4"><input required placeholder="Your name" className="rounded-xl border border-[#d7e1d3] bg-white px-4 py-3 outline-none focus:border-[#2d7f58]" /><input required type="email" placeholder="Work email" className="rounded-xl border border-[#d7e1d3] bg-white px-4 py-3 outline-none focus:border-[#2d7f58]" /><select className="rounded-xl border border-[#d7e1d3] bg-white px-4 py-3 text-[#52645c] outline-none focus:border-[#2d7f58]" defaultValue=""><option value="" disabled>What best describes you?</option><option>Real estate community</option><option>Lender or lending broker</option><option>Influencer or coach</option><option>Asset manager</option><option>Brokerage</option></select><button type="submit" className="mt-2 rounded-full bg-[#12352b] px-5 py-4 text-sm font-bold text-white transition hover:bg-[#205743]">Request a marketplace walkthrough <ArrowRight className="ml-2 inline" size={16} /></button></form></div></div>}
     </div>

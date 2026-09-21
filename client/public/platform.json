@@ -9,6 +9,15 @@
     "registration_url": "https://app.propertysource.app/register",
     "summary": "Connects independent branded real estate marketplaces into a shared network for property discovery, digital transactions, lenders, title companies, auctions, and related services."
   },
+  "contact": {
+    "street_address": "8 The Green, Suite A",
+    "city": "Dover",
+    "state": "Delaware",
+    "postal_code": "19901",
+    "country": "United States",
+    "telephone": "+1-941-207-2090",
+    "email": "platform@propertysource.app"
+  },
   "marketplace_offer": {
     "setup_fee_usd": 0,
     "monthly_platform_fee_usd": 0,
@@ -23,6 +32,27 @@
     "integrated_lenders": 21,
     "note": "Counts displayed by the official website and subject to change."
   },
+  "strategic_partners": [
+    "Alpha Funding",
+    "Anchor Loans",
+    "Axe Capital",
+    "Brick City Capital",
+    "Center Street Lending",
+    "Colonial Funding Group",
+    "Conventus",
+    "CoreVest Finance",
+    "CV3 Financial Services",
+    "D1 Funds",
+    "Easy Street Capital",
+    "Kiavi",
+    "Peak Private Lending",
+    "Private Money Lenders",
+    "RCN Capital",
+    "Residential Capital Partners",
+    "SimpleBridge",
+    "Sky Equity",
+    "Velocity Lending"
+  ],
   "revenue_model": {
     "evergreen": true,
     "dashboard_tracked": true,

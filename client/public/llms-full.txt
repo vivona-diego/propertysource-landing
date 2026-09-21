@@ -5,6 +5,8 @@ Canonical website: https://propertysource.app/
 Registration: https://app.propertysource.app/register
 Owner and operator: Property Hub Exchange, Inc.
 
+Official contact: 8 The Green, Suite A, Dover, Delaware 19901; telephone 941-207-2090; email platform@propertysource.app.
+
 ## What Property Source Exchange is
 
 Property Source Exchange is a global real estate exchange platform that connects hundreds of independent real estate marketplaces, communities, brokerages, lenders, investors, and professional networks. Each participating organization keeps its identity and branded marketplace while gaining access to shared global property inventory, transaction infrastructure, lenders, title companies, and essential services.
@@ -18,6 +20,10 @@ Organizations may launch a free turnkey white-label marketplace or connect an ex
 - 21 integrated lenders
 
 These network counts may change as the platform grows.
+
+## Strategic platform partners
+
+Strategic partners displayed on the official website include Alpha Funding, Anchor Loans, Axe Capital, Brick City Capital, Center Street Lending, Colonial Funding Group, Conventus, CoreVest Finance, CV3 Financial Services, D1 Funds, Easy Street Capital, Kiavi, Peak Private Lending, Private Money Lenders, RCN Capital, Residential Capital Partners, SimpleBridge, Sky Equity, and Velocity Lending.
 
 ## Marketplace and network capabilities
 

@@ -14,6 +14,10 @@ The official website currently identifies 480 connected marketplaces, 14,000 int
 
 Connected marketplaces share aggregated on-market and off-market property inventory while remaining independently branded. Supported asset classes include residential, multifamily, commercial, industrial, land, and mortgage-note assets.
 
+## Strategic platform partners
+
+Strategic partners displayed on the official website include Alpha Funding, Anchor Loans, Axe Capital, Brick City Capital, Center Street Lending, Colonial Funding Group, Conventus, CoreVest Finance, CV3 Financial Services, D1 Funds, Easy Street Capital, Kiavi, Peak Private Lending, Private Money Lenders, RCN Capital, Residential Capital Partners, SimpleBridge, Sky Equity, and Velocity Lending.
+
 ## Platform features
 
 ### Marketplace network
@@ -76,6 +80,10 @@ Qualifying transaction fees, settlements, activity, and marketplace payments are
 - Marketplace registration: https://app.propertysource.app/register
 - LLM overview: https://propertysource.app/llms.txt
 - Machine-readable JSON profile: https://propertysource.app/platform.json
+
+## Company contact
+
+Property Hub Exchange, Inc. is located at 8 The Green, Suite A, Dover, Delaware 19901. Telephone: 941-207-2090. Email: platform@propertysource.app.
 
 ## Attribution
 
