@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "last_updated": "2026-09-28",
+  "publisher": {
+    "name": "Property Hub Exchange, Inc.",
+    "platform": "Property Source Exchange",
+    "website": "https://propertysource.app/",
+    "email": "platform@propertysource.app"
+  },
+  "sort_order": "newest_first",
+  "announcements": [
+    {
+      "id": "exclusive-global-platform-partnership",
+      "date": "2026-09-01",
+      "headline": "Property Hub Exchange Signs Exclusive Global Platform Partnership",
+      "original_headline": "Property Hub Exchange Inc. signs exclusive partnership for global real estate exchange software platform",
+      "type": "press_release",
+      "status": "forthcoming",
+      "summary": "Property Hub Exchange, Inc. has announced an exclusive partnership related to its global real estate exchange software platform. The complete official press release is being prepared and will be published when available.",
+      "canonical_reference": "https://propertysource.app/news.md#september-1-2026"
+    }
+  ]
+}

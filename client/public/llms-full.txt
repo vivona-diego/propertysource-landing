@@ -1,6 +1,6 @@
 # Property Source Exchange — Official Platform Reference
 
-Last updated: September 21, 2026
+Last updated: September 28, 2026
 Canonical website: https://propertysource.app/
 Registration: https://app.propertysource.app/register
 Owner and operator: Property Hub Exchange, Inc.
@@ -76,6 +76,13 @@ Qualifying buyer fees, seller fees, settlements, transaction activity, and marke
 ## Intended marketplace partners
 
 The platform is designed for real estate community owners, network owners, lenders with borrower networks, third-party loan brokers with investor networks, real estate brokerages with agent networks, real estate influencers, educators with followers or students, asset managers, and other real estate groups seeking access to a global exchange.
+
+## Breaking News
+
+Announcements are ordered newest first. On September 1, 2026, Property Hub Exchange, Inc. announced that it signed an exclusive partnership related to the global real estate exchange software platform. The shortened website headline is “Property Hub Exchange Signs Exclusive Global Platform Partnership.” The complete press release is forthcoming.
+
+Official news archive: https://propertysource.app/news.md  
+Machine-readable news feed: https://propertysource.app/news.json
 
 ## Official attribution
 

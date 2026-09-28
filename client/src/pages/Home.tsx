@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { ArrowRight, BarChart3, Check, DollarSign, FileCheck2, Globe2, Handshake, Megaphone, Menu, Repeat2, Search, Settings2, X } from "lucide-react";
+import { ArrowRight, BarChart3, CalendarDays, Check, DollarSign, FileCheck2, Globe2, Handshake, Megaphone, Menu, Newspaper, Repeat2, Search, Settings2, X } from "lucide-react";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { toast } from "sonner";
 
 const heroImage = "/manus-storage/property-source-devices-transparent_ae62f96f.png";
@@ -93,9 +94,21 @@ const featureGroups = [
   },
 ];
 
+const announcements = [
+  {
+    id: "exclusive-global-platform-partnership",
+    date: "2026-09-01",
+    displayDate: "September 1, 2026",
+    headline: "Property Hub Exchange Signs Exclusive Global Platform Partnership",
+    summary: "A major strategic milestone supporting the continued growth of the Property Source global real estate exchange.",
+    status: "Press release forthcoming",
+  },
+].sort((a, b) => b.date.localeCompare(a.date));
+
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showForm, setShowForm] = useState(false);
+  const [activeAnnouncement, setActiveAnnouncement] = useState<(typeof announcements)[number] | null>(null);
 
   const openForm = () => setShowForm(true);
   const goToRegistration = () => { window.open(registrationUrl, "_blank", "noopener,noreferrer"); };
@@ -112,17 +125,18 @@ export default function Home() {
           <a href="#top" className="flex items-center" aria-label="Property Source Exchange home">
             <span className="inline-flex items-center rounded-full bg-white px-4 py-2 shadow-[0_8px_24px_rgba(0,0,0,.16)]"><img src={logoImage} alt="Property Source Exchange" className="h-9 w-auto" /></span>
           </a>
-          <nav className="hidden items-center gap-8 text-[13px] font-semibold text-white/75 md:flex">
+          <nav className="hidden items-center gap-6 text-[13px] font-semibold text-white/75 md:flex">
             <a className="transition-colors hover:text-white" href="#network">The network</a>
             <a className="transition-colors hover:text-white" href="#features">Features</a>
             <a className="transition-colors hover:text-white" href="#revenue">Earn revenue</a>
             <a className="transition-colors hover:text-white" href="#how-it-works">How it works</a>
             <a className="transition-colors hover:text-white" href="#partners">Who it is for</a>
+            <a className="transition-colors hover:text-white" href="#news">Breaking news</a>
             <button onClick={goToRegistration} className="rounded-full bg-[#b7e44c] px-5 py-3 text-[#12352b] transition hover:bg-[#d1f37e]">Get your marketplace <ArrowRight className="ml-2 inline" size={15} /></button>
           </nav>
           <button className="grid size-11 place-items-center rounded-full border border-white/20 text-white md:hidden" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle navigation">{menuOpen ? <X size={20} /> : <Menu size={20} />}</button>
         </div>
-        {menuOpen && <nav className="mx-4 rounded-2xl border border-white/10 bg-[#0b3027]/95 p-5 text-sm text-white shadow-2xl md:hidden"><div className="grid gap-4"><a href="#network" onClick={() => setMenuOpen(false)}>The network</a><a href="#features" onClick={() => setMenuOpen(false)}>Features</a><a href="#revenue" onClick={() => setMenuOpen(false)}>Earn revenue</a><a href="#how-it-works" onClick={() => setMenuOpen(false)}>How it works</a><a href="#partners" onClick={() => setMenuOpen(false)}>Who it is for</a><button onClick={goToRegistration} className="rounded-full bg-[#b7e44c] px-4 py-3 font-bold text-[#12352b]">Get your marketplace</button></div></nav>}
+        {menuOpen && <nav className="mx-4 rounded-2xl border border-white/10 bg-[#0b3027]/95 p-5 text-sm text-white shadow-2xl md:hidden"><div className="grid gap-4"><a href="#network" onClick={() => setMenuOpen(false)}>The network</a><a href="#features" onClick={() => setMenuOpen(false)}>Features</a><a href="#revenue" onClick={() => setMenuOpen(false)}>Earn revenue</a><a href="#how-it-works" onClick={() => setMenuOpen(false)}>How it works</a><a href="#partners" onClick={() => setMenuOpen(false)}>Who it is for</a><a href="#news" onClick={() => setMenuOpen(false)}>Breaking news</a><button onClick={goToRegistration} className="rounded-full bg-[#b7e44c] px-4 py-3 font-bold text-[#12352b]">Get your marketplace</button></div></nav>}
       </header>
 
       <main id="top">
@@ -157,12 +171,16 @@ export default function Home() {
 
         <section id="partners" className="container py-24 lg:py-32"><div className="flex flex-col justify-between gap-5 md:flex-row md:items-end"><div><p className="eyebrow">Who can join</p><h2 className="section-title max-w-2xl">If you have a community,<br /><em>you have a marketplace.</em></h2></div><p className="max-w-sm text-sm leading-6 text-[#62776b]">Every partner keeps their identity while gaining access to an exchange much larger than any one marketplace.</p></div><div className="mt-14 grid gap-4 sm:grid-cols-2">{partnerTypes.map((partner) => <article key={partner.title} className="group rounded-[24px] border border-[#dce6d7] bg-white p-6 transition hover:-translate-y-1 hover:border-[#b7e44c] hover:shadow-[0_18px_50px_rgba(25,70,50,.1)]"><div className="flex items-start justify-between"><span className="font-display text-4xl font-semibold tracking-[-.08em] text-[#b7d29d]">{partner.icon}</span><span className="grid size-10 place-items-center rounded-full bg-[#eff7df] text-[#2d7f58] transition group-hover:bg-[#b7e44c] group-hover:text-[#12352b]"><ArrowRight size={17} /></span></div><h3 className="mt-8 font-display text-2xl font-semibold tracking-[-.04em]">{partner.title}</h3><p className="mt-3 text-sm leading-6 text-[#64776c]">{partner.text}</p></article>)}</div></section>
 
+        <section id="news" className="relative overflow-hidden border-t border-[#dce6d7] bg-[#eaf1e6] py-24 lg:py-28"><div className="pointer-events-none absolute -right-28 -top-28 size-80 rounded-full border-[52px] border-[#b7e44c]/35" /><div className="container relative"><div className="grid gap-8 lg:grid-cols-[.72fr_1.28fr] lg:items-end"><div><p className="eyebrow">Company announcements</p><h2 className="section-title">Breaking<br /><em>news.</em></h2></div><p className="max-w-xl text-[16px] leading-7 text-[#5c7065]">Follow the latest milestones, strategic partnerships, and company growth announcements from Property Hub Exchange, Inc.</p></div><div className="mt-14 grid gap-4">{announcements.map((announcement, index) => <article key={announcement.id} className="group grid gap-6 rounded-[28px] border border-[#cfddca] bg-white p-6 shadow-[0_18px_55px_rgba(25,70,50,.07)] transition hover:-translate-y-1 hover:border-[#a9cb73] hover:shadow-[0_24px_65px_rgba(25,70,50,.12)] md:grid-cols-[170px_1fr_auto] md:items-center md:p-8"><div className="border-b border-[#dce6d7] pb-5 md:border-b-0 md:border-r md:pb-0 md:pr-7"><span className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[.17em] text-[#2d7f58]"><CalendarDays size={15} />{index === 0 ? "Latest update" : "Announcement"}</span><time dateTime={announcement.date} className="mt-3 block font-display text-xl font-semibold tracking-[-.035em] text-[#12352b]">{announcement.displayDate}</time></div><div><h3 className="max-w-3xl font-display text-[clamp(1.6rem,2.6vw,2.35rem)] font-semibold leading-[1.05] tracking-[-.045em] text-[#12352b]">{announcement.headline}</h3><p className="mt-3 max-w-2xl text-sm leading-6 text-[#687a70]">{announcement.summary}</p></div><button onClick={() => setActiveAnnouncement(announcement)} className="inline-flex w-fit items-center justify-center rounded-full bg-[#12352b] px-5 py-3.5 text-sm font-bold text-white transition hover:bg-[#205743]">Read more <ArrowRight className="ml-2" size={15} /></button></article>)}</div></div></section>
+
         
       </main>
 
       <footer className="bg-[#092d25] py-10 text-white"><div className="container grid gap-7 text-sm md:grid-cols-[auto_1fr_auto] md:items-start"><a href="#top" className="inline-flex w-fit items-center rounded-full bg-white px-3 py-2 shadow-[0_8px_24px_rgba(0,0,0,.14)]" aria-label="Property Source Exchange home"><img src={logoImage} alt="Property Source Exchange" className="h-7 w-auto" /></a><p className="text-white/45 md:text-center">Owned and operated by Property Hub Exchange, Inc.</p><div className="space-y-1.5 text-white/45 md:text-right"><p>© 2026 Property Hub Exchange, Inc.</p><address className="not-italic"><p>8 The Green, Suite A</p><p>Dover, Delaware 19901</p></address><p><a className="transition-colors hover:text-white" href="tel:+19412072090">941-207-2090</a></p><p><a className="transition-colors hover:text-white" href="mailto:platform@propertysource.app">platform@propertysource.app</a></p></div></div></footer>
 
       {showForm && <div className="fixed inset-0 z-50 grid place-items-center bg-[#051a15]/70 p-4 backdrop-blur-sm"><div className="relative w-full max-w-lg rounded-[28px] bg-[#f7f8f2] p-7 shadow-2xl md:p-10"><button onClick={() => setShowForm(false)} className="absolute right-5 top-5 grid size-9 place-items-center rounded-full bg-[#e8eee3] text-[#12352b]" aria-label="Close form"><X size={18} /></button><p className="eyebrow">Start the conversation</p><h2 className="mt-3 font-display text-4xl font-semibold leading-none tracking-[-.05em]">Build your marketplace.</h2><p className="mt-4 text-sm leading-6 text-[#62776b]">Tell us a little about your community and we’ll show you how quickly you can connect.</p><form onSubmit={submitForm} className="mt-7 grid gap-4"><input required placeholder="Your name" className="rounded-xl border border-[#d7e1d3] bg-white px-4 py-3 outline-none focus:border-[#2d7f58]" /><input required type="email" placeholder="Work email" className="rounded-xl border border-[#d7e1d3] bg-white px-4 py-3 outline-none focus:border-[#2d7f58]" /><select className="rounded-xl border border-[#d7e1d3] bg-white px-4 py-3 text-[#52645c] outline-none focus:border-[#2d7f58]" defaultValue=""><option value="" disabled>What best describes you?</option><option>Real estate community</option><option>Lender or lending broker</option><option>Influencer or coach</option><option>Asset manager</option><option>Brokerage</option></select><button type="submit" className="mt-2 rounded-full bg-[#12352b] px-5 py-4 text-sm font-bold text-white transition hover:bg-[#205743]">Request a marketplace walkthrough <ArrowRight className="ml-2 inline" size={16} /></button></form></div></div>}
+
+      <Dialog open={Boolean(activeAnnouncement)} onOpenChange={(open) => !open && setActiveAnnouncement(null)}><DialogContent className="max-h-[90vh] max-w-4xl overflow-y-auto rounded-[28px] border-0 bg-[#f7f8f2] p-0 text-[#12352b] shadow-[0_32px_100px_rgba(4,25,20,.35)]"><DialogHeader className="bg-[#0b3027] px-7 py-8 pr-16 text-left text-white md:px-12 md:py-10"><div className="flex items-center gap-3 text-[11px] font-bold uppercase tracking-[.18em] text-[#b7e44c]"><Newspaper size={17} />Press release</div><DialogTitle className="mt-4 font-display text-[clamp(2rem,4.4vw,3.8rem)] font-semibold leading-[.98] tracking-[-.055em] text-white">{activeAnnouncement?.headline}</DialogTitle><DialogDescription className="mt-4 text-sm text-white/60">{activeAnnouncement?.displayDate} · Property Hub Exchange, Inc.</DialogDescription></DialogHeader><div className="px-7 py-8 md:px-12 md:py-10"><div className="border-b border-[#d7e3d2] pb-6"><p className="text-[11px] font-bold uppercase tracking-[.18em] text-[#2d7f58]">For immediate release</p><p className="mt-3 text-sm leading-6 text-[#63766b]">Dover, Delaware — {activeAnnouncement?.displayDate}</p></div><div className="mt-8 rounded-[22px] border border-dashed border-[#b8cdb1] bg-[#eef4e9] px-6 py-12 text-center md:px-12"><span className="mx-auto grid size-12 place-items-center rounded-2xl bg-white text-[#2d7f58] shadow-sm"><FileCheck2 size={22} /></span><h3 className="mt-5 font-display text-2xl font-semibold tracking-[-.04em]">Press release document forthcoming</h3><p className="mx-auto mt-3 max-w-lg text-sm leading-6 text-[#697c71]">The official release content is being prepared and will be published in this document window when complete.</p></div><div className="mt-8 flex flex-col justify-between gap-4 border-t border-[#d7e3d2] pt-6 text-xs text-[#718178] sm:flex-row"><span>Media contact: platform@propertysource.app</span><span>Property Hub Exchange, Inc.</span></div></div></DialogContent></Dialog>
     </div>
   );
 }
