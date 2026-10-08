@@ -51,6 +51,22 @@ Vercel serves the static output directly. It must **not** publish the parent `di
 
 `build:vercel` includes all bundled images, and repository configuration overrides build/output settings in the Vercel dashboard. A push to the linked production branch should trigger a new deployment.
 
+## Google Analytics 4
+
+The Google tag is initialized once in the page head, only in production builds. It sends the standard GA4 page-view event and supports Google's automatically collected events and any enhanced measurement enabled in the GA4 web stream. No names, email addresses, or other custom personal data are sent by this integration.
+
+In **Vercel → Project Settings → Environment Variables**, add:
+
+| Name | Value | Environment |
+| --- | --- | --- |
+| `VITE_GA_MEASUREMENT_ID` | `G-9661Q40LRG` | Production |
+
+Redeploy after saving: Vite embeds `VITE_` variables at build time. The supplied measurement ID is also the default, so production tracking works without requiring additional configuration. This ID is public, not a secret.
+
+To prevent test traffic from preview builds, set `VITE_GA_MEASUREMENT_ID=disabled` for **Preview**. Local development does not load the Google tag. The initializer prevents duplicate loading and duplicate initial page views.
+
+After deployment, visit the website and check GA4 **Reports → Realtime**, or connect Google Tag Assistant. Browser blockers and consent settings can prevent collection. Review applicable privacy and cookie-consent requirements before using analytics; a consent-management interface is not included in this integration.
+
 ## Project layout
 
 ```text
@@ -80,7 +96,7 @@ Keep announcement content synchronized with:
 
 - Canonical website references are currently set to `https://propertysource.app/`. Update these references and the sitemap if deploying to a different production domain.
 - Registration calls to action open `https://app.propertysource.app/register`.
-- Optional analytics placeholders are inherited from the managed template. Configure them in your deployment environment if analytics are wanted.
+- Google Analytics uses `VITE_GA_MEASUREMENT_ID`; the unused template analytics placeholder has been removed.
 - The active marketing website does not require a database or OAuth flow. Optional template components may use managed integrations; those unused capabilities are separate from the portable recruiting site.
 - Company reference PDFs, private session configuration, temporary files, build output, and dependencies are deliberately not committed. The repository includes all deployed content and image assets.
 
