@@ -86,6 +86,14 @@ Property Hub has partnered with Arise Impact Labs to launch nationwide real esta
 
 Property Hub has appointed Diego Vivona as Chief Product Officer to drive AI-powered platform innovation. The official press release is forthcoming and will be added to the website’s press-release document window when available.
 
+### September 1, 2026 — Property Hub Exchange Signs Exclusive Worldwide Intellectual Property Deal with Dreamweaver Tech to Supply the Global Real Estate Exchange Software Platform
+
+Property Hub Exchange has signed an exclusive worldwide intellectual property deal with Dreamweaver Tech to supply the global real estate exchange software platform. The official press release is forthcoming and will be added to the website’s press-release document window when available.
+
+### September 1, 2026 — Property Hub Exchange Names Mark Kole as Chief Operating Officer to Lead the Launch of the Global Real Estate Exchange Platform
+
+Property Hub Exchange has named Mark Kole as Chief Operating Officer to lead the company in launching the global real estate exchange platform. The official press release is forthcoming and will be added to the website’s press-release document window when available.
+
 ### September 1, 2026 — Property Hub Exchange Signs Exclusive Global Platform Partnership
 
 Property Hub Exchange, Inc. has announced an exclusive partnership related to its global real estate exchange software platform. The official press release is forthcoming and will be published in the website’s press-release document window when complete.

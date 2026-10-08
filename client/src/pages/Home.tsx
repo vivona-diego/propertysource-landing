@@ -112,6 +112,22 @@ const announcements = [
     status: "Press release forthcoming",
   },
   {
+    id: "dreamweaver-tech-ip-partnership",
+    date: "2026-09-01",
+    displayDate: "September 1, 2026",
+    headline: "Property Hub Exchange Signs Exclusive Worldwide Intellectual Property Deal with Dreamweaver Tech to Supply the Global Real Estate Exchange Software Platform",
+    summary: "An exclusive worldwide intellectual property agreement with Dreamweaver Tech to supply the global real estate exchange software platform.",
+    status: "Press release forthcoming",
+  },
+  {
+    id: "mark-kole-chief-operating-officer-appointment",
+    date: "2026-09-01",
+    displayDate: "September 1, 2026",
+    headline: "Property Hub Exchange Names Mark Kole as Chief Operating Officer to Lead the Launch of the Global Real Estate Exchange Platform",
+    summary: "Mark Kole is named Chief Operating Officer to lead the company in launching the global real estate exchange platform.",
+    status: "Press release forthcoming",
+  },
+  {
     id: "exclusive-global-platform-partnership",
     date: "2026-09-01",
     displayDate: "September 1, 2026",
