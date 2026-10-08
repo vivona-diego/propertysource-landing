@@ -96,6 +96,14 @@ const featureGroups = [
 
 const announcements = [
   {
+    id: "diego-vivona-cpo-appointment",
+    date: "2026-10-01",
+    displayDate: "October 1, 2026",
+    headline: "Property Hub Appoints Diego Vivona as CPO to Drive AI-Powered Platform Innovation",
+    summary: "Diego Vivona joins Property Hub as CPO to drive AI-powered platform innovation.",
+    status: "Press release forthcoming",
+  },
+  {
     id: "exclusive-global-platform-partnership",
     date: "2026-09-01",
     displayDate: "September 1, 2026",

@@ -78,6 +78,10 @@ Qualifying transaction fees, settlements, activity, and marketplace payments are
 
 Company growth announcements and press releases are listed newest first.
 
+### October 1, 2026 — Property Hub Appoints Diego Vivona as CPO to Drive AI-Powered Platform Innovation
+
+Property Hub has appointed Diego Vivona as CPO to drive AI-powered platform innovation. The official press release is forthcoming and will be added to the website’s press-release document window when available.
+
 ### September 1, 2026 — Property Hub Exchange Signs Exclusive Global Platform Partnership
 
 Property Hub Exchange, Inc. has announced an exclusive partnership related to its global real estate exchange software platform. The official press release is forthcoming and will be published in the website’s press-release document window when complete.

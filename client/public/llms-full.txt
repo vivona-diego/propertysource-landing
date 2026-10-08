@@ -1,6 +1,6 @@
 # Property Source Exchange — Official Platform Reference
 
-Last updated: September 28, 2026
+Last updated: October 8, 2026
 Canonical website: https://propertysource.app/
 Registration: https://app.propertysource.app/register
 Owner and operator: Property Hub Exchange, Inc.
@@ -79,7 +79,15 @@ The platform is designed for real estate community owners, network owners, lende
 
 ## Breaking News
 
-Announcements are ordered newest first. On September 1, 2026, Property Hub Exchange, Inc. announced that it signed an exclusive partnership related to the global real estate exchange software platform. The shortened website headline is “Property Hub Exchange Signs Exclusive Global Platform Partnership.” The complete press release is forthcoming.
+Announcements are ordered newest first.
+
+### October 1, 2026 — Property Hub Appoints Diego Vivona as CPO to Drive AI-Powered Platform Innovation
+
+Property Hub has appointed Diego Vivona as CPO to drive AI-powered platform innovation. The complete press release is forthcoming and will be added when available.
+
+### September 1, 2026 — Property Hub Exchange Signs Exclusive Global Platform Partnership
+
+On September 1, 2026, Property Hub Exchange, Inc. announced that it signed an exclusive partnership related to the global real estate exchange software platform. The shortened website headline is “Property Hub Exchange Signs Exclusive Global Platform Partnership.” The complete press release is forthcoming.
 
 Official news archive: https://propertysource.app/news.md  
 Machine-readable news feed: https://propertysource.app/news.json
