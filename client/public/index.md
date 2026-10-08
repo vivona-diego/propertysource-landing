@@ -82,9 +82,9 @@ Company growth announcements and press releases are listed newest first.
 
 Property Hub has partnered with Arise Impact Labs to launch nationwide real estate auction services on Property Source Exchange. The official press release is forthcoming and will be added to the website’s press-release document window when available.
 
-### October 1, 2026 — Property Hub Appoints Diego Vivona as CPO to Drive AI-Powered Platform Innovation
+### October 1, 2026 — Property Hub Appoints Diego Vivona as Chief Product Officer to Drive AI-Powered Platform Innovation
 
-Property Hub has appointed Diego Vivona as CPO to drive AI-powered platform innovation. The official press release is forthcoming and will be added to the website’s press-release document window when available.
+Property Hub has appointed Diego Vivona as Chief Product Officer to drive AI-powered platform innovation. The official press release is forthcoming and will be added to the website’s press-release document window when available.
 
 ### September 1, 2026 — Property Hub Exchange Signs Exclusive Global Platform Partnership
 
