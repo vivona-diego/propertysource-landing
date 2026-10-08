@@ -11,7 +11,8 @@
     "check": "tsc --noEmit",
     "format": "prettier --write .",
     "dev:standalone": "vite --config vite.standalone.config.ts --host",
-    "build:standalone": "vite build --config vite.standalone.config.ts && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist"
+    "build:standalone": "vite build --config vite.standalone.config.ts && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist",
+    "build:vercel": "vite build --config vite.standalone.config.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

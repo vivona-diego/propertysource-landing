@@ -37,6 +37,20 @@ The production website is generated in `dist/public/`. `build:standalone` includ
 
 The original `dev` and `build` scripts and `vite.config.ts` remain available for the managed-preview workflow. For a fresh GitHub checkout, use the `:standalone` scripts above.
 
+## Deploy to Vercel
+
+The repository-root `vercel.json` explicitly configures this project as a **Vite static site**:
+
+- Install command: `pnpm install --frozen-lockfile`
+- Build command: `pnpm run build:vercel`
+- Output directory: `dist/public`
+- Root directory: repository root (leave blank in Vercel)
+- SPA fallback: unmatched application paths resolve to `index.html`; existing images, scripts, styles, and AI-readable files are served normally.
+
+Vercel serves the static output directly. It must **not** publish the parent `dist/` directory or use `dist/index.js` as the homepage. That file is the optional Express server for traditional Node hosting, not a browser entry point. No `pnpm start` command or Express server process is needed on Vercel.
+
+`build:vercel` includes all bundled images, and repository configuration overrides build/output settings in the Vercel dashboard. A push to the linked production branch should trigger a new deployment.
+
 ## Project layout
 
 ```text
