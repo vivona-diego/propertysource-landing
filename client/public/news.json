@@ -10,6 +10,16 @@
   "sort_order": "newest_first",
   "announcements": [
     {
+      "id": "arise-impact-labs-auction-partnership",
+      "date": "2026-10-06",
+      "headline": "Property Hub Partners with Arise Impact Labs to Launch Nationwide Real Estate Auction Services on Property Source Exchange",
+      "original_headline": "Property Hub Partners with Arise Impact Labs to Launch Nationwide Real Estate Auction Services on Property Source Exchange",
+      "type": "press_release",
+      "status": "forthcoming",
+      "summary": "Property Hub has partnered with Arise Impact Labs to launch nationwide real estate auction services on Property Source Exchange. The complete official press release will be added when available.",
+      "canonical_reference": "https://propertysource.app/news.md#october-6-2026"
+    },
+    {
       "id": "diego-vivona-cpo-appointment",
       "date": "2026-10-01",
       "headline": "Property Hub Appoints Diego Vivona as CPO to Drive AI-Powered Platform Innovation",

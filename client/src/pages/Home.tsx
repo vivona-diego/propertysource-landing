@@ -96,6 +96,14 @@ const featureGroups = [
 
 const announcements = [
   {
+    id: "arise-impact-labs-auction-partnership",
+    date: "2026-10-06",
+    displayDate: "October 6, 2026",
+    headline: "Property Hub Partners with Arise Impact Labs to Launch Nationwide Real Estate Auction Services on Property Source Exchange",
+    summary: "Arise Impact Labs partners with Property Hub to launch nationwide real estate auction services on Property Source Exchange.",
+    status: "Press release forthcoming",
+  },
+  {
     id: "diego-vivona-cpo-appointment",
     date: "2026-10-01",
     displayDate: "October 1, 2026",
