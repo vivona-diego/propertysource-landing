@@ -17,11 +17,11 @@ Property Hub has partnered with Arise Impact Labs to launch nationwide real esta
 
 ## October 1, 2026
 
-### Property Hub Appoints Diego Vivona as Chief Product Officer to Drive AI-Powered Platform Innovation
+### Property Hub Appoints Diego Vivona as Chief Technology Officer to Drive AI-Powered Platform Innovation
 
 **Status:** Press release forthcoming.
 
-Property Hub has appointed Diego Vivona as Chief Product Officer to drive AI-powered platform innovation. The complete official press release will be added here when available.
+Property Hub has appointed Diego Vivona as Chief Technology Officer to drive AI-powered platform innovation. The complete official press release will be added here when available.
 
 **Media contact:** platform@propertysource.app  
 **Company:** Property Hub Exchange, Inc.  
