@@ -2,6 +2,19 @@
 
 Official company growth announcements and press releases from Property Hub Exchange, Inc., owner and operator of Property Source Exchange. Announcements are listed newest first.
 
+## October 9, 2026
+
+### Property Hub Exchange Names Chris Tominelli as Chief Financial Officer
+
+**Status:** Press release forthcoming.
+
+Property Hub Exchange has named Chris Tominelli to serve as the company’s Chief Financial Officer. The complete official press release will be added here when available.
+
+**Media contact:** platform@propertysource.app
+**Company:** Property Hub Exchange, Inc.
+**Location:** 8 The Green, Suite A, Dover, Delaware 19901
+**Telephone:** 941-207-2090
+
 ## October 6, 2026
 
 ### Property Hub Partners with Arise Impact Labs to Launch Nationwide Real Estate Auction Services on Property Source Exchange

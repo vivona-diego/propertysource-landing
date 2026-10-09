@@ -97,6 +97,14 @@ const featureGroups = [
 
 const announcements = [
   {
+    id: "chris-tominelli-chief-financial-officer-appointment",
+    date: "2026-10-09",
+    displayDate: "October 9, 2026",
+    headline: "Property Hub Exchange Names Chris Tominelli as Chief Financial Officer",
+    summary: "Property Hub Exchange has named Chris Tominelli to serve as the company’s Chief Financial Officer.",
+    status: "Press release forthcoming",
+  },
+  {
     id: "arise-impact-labs-auction-partnership",
     date: "2026-10-06",
     displayDate: "October 6, 2026",

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "last_updated": "2026-10-08",
+  "last_updated": "2026-10-09",
   "publisher": {
     "name": "Property Hub Exchange, Inc.",
     "platform": "Property Source Exchange",
@@ -9,6 +9,16 @@
   },
   "sort_order": "newest_first",
   "announcements": [
+    {
+      "id": "chris-tominelli-chief-financial-officer-appointment",
+      "date": "2026-10-09",
+      "headline": "Property Hub Exchange Names Chris Tominelli as Chief Financial Officer",
+      "original_headline": "Property Hub Exchange Names Chris Tominelli as Chief Financial Officer",
+      "type": "press_release",
+      "status": "forthcoming",
+      "summary": "Property Hub Exchange has named Chris Tominelli to serve as the company’s Chief Financial Officer. The complete official press release will be added when available.",
+      "canonical_reference": "https://propertysource.app/news.md#october-9-2026"
+    },
     {
       "id": "arise-impact-labs-auction-partnership",
       "date": "2026-10-06",

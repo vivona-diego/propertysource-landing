@@ -78,6 +78,10 @@ Qualifying transaction fees, settlements, activity, and marketplace payments are
 
 Company growth announcements and press releases are listed newest first.
 
+### October 9, 2026 — Property Hub Exchange Names Chris Tominelli as Chief Financial Officer
+
+Property Hub Exchange has named Chris Tominelli to serve as the company’s Chief Financial Officer. The complete official press release is forthcoming and will be added when available.
+
 ### October 6, 2026 — Property Hub Partners with Arise Impact Labs to Launch Nationwide Real Estate Auction Services on Property Source Exchange
 
 Property Hub has partnered with Arise Impact Labs to launch nationwide real estate auction services on Property Source Exchange. The official press release is forthcoming and will be added to the website’s press-release document window when available.
