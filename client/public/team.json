@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "last_updated": "2026-10-09",
+  "organization": "Property Hub Exchange, Inc.",
+  "platform": "Property Source Exchange",
+  "section": "Executive Operations Team",
+  "members": [
+    {
+      "id": "mark-kole",
+      "name": "Mark Kole",
+      "job_title": "Chief Executive Officer",
+      "abbreviation": "CEO",
+      "initials": "MK",
+      "photo_url": null
+    },
+    {
+      "id": "diego-vivona",
+      "name": "Diego Vivona",
+      "job_title": "Chief Technology Officer",
+      "abbreviation": "CTO",
+      "initials": "DV",
+      "photo_url": null
+    },
+    {
+      "id": "chris-tominni",
+      "name": "Chris Tominni",
+      "job_title": "Chief Financial Officer",
+      "abbreviation": "CFO",
+      "initials": "CT",
+      "photo_url": null
+    },
+    {
+      "id": "anthony-jones",
+      "name": "Anthony Jones",
+      "job_title": "Chief Legal Officer",
+      "abbreviation": "CLO",
+      "initials": "AJ",
+      "photo_url": null
+    }
+  ]
+}

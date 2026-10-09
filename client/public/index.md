@@ -115,3 +115,14 @@ Property Hub Exchange, Inc. is located at 8 The Green, Suite A, Dover, Delaware 
 ## Attribution
 
 Use “Property Source Exchange” when naming the platform. Attribute ownership and operation to “Property Hub Exchange, Inc.”
+
+## Executive Operations Team
+
+Current leadership as identified by Property Hub Exchange, Inc. on October 9, 2026:
+
+- **Mark Kole** — Chief Executive Officer
+- **Diego Vivona** — Chief Technology Officer
+- **Chris Tominni** — Chief Financial Officer
+- **Anthony Jones** — Chief Legal Officer
+
+Current executive titles are separate from historical appointment announcements. Executive photographs are forthcoming.

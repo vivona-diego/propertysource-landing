@@ -80,6 +80,14 @@ static-assets/manifest.json    Image manifest and source checkpoint
 vite.standalone.config.ts      Portable image serving and production asset copying
 ```
 
+## Executive Operations Team
+
+The final homepage section (after Breaking News and before the footer) contains four current executive cards. `client/src/components/ExecutiveTeam.tsx` renders the photo-ready design from `client/src/data/executiveTeam.json`.
+
+To replace a placeholder, provide the approved portrait and set the corresponding member's `photo_url` in `client/src/data/executiveTeam.json`. Keep `client/public/team.json` synchronized for AI discovery. Use the managed storage URL in the preview and include the same image in `static-assets/manus-storage/` for Vercel. Portraits use consistent proportional crops, lazy loading, descriptive alt text, and an initials fallback if an image fails to load.
+
+Keep current names and titles synchronized in `team.md`, `platform.json`, the Markdown/text mirrors, and the Person/Organization structured data in `client/index.html`. Historical company announcements intentionally retain the titles that appeared in the original dated releases.
+
 ## Updating announcements
 
 The visible announcement list is defined in `client/src/pages/Home.tsx`. Preserve a unique announcement ID and an ISO date (`YYYY-MM-DD`); the list is sorted newest first. Each entry uses the shared card and modal presentation. Full press-release content is currently represented by a forthcoming-document placeholder.

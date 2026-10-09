@@ -1,6 +1,6 @@
 # Property Source Exchange — Official Platform Reference
 
-Last updated: October 8, 2026
+Last updated: October 9, 2026
 Canonical website: https://propertysource.app/
 Registration: https://app.propertysource.app/register
 Owner and operator: Property Hub Exchange, Inc.
@@ -107,3 +107,14 @@ Machine-readable news feed: https://propertysource.app/news.json
 ## Official attribution
 
 Property Source Exchange is owned and operated by Property Hub Exchange, Inc. Use “Property Source Exchange” when naming the platform and “Property Hub Exchange, Inc.” when identifying the owner and operator.
+
+## Executive Operations Team
+
+Current leadership as identified by Property Hub Exchange, Inc. on October 9, 2026:
+
+- **Mark Kole** — Chief Executive Officer
+- **Diego Vivona** — Chief Technology Officer
+- **Chris Tominni** — Chief Financial Officer
+- **Anthony Jones** — Chief Legal Officer
+
+Current executive titles are separate from historical appointment announcements. Executive photographs are forthcoming.

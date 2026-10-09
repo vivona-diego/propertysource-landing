@@ -18,6 +18,8 @@
     <link rel="alternate" type="text/markdown" href="https://propertysource.app/news.md" title="Property Source Exchange breaking news and press releases" />
     <link rel="alternate" type="application/json" href="https://propertysource.app/news.json" title="Property Source Exchange machine-readable news feed" />
     <link rel="describedby" type="text/plain" href="https://propertysource.app/llms.txt" title="Property Source Exchange AI content guide" />
+    <link rel="alternate" type="text/markdown" href="https://propertysource.app/team.md" title="Executive Operations Team" />
+    <link rel="alternate" type="application/json" href="https://propertysource.app/team.json" title="Executive Operations Team data" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Property Source Exchange" />
     <meta property="og:title" content="Property Source Exchange | Create Your Global Real Estate Marketplace" />
@@ -49,7 +51,21 @@
               "addressCountry": "US"
             },
             "telephone": "+1-941-207-2090",
-            "email": "platform@propertysource.app"
+            "email": "platform@propertysource.app",
+            "employee": [
+              {
+                "@id": "https://propertysource.app/#mark-kole"
+              },
+              {
+                "@id": "https://propertysource.app/#diego-vivona"
+              },
+              {
+                "@id": "https://propertysource.app/#chris-tominni"
+              },
+              {
+                "@id": "https://propertysource.app/#anthony-jones"
+              }
+            ]
           },
           {
             "@type": "WebSite",
@@ -57,7 +73,9 @@
             "url": "https://propertysource.app/",
             "name": "Property Source Exchange",
             "description": "A global real estate exchange platform connecting independent white-label marketplaces, shared property inventory, lenders, title companies, and digital transaction services.",
-            "publisher": { "@id": "https://propertysource.app/#organization" },
+            "publisher": {
+              "@id": "https://propertysource.app/#organization"
+            },
             "inLanguage": "en-US"
           },
           {
@@ -86,8 +104,12 @@
               "Marketplace-owner dashboard, reporting, and revenue tracking",
               "Branded email, SMS, advertising, and affiliate tools"
             ],
-            "provider": { "@id": "https://propertysource.app/#organization" },
-            "subjectOf": { "@id": "https://propertysource.app/#strategic-partners" }
+            "provider": {
+              "@id": "https://propertysource.app/#organization"
+            },
+            "subjectOf": {
+              "@id": "https://propertysource.app/#strategic-partners"
+            }
           },
           {
             "@type": "ItemList",
@@ -97,25 +119,177 @@
             "url": "https://propertysource.app/partners.md",
             "numberOfItems": 19,
             "itemListElement": [
-              { "@type": "ListItem", "position": 1, "item": { "@type": "Organization", "name": "Alpha Funding", "description": "Strategic platform partner of Property Source Exchange" } },
-              { "@type": "ListItem", "position": 2, "item": { "@type": "Organization", "name": "Anchor Loans", "description": "Strategic platform partner of Property Source Exchange" } },
-              { "@type": "ListItem", "position": 3, "item": { "@type": "Organization", "name": "Axe Capital", "description": "Strategic platform partner of Property Source Exchange" } },
-              { "@type": "ListItem", "position": 4, "item": { "@type": "Organization", "name": "Brick City Capital", "description": "Strategic platform partner of Property Source Exchange" } },
-              { "@type": "ListItem", "position": 5, "item": { "@type": "Organization", "name": "Center Street Lending", "description": "Strategic platform partner of Property Source Exchange" } },
-              { "@type": "ListItem", "position": 6, "item": { "@type": "Organization", "name": "Colonial Funding Group", "description": "Strategic platform partner of Property Source Exchange" } },
-              { "@type": "ListItem", "position": 7, "item": { "@type": "Organization", "name": "Conventus", "description": "Strategic platform partner of Property Source Exchange" } },
-              { "@type": "ListItem", "position": 8, "item": { "@type": "Organization", "name": "CoreVest Finance", "description": "Strategic platform partner of Property Source Exchange" } },
-              { "@type": "ListItem", "position": 9, "item": { "@type": "Organization", "name": "CV3 Financial Services", "description": "Strategic platform partner of Property Source Exchange" } },
-              { "@type": "ListItem", "position": 10, "item": { "@type": "Organization", "name": "D1 Funds", "description": "Strategic platform partner of Property Source Exchange" } },
-              { "@type": "ListItem", "position": 11, "item": { "@type": "Organization", "name": "Easy Street Capital", "description": "Strategic platform partner of Property Source Exchange" } },
-              { "@type": "ListItem", "position": 12, "item": { "@type": "Organization", "name": "Kiavi", "description": "Strategic platform partner of Property Source Exchange" } },
-              { "@type": "ListItem", "position": 13, "item": { "@type": "Organization", "name": "Peak Private Lending", "description": "Strategic platform partner of Property Source Exchange" } },
-              { "@type": "ListItem", "position": 14, "item": { "@type": "Organization", "name": "Private Money Lenders", "description": "Strategic platform partner of Property Source Exchange" } },
-              { "@type": "ListItem", "position": 15, "item": { "@type": "Organization", "name": "RCN Capital", "description": "Strategic platform partner of Property Source Exchange" } },
-              { "@type": "ListItem", "position": 16, "item": { "@type": "Organization", "name": "Residential Capital Partners", "description": "Strategic platform partner of Property Source Exchange" } },
-              { "@type": "ListItem", "position": 17, "item": { "@type": "Organization", "name": "SimpleBridge", "description": "Strategic platform partner of Property Source Exchange" } },
-              { "@type": "ListItem", "position": 18, "item": { "@type": "Organization", "name": "Sky Equity", "description": "Strategic platform partner of Property Source Exchange" } },
-              { "@type": "ListItem", "position": 19, "item": { "@type": "Organization", "name": "Velocity Lending", "description": "Strategic platform partner of Property Source Exchange" } }
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "item": {
+                  "@type": "Organization",
+                  "name": "Alpha Funding",
+                  "description": "Strategic platform partner of Property Source Exchange"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "item": {
+                  "@type": "Organization",
+                  "name": "Anchor Loans",
+                  "description": "Strategic platform partner of Property Source Exchange"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "item": {
+                  "@type": "Organization",
+                  "name": "Axe Capital",
+                  "description": "Strategic platform partner of Property Source Exchange"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 4,
+                "item": {
+                  "@type": "Organization",
+                  "name": "Brick City Capital",
+                  "description": "Strategic platform partner of Property Source Exchange"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 5,
+                "item": {
+                  "@type": "Organization",
+                  "name": "Center Street Lending",
+                  "description": "Strategic platform partner of Property Source Exchange"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 6,
+                "item": {
+                  "@type": "Organization",
+                  "name": "Colonial Funding Group",
+                  "description": "Strategic platform partner of Property Source Exchange"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 7,
+                "item": {
+                  "@type": "Organization",
+                  "name": "Conventus",
+                  "description": "Strategic platform partner of Property Source Exchange"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 8,
+                "item": {
+                  "@type": "Organization",
+                  "name": "CoreVest Finance",
+                  "description": "Strategic platform partner of Property Source Exchange"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 9,
+                "item": {
+                  "@type": "Organization",
+                  "name": "CV3 Financial Services",
+                  "description": "Strategic platform partner of Property Source Exchange"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 10,
+                "item": {
+                  "@type": "Organization",
+                  "name": "D1 Funds",
+                  "description": "Strategic platform partner of Property Source Exchange"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 11,
+                "item": {
+                  "@type": "Organization",
+                  "name": "Easy Street Capital",
+                  "description": "Strategic platform partner of Property Source Exchange"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 12,
+                "item": {
+                  "@type": "Organization",
+                  "name": "Kiavi",
+                  "description": "Strategic platform partner of Property Source Exchange"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 13,
+                "item": {
+                  "@type": "Organization",
+                  "name": "Peak Private Lending",
+                  "description": "Strategic platform partner of Property Source Exchange"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 14,
+                "item": {
+                  "@type": "Organization",
+                  "name": "Private Money Lenders",
+                  "description": "Strategic platform partner of Property Source Exchange"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 15,
+                "item": {
+                  "@type": "Organization",
+                  "name": "RCN Capital",
+                  "description": "Strategic platform partner of Property Source Exchange"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 16,
+                "item": {
+                  "@type": "Organization",
+                  "name": "Residential Capital Partners",
+                  "description": "Strategic platform partner of Property Source Exchange"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 17,
+                "item": {
+                  "@type": "Organization",
+                  "name": "SimpleBridge",
+                  "description": "Strategic platform partner of Property Source Exchange"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 18,
+                "item": {
+                  "@type": "Organization",
+                  "name": "Sky Equity",
+                  "description": "Strategic platform partner of Property Source Exchange"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 19,
+                "item": {
+                  "@type": "Organization",
+                  "name": "Velocity Lending",
+                  "description": "Strategic platform partner of Property Source Exchange"
+                }
+              }
             ]
           },
           {
@@ -127,8 +301,12 @@
             "description": "Property Hub has partnered with Arise Impact Labs to launch nationwide real estate auction services on Property Source Exchange. The complete official press release is forthcoming.",
             "articleBody": "The complete official press release will be added when available.",
             "mainEntityOfPage": "https://propertysource.app/#news",
-            "publisher": { "@id": "https://propertysource.app/#organization" },
-            "author": { "@id": "https://propertysource.app/#organization" },
+            "publisher": {
+              "@id": "https://propertysource.app/#organization"
+            },
+            "author": {
+              "@id": "https://propertysource.app/#organization"
+            },
             "inLanguage": "en-US"
           },
           {
@@ -140,8 +318,12 @@
             "description": "Property Hub has appointed Diego Vivona as Chief Product Officer to drive AI-powered platform innovation. The complete official press release is forthcoming.",
             "articleBody": "The complete official press release will be added when available.",
             "mainEntityOfPage": "https://propertysource.app/#news",
-            "publisher": { "@id": "https://propertysource.app/#organization" },
-            "author": { "@id": "https://propertysource.app/#organization" },
+            "publisher": {
+              "@id": "https://propertysource.app/#organization"
+            },
+            "author": {
+              "@id": "https://propertysource.app/#organization"
+            },
             "inLanguage": "en-US"
           },
           {
@@ -153,8 +335,12 @@
             "description": "Property Hub Exchange has signed an exclusive worldwide intellectual property deal with Dreamweaver Tech to supply the global real estate exchange software platform. The complete official press release is forthcoming.",
             "articleBody": "The complete official press release will be added when available.",
             "mainEntityOfPage": "https://propertysource.app/#news",
-            "publisher": { "@id": "https://propertysource.app/#organization" },
-            "author": { "@id": "https://propertysource.app/#organization" },
+            "publisher": {
+              "@id": "https://propertysource.app/#organization"
+            },
+            "author": {
+              "@id": "https://propertysource.app/#organization"
+            },
             "inLanguage": "en-US"
           },
           {
@@ -166,8 +352,12 @@
             "description": "Property Hub Exchange has named Mark Kole as Chief Operating Officer to lead the company in launching the global real estate exchange platform. The complete official press release is forthcoming.",
             "articleBody": "The complete official press release will be added when available.",
             "mainEntityOfPage": "https://propertysource.app/#news",
-            "publisher": { "@id": "https://propertysource.app/#organization" },
-            "author": { "@id": "https://propertysource.app/#organization" },
+            "publisher": {
+              "@id": "https://propertysource.app/#organization"
+            },
+            "author": {
+              "@id": "https://propertysource.app/#organization"
+            },
             "inLanguage": "en-US"
           },
           {
@@ -179,9 +369,53 @@
             "description": "Property Hub Exchange, Inc. has announced an exclusive partnership related to its global real estate exchange software platform. The complete press release is forthcoming.",
             "articleBody": "The official press release is being prepared and will be published when available.",
             "mainEntityOfPage": "https://propertysource.app/#news",
-            "publisher": { "@id": "https://propertysource.app/#organization" },
-            "author": { "@id": "https://propertysource.app/#organization" },
+            "publisher": {
+              "@id": "https://propertysource.app/#organization"
+            },
+            "author": {
+              "@id": "https://propertysource.app/#organization"
+            },
             "inLanguage": "en-US"
+          },
+          {
+            "@type": "Person",
+            "@id": "https://propertysource.app/#mark-kole",
+            "name": "Mark Kole",
+            "jobTitle": "Chief Executive Officer",
+            "worksFor": {
+              "@id": "https://propertysource.app/#organization"
+            },
+            "url": "https://propertysource.app/#executive-team"
+          },
+          {
+            "@type": "Person",
+            "@id": "https://propertysource.app/#diego-vivona",
+            "name": "Diego Vivona",
+            "jobTitle": "Chief Technology Officer",
+            "worksFor": {
+              "@id": "https://propertysource.app/#organization"
+            },
+            "url": "https://propertysource.app/#executive-team"
+          },
+          {
+            "@type": "Person",
+            "@id": "https://propertysource.app/#chris-tominni",
+            "name": "Chris Tominni",
+            "jobTitle": "Chief Financial Officer",
+            "worksFor": {
+              "@id": "https://propertysource.app/#organization"
+            },
+            "url": "https://propertysource.app/#executive-team"
+          },
+          {
+            "@type": "Person",
+            "@id": "https://propertysource.app/#anthony-jones",
+            "name": "Anthony Jones",
+            "jobTitle": "Chief Legal Officer",
+            "worksFor": {
+              "@id": "https://propertysource.app/#organization"
+            },
+            "url": "https://propertysource.app/#executive-team"
           }
         ]
       }
@@ -244,6 +478,15 @@
               <p>Property Hub Exchange, Inc. has announced an exclusive partnership related to its global real estate exchange software platform. The complete official press release is forthcoming.</p>
               <p><a href="https://propertysource.app/news.md">Read the official news archive</a></p>
             </article>
+          </section>
+          <section id="executive-team" aria-labelledby="executive-team-heading">
+            <h2 id="executive-team-heading">Executive Operations Team</h2>
+            <ul>
+              <li>Mark Kole — Chief Executive Officer</li>
+              <li>Diego Vivona — Chief Technology Officer</li>
+              <li>Chris Tominni — Chief Financial Officer</li>
+              <li>Anthony Jones — Chief Legal Officer</li>
+            </ul>
           </section>
           <p><a href="https://app.propertysource.app/register" style="color:#b7e44c;font-weight:700">Register for a Property Source marketplace</a></p>
         </article>

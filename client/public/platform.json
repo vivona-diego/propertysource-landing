@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "last_updated": "2026-09-21",
+  "last_updated": "2026-10-09",
   "canonical_url": "https://propertysource.app/",
   "platform": {
     "name": "Property Source Exchange",
@@ -117,6 +117,26 @@
     "llms_txt": "https://propertysource.app/llms.txt",
     "markdown_page": "https://propertysource.app/index.md",
     "detailed_text": "https://propertysource.app/llms-full.txt",
-    "structured_data": "Embedded Schema.org JSON-LD in the canonical homepage"
-  }
+    "structured_data": "Embedded Schema.org JSON-LD in the canonical homepage",
+    "executive_team_json": "https://propertysource.app/team.json",
+    "executive_team_markdown": "https://propertysource.app/team.md"
+  },
+  "executive_operations_team": [
+    {
+      "name": "Mark Kole",
+      "job_title": "Chief Executive Officer"
+    },
+    {
+      "name": "Diego Vivona",
+      "job_title": "Chief Technology Officer"
+    },
+    {
+      "name": "Chris Tominni",
+      "job_title": "Chief Financial Officer"
+    },
+    {
+      "name": "Anthony Jones",
+      "job_title": "Chief Legal Officer"
+    }
+  ]
 }
