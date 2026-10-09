@@ -22,12 +22,13 @@
       "photo_url": null
     },
     {
-      "id": "chris-tominni",
-      "name": "Chris Tominni",
+      "id": "chris-tominelli",
+      "name": "Chris Tominelli",
       "job_title": "Chief Financial Officer",
       "abbreviation": "CFO",
       "initials": "CT",
-      "photo_url": null
+      "photo_url": "/manus-storage/chris-tominelli-headshot-web_5f038db7.png",
+      "photo_note": "AI-edited business headshot based on the company-provided photograph."
     },
     {
       "id": "anthony-jones",
