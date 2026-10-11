@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "last_updated": "2026-10-09",
+  "last_updated": "2026-10-11",
   "organization": "Property Hub Exchange, Inc.",
   "platform": "Property Source Exchange",
   "section": "Executive Operations Team",
@@ -32,12 +32,13 @@
       "photo_note": "AI-edited business headshot based on the company-provided photograph."
     },
     {
-      "id": "anthony-jones",
-      "name": "Anthony Jones",
-      "job_title": "Chief Legal Officer",
-      "abbreviation": "CLO",
-      "initials": "AJ",
-      "photo_url": null
+      "id": "mike-shemtovi",
+      "name": "Mike Shemtovi",
+      "job_title": "Chief Investment Officer",
+      "abbreviation": "CIO",
+      "initials": "MS",
+      "photo_url": "/manus-storage/mike-shemtovi-headshot-web_06ffa7b2.png",
+      "photo_note": "AI-edited business headshot based on the company-provided photograph; eyeglasses removed and framing matched to the executive portraits."
     }
   ]
 }
