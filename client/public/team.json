@@ -23,6 +23,15 @@
       "photo_note": "Original portrait extracted from the company-provided pitch deck team slide."
     },
     {
+      "id": "james-huang",
+      "name": "James Huang",
+      "job_title": "Chief Strategy Officer",
+      "abbreviation": "CSO",
+      "initials": "JH",
+      "photo_url": "/manus-storage/james-huang-headshot-web_d39f94d7.jpg",
+      "photo_note": "Company-provided business portrait, optimized for website loading."
+    },
+    {
       "id": "diego-vivona",
       "name": "Diego Vivona",
       "job_title": "Chief Technology Officer",

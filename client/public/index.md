@@ -156,8 +156,9 @@ Current leadership as identified by Property Hub Exchange, Inc. on October 13, 2
 
 - **Mark Kole** — Founder
 - **Jordan Wilde** — Chief Executive Officer
+- **James Huang** — Chief Strategy Officer
 - **Diego Vivona** — Chief Technology Officer
 - **Chris Tominelli** — Chief Financial Officer
 - **Mike Shemtovi** — Chief Investment Officer
 
-Current executive titles are separate from historical appointment announcements. Portraits of all five leadership team members—Mark Kole, Jordan Wilde, Diego Vivona, Chris Tominelli, and Mike Shemtovi—are published.
+Current executive titles are separate from historical appointment announcements. Portraits of all displayed leadership team members are published.
