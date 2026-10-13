@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "last_updated": "2026-10-09",
+  "last_updated": "2026-10-13",
   "canonical_url": "https://propertysource.app/",
   "platform": {
     "name": "Property Source Exchange",
@@ -119,7 +119,8 @@
     "detailed_text": "https://propertysource.app/llms-full.txt",
     "structured_data": "Embedded Schema.org JSON-LD in the canonical homepage",
     "executive_team_json": "https://propertysource.app/team.json",
-    "executive_team_markdown": "https://propertysource.app/team.md"
+    "executive_team_markdown": "https://propertysource.app/team.md",
+    "ai_exchange_markdown": "https://propertysource.app/ai-powered-exchange.md"
   },
   "executive_operations_team": [
     {
@@ -138,5 +139,38 @@
       "name": "Mike Shemtovi",
       "job_title": "Chief Investment Officer"
     }
-  ]
+  ],
+  "ai_powered_exchange": {
+    "headline": "The network is the power. AI is the multiplier.",
+    "network_first": true,
+    "summary": "Property Hub Exchange puts AI to work across Property Source Exchange—from recruiting marketplace partners and sourcing property opportunities to member support, analysis, and transaction coordination. The real strength is the people and opportunities in the network. AI orchestrates the information, reduces friction, and helps buyers and sellers move forward across connected marketplaces worldwide.",
+    "digital_workforce": "24/7",
+    "capabilities": [
+      {
+        "category": "Recruit & connect",
+        "headline": "Growth that never sleeps.",
+        "description": "Conversational AI agents reach marketplace partners, property owners, and wholesalers—helping bring new communities and property deals into the exchange."
+      },
+      {
+        "category": "Chat • Voice • Phone",
+        "headline": "Answers in every channel.",
+        "description": "From text chat and live on-platform voice conversations to phone support, AI agents guide members through navigation, technical questions, and the next step."
+      },
+      {
+        "category": "Analyze & inform",
+        "headline": "Intelligence behind every deal.",
+        "description": "AI helps analyze properties, lenders, and relevant information—organizing complex data into useful insights that support more informed decisions."
+      },
+      {
+        "category": "Orchestrate & streamline",
+        "headline": "An always-on operating layer.",
+        "description": "AI agents take on routine outreach, support, and coordination duties, creating a scalable 24/7 digital workforce that helps streamline transactions worldwide."
+      }
+    ],
+    "external_investor_agents": {
+      "design_goal": "The exchange is designed to help investor-operated AI agents discover and work with property deals through connected, machine-readable interfaces. AI inside the platform and agents outside it can support a more connected real estate ecosystem.",
+      "access_note": "External-agent access depends on the supported integration and its permissions."
+    },
+    "capability_source": "Company-supplied platform description, October 13, 2026."
+  }
 }

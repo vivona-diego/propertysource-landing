@@ -6,6 +6,7 @@ Property Source Exchange provides free turnkey branded marketplaces with no setu
 
 ## Primary content
 
+- [AI Powered Exchange](https://propertysource.app/ai-powered-exchange.md): Network-first AI outreach, text/voice/phone support, analysis, 24/7 operations, and external-agent integration design.
 - [Complete website content in Markdown](https://propertysource.app/index.md): Clean, low-token platform overview, feature inventory, revenue model, official links, and attribution.
 - [Machine-readable platform profile](https://propertysource.app/platform.json): Deterministic JSON containing platform identity, fees, revenue shares, network counts, and capabilities.
 - [Strategic partner directory](https://propertysource.app/partners.md): Explicit low-token association between Property Source Exchange and every displayed strategic platform partner.
