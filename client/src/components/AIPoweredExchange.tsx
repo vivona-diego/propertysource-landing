@@ -1,4 +1,4 @@
-import { ArrowRight, Bot, BrainCircuit, Globe2, Handshake, MessageCircle, PlugZap, ScanSearch, Sparkles, Users, Workflow } from "lucide-react";
+import { ArrowRight, Bot, Cpu, Globe2, Handshake, MessageCircle, PlugZap, ScanSearch, Sparkles, Workflow } from "lucide-react";
 
 const capabilities = [
   {
@@ -38,18 +38,18 @@ export default function AIPoweredExchange() {
             <p className="ai-exchange-lead">A global network of buyers and sellers. An intelligent operating layer that never sleeps.</p>
             <p className="ai-exchange-copy">Property Hub Exchange puts AI to work across Property Source Exchange—from recruiting marketplace partners and sourcing property opportunities to member support, analysis, and transaction coordination. The real strength is the people and opportunities in the network. AI orchestrates the information, reduces friction, and helps buyers and sellers move forward across connected marketplaces worldwide.</p>
           </div>
-          <div className="ai-network-panel" aria-label="AI supports the shared exchange between buyers and sellers">
-            <div className="ai-network-map" aria-hidden="true" />
+          <div className="ai-network-panel" aria-label="AI agents facilitate outreach, support, analysis, and transaction coordination around the clock">
+            <div className="ai-agent-background" aria-hidden="true" />
             <div className="ai-network-topline"><span><Sparkles size={13} aria-hidden="true" /> Intelligence in motion</span><span className="ai-network-status"><span aria-hidden="true" />Always on</span></div>
-            <div className="ai-network-stat"><strong>24/7</strong><span>Digital workforce.<br />Global opportunity.</span></div>
-            <div className="ai-network-flow">
-              <div className="ai-network-endpoint"><Users size={23} aria-hidden="true" /><span>Buyers</span></div>
-              <ArrowRight className="ai-network-arrow" size={17} aria-hidden="true" />
-              <div className="ai-network-hub"><BrainCircuit size={31} aria-hidden="true" /><span>Shared exchange</span><small>AI orchestration</small></div>
-              <ArrowRight className="ai-network-arrow" size={17} aria-hidden="true" />
-              <div className="ai-network-endpoint"><Globe2 size={23} aria-hidden="true" /><span>Sellers</span></div>
+            <div className="ai-agent-card-heading"><span className="ai-agent-processor"><Cpu size={24} aria-hidden="true" /></span><h3>AI agents.<br /><span>Real work. Around the clock.</span></h3></div>
+            <p className="ai-agent-card-summary"><strong>24/7</strong> An intelligent workforce supporting your marketplace.</p>
+            <div className="ai-service-agents">
+              <div className="ai-service-agent"><Handshake size={20} aria-hidden="true" /><div><h4>Outreach agents</h4><p>Connect partners & source deals</p></div></div>
+              <div className="ai-service-agent"><MessageCircle size={20} aria-hidden="true" /><div><h4>Support agents</h4><p>Guide members by chat & voice</p></div></div>
+              <div className="ai-service-agent"><ScanSearch size={20} aria-hidden="true" /><div><h4>Analysis agents</h4><p>Research properties & lenders</p></div></div>
+              <div className="ai-service-agent"><Workflow size={20} aria-hidden="true" /><div><h4>Transaction agents</h4><p>Help coordinate each next step</p></div></div>
             </div>
-            <p className="ai-network-caption">Human networks. AI-powered coordination.</p>
+            <p className="ai-network-caption"><Bot size={14} aria-hidden="true" />AI-powered services. One connected platform.</p>
           </div>
         </div>
 

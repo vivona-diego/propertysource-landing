@@ -124,22 +124,24 @@ a { text-decoration: none; }
 .ai-exchange-lead { max-width: 610px; margin-top: 1.5rem; color: #244b3c; font-size: 1.06rem; font-weight: 600; line-height: 1.6; }
 .ai-exchange-copy { max-width: 650px; margin-top: .85rem; color: #52695c; font-size: .92rem; line-height: 1.85; }
 .ai-network-panel { position: relative; overflow: hidden; border: 1px solid #3c6851; border-radius: 1.75rem; padding: 1.5rem; background: radial-gradient(ellipse at 100% 0%, #255b3e, transparent 75%), #0b3027; color: #fff; box-shadow: 0 24px 55px rgba(18,53,43,.13); }
-.ai-network-map { position: absolute; inset: 0; pointer-events: none; background: url('/manus-storage/property-source-world-map_d3b0c44e.png') center / cover no-repeat; opacity: .14; mix-blend-mode: screen; }
-.ai-network-topline, .ai-network-stat, .ai-network-flow, .ai-network-caption { position: relative; }
+.ai-agent-background { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(90deg, rgba(5,28,20,.55), rgba(5,28,20,.05)), url('/manus-storage/ai-agent-circuit-web_671b77c1.jpg') right top / cover no-repeat; }
+.ai-network-topline, .ai-agent-card-heading, .ai-agent-card-summary, .ai-service-agents, .ai-network-caption { position: relative; }
 .ai-network-topline { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .75rem; color: #c6dfb4; font-size: .6rem; text-transform: uppercase; font-weight: 700; letter-spacing: .1em; }
 .ai-network-topline > span { display: inline-flex; align-items: center; gap: .4rem; }
 .ai-network-status { color: #e5f1d8; }
 .ai-network-status > span { height: 6px; width: 6px; border-radius: 50%; background: #b7e44c; box-shadow: 0 0 14px rgba(183,228,76,.5); }
-.ai-network-stat { display: flex; align-items: center; gap: 1rem; margin-top: 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,.13); }
-.ai-network-stat strong { color: #b7e44c; font-family: 'Space Grotesk', sans-serif; font-size: clamp(3.8rem, 6vw, 5.4rem); font-weight: 500; line-height: 1; letter-spacing: -.08em; }
-.ai-network-stat > span { color: #d9e6d6; font-size: .86rem; line-height: 1.6; }
-.ai-network-flow { display: grid; grid-template-columns: 1fr auto 1.45fr auto 1fr; align-items: center; gap: .45rem; margin-top: 1.75rem; }
-.ai-network-endpoint { display: grid; justify-items: center; gap: .7rem; color: #d7e9cc; font-size: .7rem; font-weight: 600; }
-.ai-network-hub { display: grid; justify-items: center; gap: .5rem; border: 1px solid rgba(183,228,76,.28); border-radius: 1rem; background: rgba(183,228,76,.09); padding: .9rem .25rem; color: #b7e44c; }
-.ai-network-hub > span { color: #f0f5e9; font-size: .7rem; font-weight: 700; white-space: nowrap; }
-.ai-network-hub small { color: #b6cdae; font-size: .6rem; }
-.ai-network-arrow { color: #81a86a; }
-.ai-network-caption { margin-top: 1.5rem; color: #aec7ae; font-size: .67rem; text-align: center; }
+.ai-agent-card-heading { margin-top: 1.65rem; max-width: 260px; }
+.ai-agent-processor { display: grid; width: 42px; height: 42px; place-items: center; border: 1px solid rgba(183,228,76,.3); border-radius: .8rem; background: rgba(9,45,29,.85); color: #b7e44c; }
+.ai-agent-card-heading h3 { margin-top: .8rem; font-family: 'Space Grotesk', sans-serif; font-size: 1.7rem; font-weight: 600; letter-spacing: -.045em; line-height: 1.12; color: #fff; text-shadow: 0 2px 18px #092d25; }
+.ai-agent-card-heading h3 > span { color: #d9f1ba; font-size: 1.15rem; letter-spacing: -.025em; }
+.ai-agent-card-summary { display: flex; align-items: center; gap: .6rem; margin-top: 1rem; color: #deecd7; font-size: .72rem; line-height: 1.5; max-width: 285px; }
+.ai-agent-card-summary strong { flex-shrink: 0; padding: .25rem .5rem; border: 1px solid rgba(183,228,76,.3); border-radius: .4rem; background: rgba(8,35,24,.9); font-family: 'Space Grotesk', sans-serif; color: #b7e44c; font-size: 1.15rem; letter-spacing: -.05em; }
+.ai-service-agents { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .65rem; margin-top: 1.6rem; }
+.ai-service-agent { min-width: 0; border: 1px solid rgba(170,216,137,.26); border-radius: .75rem; background: rgba(9,42,29,.92); padding: .8rem; }
+.ai-service-agent > svg { color: #b7e44c; }
+.ai-service-agent h4 { margin-top: .6rem; font-size: .73rem; font-weight: 700; line-height: 1.3; color: #fff; }
+.ai-service-agent p { margin-top: .25rem; color: #c0d7b8; font-size: .63rem; line-height: 1.5; }
+.ai-network-caption { display: flex; align-items: center; justify-content: center; gap: .4rem; margin-top: 1.1rem; color: #d0e6c2; font-size: .63rem; text-align: center; }
 .ai-capability-grid { display: grid; gap: 1rem; margin-top: 2.25rem; }
 .ai-capability-card { min-width: 0; border: 1px solid #d0e0c6; border-radius: 1.15rem; background: rgba(255,255,255,.78); padding: 1.35rem; box-shadow: 0 10px 28px rgba(25,70,50,.035); transition: transform 180ms cubic-bezier(.23,1,.32,1), box-shadow 180ms cubic-bezier(.23,1,.32,1); }
 .ai-capability-card:hover { transform: translateY(-3px); box-shadow: 0 16px 36px rgba(25,70,50,.09); }
