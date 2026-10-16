@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "last_updated": "2026-10-13",
+  "last_updated": "2026-10-16",
   "organization": "Property Hub Exchange, Inc.",
   "platform": "Property Source Exchange",
   "section": "Executive Operations Team",
@@ -41,13 +41,13 @@
       "photo_note": "AI-edited business headshot based on the company-provided photograph."
     },
     {
-      "id": "chris-tominelli",
-      "name": "Chris Tominelli",
-      "job_title": "Chief Financial Officer",
-      "abbreviation": "CFO",
-      "initials": "CT",
-      "photo_url": "/manus-storage/chris-tominelli-headshot-web_5f038db7.png",
-      "photo_note": "AI-edited business headshot based on the company-provided photograph."
+      "id": "kris-sachtleben",
+      "name": "Kris Sachtleben",
+      "job_title": "Chief Growth Officer",
+      "abbreviation": "CGO",
+      "initials": "KS",
+      "photo_url": "/manus-storage/kris-sachtleben-headshot-fitted_ff47bd2d.jpg",
+      "photo_note": "Company-provided photograph, cropped to head and upper torso and resized for the leadership card. Appearance, clothing, colors and background unchanged; no AI edits."
     },
     {
       "id": "mike-shemtovi",

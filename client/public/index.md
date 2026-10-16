@@ -159,13 +159,13 @@ Use “Property Source Exchange” when naming the platform. Attribute ownership
 
 ## Executive Operations Team
 
-Current leadership as identified by Property Hub Exchange, Inc. on October 13, 2026:
+Current leadership as identified by Property Hub Exchange, Inc. on October 16, 2026:
 
 - **Mark Kole** — Founder
 - **Jordan Wilde** — Chief Executive Officer
 - **James Huang** — Chief Strategy Officer
 - **Diego Vivona** — Chief Technology Officer
-- **Chris Tominelli** — Chief Financial Officer
+- **Kris Sachtleben** — Chief Growth Officer
 - **Mike Shemtovi** — Chief Investment Officer
 
 Current executive titles are separate from historical appointment announcements. Portraits of all displayed leadership team members are published.
