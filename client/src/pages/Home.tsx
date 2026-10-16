@@ -9,7 +9,7 @@ import EarnRevenue from "@/components/EarnRevenue";
 const heroImage = "/manus-storage/property-source-devices-transparent_ae62f96f.png";
 const networkImage = "/manus-storage/property-source-network-portrait_06fc6b61.png";
 const mapImage = "/manus-storage/property-source-world-map_d3b0c44e.png";
-const logoImage = "/manus-storage/Property_Source_Logo_Green_b7a58ad8.png";
+const logoImage = "/manus-storage/Property_Hub_Exchange_Clean_Corners_1a5f870b.webp";
 const registrationUrl = "https://app.propertysource.app/register";
 
 const strategicPartners = [
@@ -165,8 +165,8 @@ export default function Home() {
     <div className="min-h-screen overflow-x-hidden bg-[#f7f8f2] text-[#12352b]">
       <header className="absolute inset-x-0 top-0 z-40">
         <div className="container flex items-center justify-between py-5">
-          <a href="#top" className="flex items-center" aria-label="Property Source Exchange home">
-            <span className="inline-flex items-center rounded-full bg-white px-4 py-2 shadow-[0_8px_24px_rgba(0,0,0,.16)]"><img src={logoImage} alt="Property Source Exchange" className="h-9 w-auto" /></span>
+          <a href="#top" className="flex shrink-0 items-center" aria-label="Property Hub Exchange home">
+            <span className="inline-flex items-center rounded-full bg-white px-5 py-3 shadow-[0_8px_24px_rgba(0,0,0,.16)]"><img src={logoImage} alt="Property Hub Exchange" width={1200} height={410} className="h-10 w-auto max-w-full shrink-0 object-contain" /></span>
           </a>
           <nav className="hidden items-center gap-4 text-[12px] font-semibold text-white/75 xl:flex">
             <a className="transition-colors hover:text-white" href="#network">The network</a>
@@ -222,7 +222,7 @@ export default function Home() {
         <ExecutiveTeam />
       </main>
 
-      <footer className="bg-[#092d25] py-10 text-white"><div className="container grid gap-7 text-sm md:grid-cols-[auto_1fr_auto] md:items-start"><a href="#top" className="inline-flex w-fit items-center rounded-full bg-white px-3 py-2 shadow-[0_8px_24px_rgba(0,0,0,.14)]" aria-label="Property Source Exchange home"><img src={logoImage} alt="Property Source Exchange" className="h-7 w-auto" /></a><p className="text-white/45 md:text-center">Owned and operated by Property Hub Exchange, Inc.</p><div className="space-y-1.5 text-white/45 md:text-right"><p>© 2026 Property Hub Exchange, Inc.</p><address className="not-italic"><p>8 The Green, Suite A</p><p>Dover, Delaware 19901</p></address><p><a className="transition-colors hover:text-white" href="tel:+19412072090">941-207-2090</a></p><p><a className="transition-colors hover:text-white" href="mailto:platform@propertysource.app">platform@propertysource.app</a></p></div></div></footer>
+      <footer className="bg-[#092d25] py-10 text-white"><div className="container grid gap-7 text-sm md:grid-cols-[auto_1fr_auto] md:items-start"><a href="#top" className="inline-flex w-fit shrink-0 items-center rounded-full bg-white px-5 py-3 shadow-[0_8px_24px_rgba(0,0,0,.14)]" aria-label="Property Hub Exchange home"><img src={logoImage} alt="Property Hub Exchange" width={1200} height={410} className="h-9 w-auto max-w-full shrink-0 object-contain" /></a><p className="text-white/45 md:text-center">Owned and operated by Property Hub Exchange, Inc.</p><div className="space-y-1.5 text-white/45 md:text-right"><p>© 2026 Property Hub Exchange, Inc.</p><address className="not-italic"><p>8 The Green, Suite A</p><p>Dover, Delaware 19901</p></address><p><a className="transition-colors hover:text-white" href="tel:+19412072090">941-207-2090</a></p><p><a className="transition-colors hover:text-white" href="mailto:platform@propertysource.app">platform@propertysource.app</a></p></div></div></footer>
 
       {showForm && <div className="fixed inset-0 z-50 grid place-items-center bg-[#051a15]/70 p-4 backdrop-blur-sm"><div className="relative w-full max-w-lg rounded-[28px] bg-[#f7f8f2] p-7 shadow-2xl md:p-10"><button onClick={() => setShowForm(false)} className="absolute right-5 top-5 grid size-9 place-items-center rounded-full bg-[#e8eee3] text-[#12352b]" aria-label="Close form"><X size={18} /></button><p className="eyebrow">Start the conversation</p><h2 className="mt-3 font-display text-4xl font-semibold leading-none tracking-[-.05em]">Build your marketplace.</h2><p className="mt-4 text-sm leading-6 text-[#62776b]">Tell us a little about your community and we’ll show you how quickly you can connect.</p><form onSubmit={submitForm} className="mt-7 grid gap-4"><input required placeholder="Your name" className="rounded-xl border border-[#d7e1d3] bg-white px-4 py-3 outline-none focus:border-[#2d7f58]" /><input required type="email" placeholder="Work email" className="rounded-xl border border-[#d7e1d3] bg-white px-4 py-3 outline-none focus:border-[#2d7f58]" /><select className="rounded-xl border border-[#d7e1d3] bg-white px-4 py-3 text-[#52645c] outline-none focus:border-[#2d7f58]" defaultValue=""><option value="" disabled>What best describes you?</option><option>Real estate community</option><option>Lender or lending broker</option><option>Influencer or coach</option><option>Asset manager</option><option>Brokerage</option></select><button type="submit" className="mt-2 rounded-full bg-[#12352b] px-5 py-4 text-sm font-bold text-white transition hover:bg-[#205743]">Request a marketplace walkthrough <ArrowRight className="ml-2 inline" size={16} /></button></form></div></div>}
 
