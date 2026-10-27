@@ -121,3 +121,6 @@ client/public/__manus__/version.json
 !.env.example
 .project-config.json
 server/*.qa.ts
+
+# Generated Vercel API bundle
+/server/vercel-runtime.mjs

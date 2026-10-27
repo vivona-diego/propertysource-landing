@@ -2,7 +2,7 @@ import "dotenv/config";
 import express from "express";
 import path from "node:path";
 import { createServer } from "node:http";
-import api from "../api/index";
+import api from "./vercelApp";
 import { serveStatic, setupVite } from "./_core/vite";
 
 async function start() {

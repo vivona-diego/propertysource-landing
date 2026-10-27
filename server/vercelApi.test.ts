@@ -1,6 +1,6 @@
 import { beforeAll, afterAll, describe, expect, it } from "vitest";
 import { createServer, type Server } from "node:http";
-import app from "../api/index";
+import app from "./vercelApp";
 
 let server: Server;
 let origin: string;

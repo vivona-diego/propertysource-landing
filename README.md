@@ -28,7 +28,7 @@ The standalone server supports the application's 15 MB document-file limit. Run 
 
 ## GitHub and Vercel deployment
 
-Pushing this repository's `main` branch should trigger the existing GitHub-linked Vercel project. The root `vercel.json` builds the Vite frontend into `dist/public/` and routes `/api/*` to the Express Function in `api/index.ts`. The API is **not** rewritten to the homepage. Investor HTML responses receive private/no-store and noindex headers.
+Pushing this repository's `main` branch should trigger the existing GitHub-linked Vercel project. The root `vercel.json` builds the Vite frontend into `dist/public/` and routes `/api/*` to the Express Function in `api/index.js`. The API is **not** rewritten to the homepage. Investor HTML responses receive private/no-store and noindex headers.
 
 Keep the Vercel root directory set to the repository root. The configuration specifies:
 

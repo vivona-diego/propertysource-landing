@@ -1,13 +1,13 @@
 import "dotenv/config";
 import express from "express";
 import { createExpressMiddleware } from "@trpc/server/adapters/express";
-import { createContext } from "../server/_core/context";
-import { registerOAuthRoutes } from "../server/_core/oauth";
-import { registerStorageProxy } from "../server/_core/storageProxy";
-import { appRouter } from "../server/routers";
-import { registerDataRoomFiles } from "../server/dataRoomFiles";
+import { createContext } from "./_core/context";
+import { registerOAuthRoutes } from "./_core/oauth";
+import { registerStorageProxy } from "./_core/storageProxy";
+import { appRouter } from "./routers";
+import { registerDataRoomFiles } from "./dataRoomFiles";
 
-// Vercel invokes this app as a Function; do not start a port listener here.
+// Shared API implementation for the portable Node server and Vercel Function.
 const app = express();
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
