@@ -1,36 +1,172 @@
 {
-  "source_checkpoint": "6865a2da0c4d87dcc972ef627f17005e6f51202b",
+  "source_checkpoint": "05e0cb2e",
+  "source_commit": "05e0cb2e99fa4f0541cf477ff0a44179199d9fd1",
+  "public_image_count": 33,
   "assets": [
-    "Property_Hub_Exchange_Clean_Corners_1a5f870b.webp",
-    "Property_Source_Logo_Green_b7a58ad8.png",
-    "ai-agent-circuit-web_671b77c1.jpg",
-    "alpha-funding-white_f6c3c8bb.png",
-    "anchor-loans-white_27fa5998.png",
-    "axe-capital-white_c3e9dd8e.png",
-    "brick-city-capital-white_78db2366.png",
-    "center-street-lending-white_d238ff5c.png",
-    "chris-tominelli-headshot-web_5f038db7.png",
-    "colonial-funding-white_72f62f51.png",
-    "conventus-white_a375f48b.png",
-    "corevest-finance-white_0767fb13.png",
-    "cv3-financial-white_80b47451.png",
-    "d1-funds-white-fitted_ec6b6025.png",
-    "diego-vivona-headshot-web_fae21cb2.png",
-    "easy-street-capital-white_3b03b92e.png",
-    "james-huang-headshot-web_d39f94d7.jpg",
-    "jordan-wilde-portrait_4ca2f6cf.png",
-    "kiavi-white_1d9736de.png",
-    "kris-sachtleben-headshot-fitted_ff47bd2d.jpg",
-    "mark-kole-portrait_86a50646.png",
-    "mike-shemtovi-headshot-web_06ffa7b2.png",
-    "peak-private-lending-white_15c799f2.png",
-    "private-money-lenders-white_eae7029e.png",
-    "property-source-devices-transparent_ae62f96f.png",
-    "property-source-network-portrait_06fc6b61.png",
-    "property-source-world-map_d3b0c44e.png",
-    "rcn-capital-white_3a708ee1.png",
-    "residential-capital-partners-white_5edf301b.png",
-    "sky-equity-white_77d50edc.png",
-    "velocity-lending-white_8a70b112.png"
+    {
+      "path": "/manus-storage/Property_Hub_Exchange_Clean_Corners_1a5f870b.webp",
+      "file": "static-assets/manus-storage/Property_Hub_Exchange_Clean_Corners_1a5f870b.webp",
+      "size_bytes": 29040
+    },
+    {
+      "path": "/manus-storage/ai-agent-circuit-web_671b77c1.jpg",
+      "file": "static-assets/manus-storage/ai-agent-circuit-web_671b77c1.jpg",
+      "size_bytes": 183606
+    },
+    {
+      "path": "/manus-storage/alpha-funding-white_f6c3c8bb.png",
+      "file": "static-assets/manus-storage/alpha-funding-white_f6c3c8bb.png",
+      "size_bytes": 21832
+    },
+    {
+      "path": "/manus-storage/anchor-loans-white_27fa5998.png",
+      "file": "static-assets/manus-storage/anchor-loans-white_27fa5998.png",
+      "size_bytes": 22198
+    },
+    {
+      "path": "/manus-storage/anthony-sciarretta-headshot-web_65dd5b72.jpg",
+      "file": "static-assets/manus-storage/anthony-sciarretta-headshot-web_65dd5b72.jpg",
+      "size_bytes": 120152
+    },
+    {
+      "path": "/manus-storage/axe-capital-white_c3e9dd8e.png",
+      "file": "static-assets/manus-storage/axe-capital-white_c3e9dd8e.png",
+      "size_bytes": 10956
+    },
+    {
+      "path": "/manus-storage/brick-city-capital-white_78db2366.png",
+      "file": "static-assets/manus-storage/brick-city-capital-white_78db2366.png",
+      "size_bytes": 22764
+    },
+    {
+      "path": "/manus-storage/center-street-lending-white_d238ff5c.png",
+      "file": "static-assets/manus-storage/center-street-lending-white_d238ff5c.png",
+      "size_bytes": 48788
+    },
+    {
+      "path": "/manus-storage/chris-tominelli-headshot-web_5f038db7.png",
+      "file": "static-assets/manus-storage/chris-tominelli-headshot-web_5f038db7.png",
+      "size_bytes": 638458
+    },
+    {
+      "path": "/manus-storage/colonial-funding-white_72f62f51.png",
+      "file": "static-assets/manus-storage/colonial-funding-white_72f62f51.png",
+      "size_bytes": 21908
+    },
+    {
+      "path": "/manus-storage/conventus-white_a375f48b.png",
+      "file": "static-assets/manus-storage/conventus-white_a375f48b.png",
+      "size_bytes": 14509
+    },
+    {
+      "path": "/manus-storage/corevest-finance-white_0767fb13.png",
+      "file": "static-assets/manus-storage/corevest-finance-white_0767fb13.png",
+      "size_bytes": 22185
+    },
+    {
+      "path": "/manus-storage/cv3-financial-white_80b47451.png",
+      "file": "static-assets/manus-storage/cv3-financial-white_80b47451.png",
+      "size_bytes": 30507
+    },
+    {
+      "path": "/manus-storage/d1-funds-white-fitted_ec6b6025.png",
+      "file": "static-assets/manus-storage/d1-funds-white-fitted_ec6b6025.png",
+      "size_bytes": 7536
+    },
+    {
+      "path": "/manus-storage/diego-vivona-headshot-web_fae21cb2.png",
+      "file": "static-assets/manus-storage/diego-vivona-headshot-web_fae21cb2.png",
+      "size_bytes": 540898
+    },
+    {
+      "path": "/manus-storage/easy-street-capital-white_3b03b92e.png",
+      "file": "static-assets/manus-storage/easy-street-capital-white_3b03b92e.png",
+      "size_bytes": 16143
+    },
+    {
+      "path": "/manus-storage/james-huang-headshot-web_d39f94d7.jpg",
+      "file": "static-assets/manus-storage/james-huang-headshot-web_d39f94d7.jpg",
+      "size_bytes": 62696
+    },
+    {
+      "path": "/manus-storage/jo-stephenson-headshot-web_8ab01e16.webp",
+      "file": "static-assets/manus-storage/jo-stephenson-headshot-web_8ab01e16.webp",
+      "size_bytes": 41832
+    },
+    {
+      "path": "/manus-storage/jordan-wilde-portrait_4ca2f6cf.png",
+      "file": "static-assets/manus-storage/jordan-wilde-portrait_4ca2f6cf.png",
+      "size_bytes": 210956
+    },
+    {
+      "path": "/manus-storage/kiavi-white_1d9736de.png",
+      "file": "static-assets/manus-storage/kiavi-white_1d9736de.png",
+      "size_bytes": 18039
+    },
+    {
+      "path": "/manus-storage/kris-sachtleben-white-background-web_ea2a98dd.jpg",
+      "file": "static-assets/manus-storage/kris-sachtleben-white-background-web_ea2a98dd.jpg",
+      "size_bytes": 137067
+    },
+    {
+      "path": "/manus-storage/mark-kole-portrait_86a50646.png",
+      "file": "static-assets/manus-storage/mark-kole-portrait_86a50646.png",
+      "size_bytes": 183007
+    },
+    {
+      "path": "/manus-storage/mike-shemtovi-headshot-web_06ffa7b2.png",
+      "file": "static-assets/manus-storage/mike-shemtovi-headshot-web_06ffa7b2.png",
+      "size_bytes": 548056
+    },
+    {
+      "path": "/manus-storage/peak-private-lending-white_15c799f2.png",
+      "file": "static-assets/manus-storage/peak-private-lending-white_15c799f2.png",
+      "size_bytes": 33771
+    },
+    {
+      "path": "/manus-storage/private-money-lenders-white_eae7029e.png",
+      "file": "static-assets/manus-storage/private-money-lenders-white_eae7029e.png",
+      "size_bytes": 7697
+    },
+    {
+      "path": "/manus-storage/property-source-devices-transparent_ae62f96f.png",
+      "file": "static-assets/manus-storage/property-source-devices-transparent_ae62f96f.png",
+      "size_bytes": 3719516
+    },
+    {
+      "path": "/manus-storage/property-source-network-portrait_06fc6b61.png",
+      "file": "static-assets/manus-storage/property-source-network-portrait_06fc6b61.png",
+      "size_bytes": 4447771
+    },
+    {
+      "path": "/manus-storage/property-source-world-map_d3b0c44e.png",
+      "file": "static-assets/manus-storage/property-source-world-map_d3b0c44e.png",
+      "size_bytes": 3437195
+    },
+    {
+      "path": "/manus-storage/rcn-capital-white_3a708ee1.png",
+      "file": "static-assets/manus-storage/rcn-capital-white_3a708ee1.png",
+      "size_bytes": 27063
+    },
+    {
+      "path": "/manus-storage/residential-capital-partners-white_5edf301b.png",
+      "file": "static-assets/manus-storage/residential-capital-partners-white_5edf301b.png",
+      "size_bytes": 38062
+    },
+    {
+      "path": "/manus-storage/sky-equity-white_77d50edc.png",
+      "file": "static-assets/manus-storage/sky-equity-white_77d50edc.png",
+      "size_bytes": 7789
+    },
+    {
+      "path": "/manus-storage/stephen-grupp-headshot-web_0d14aba6.jpg",
+      "file": "static-assets/manus-storage/stephen-grupp-headshot-web_0d14aba6.jpg",
+      "size_bytes": 127126
+    },
+    {
+      "path": "/manus-storage/velocity-lending-white_8a70b112.png",
+      "file": "static-assets/manus-storage/velocity-lending-white_8a70b112.png",
+      "size_bytes": 22396
+    }
   ]
 }

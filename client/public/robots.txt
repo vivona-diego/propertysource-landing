@@ -1,37 +1,70 @@
-# Property Source Exchange crawler policy
+# Property Hub Exchange crawler policy
 # Public marketing content is available for search, AI search, and user-directed retrieval.
 
 User-agent: *
 Allow: /
+Disallow: /data-room
+Disallow: /api/data-room/
+Disallow: /api/trpc/
 
 User-agent: OAI-SearchBot
 Allow: /
+Disallow: /data-room
+Disallow: /api/data-room/
+Disallow: /api/trpc/
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /data-room
+Disallow: /api/data-room/
+Disallow: /api/trpc/
 
 User-agent: GPTBot
 Allow: /
+Disallow: /data-room
+Disallow: /api/data-room/
+Disallow: /api/trpc/
 
 User-agent: Claude-SearchBot
 Allow: /
+Disallow: /data-room
+Disallow: /api/data-room/
+Disallow: /api/trpc/
 
 User-agent: Claude-User
 Allow: /
+Disallow: /data-room
+Disallow: /api/data-room/
+Disallow: /api/trpc/
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /data-room
+Disallow: /api/data-room/
+Disallow: /api/trpc/
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /data-room
+Disallow: /api/data-room/
+Disallow: /api/trpc/
 
 User-agent: Perplexity-User
 Allow: /
+Disallow: /data-room
+Disallow: /api/data-room/
+Disallow: /api/trpc/
 
 User-agent: Googlebot
 Allow: /
+Disallow: /data-room
+Disallow: /api/data-room/
+Disallow: /api/trpc/
 
 User-agent: Bingbot
 Allow: /
+Disallow: /data-room
+Disallow: /api/data-room/
+Disallow: /api/trpc/
 
 Sitemap: https://propertysource.app/sitemap.xml

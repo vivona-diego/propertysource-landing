@@ -1,48 +1,53 @@
-import { ArrowRight, Bot, Cpu, Globe2, Handshake, MessageCircle, PlugZap, ScanSearch, Sparkles, Workflow } from "lucide-react";
+import { ArrowRight, Bot, Cpu, FileCheck2, Handshake, MessageCircle, PlugZap, ScanSearch, Sparkles, Workflow } from "lucide-react";
+import messaging from "@/data/exchangeMessaging.json";
 
 const capabilities = [
   {
     icon: Handshake,
     label: "Recruit & connect",
     title: "Growth that never sleeps.",
-    text: "Conversational AI agents reach marketplace partners, property owners, and wholesalers—helping bring new communities and property deals into the exchange.",
+    text: "Conversational AI agents support outreach to marketplace partners, property owners, and wholesalers—helping connect new communities and property opportunities to the exchange.",
   },
   {
     icon: MessageCircle,
     label: "Chat • Voice • Phone",
     title: "Answers in every channel.",
-    text: "From text chat and live on-platform voice conversations to phone support, AI agents guide members through navigation, technical questions, and the next step.",
+    text: "Text chat, live on-platform voice, and phone support help members navigate the platform, resolve technical questions, and find their next step.",
   },
   {
     icon: ScanSearch,
     label: "Analyze & inform",
     title: "Intelligence behind every deal.",
-    text: "AI helps analyze properties, lenders, and relevant information—organizing complex data into useful insights that support more informed decisions.",
+    text: "AI helps organize property, lender, and transaction information into useful insights that support informed decisions—not replace professional judgment.",
   },
   {
     icon: Workflow,
     label: "Orchestrate & streamline",
     title: "An always-on operating layer.",
-    text: "AI agents take on routine outreach, support, and coordination duties, creating a scalable 24/7 digital workforce that helps streamline transactions worldwide.",
+    text: "AI-supported outreach, assistance, and coordination create a 24/7 digital workforce around the network while preserving the controls each transaction requires.",
   },
 ];
 
+const workflowIcons = [ScanSearch, FileCheck2, Workflow];
+
 export default function AIPoweredExchange() {
+  const ai = messaging.ai;
   return (
     <section id="ai-powered-exchange" aria-labelledby="ai-exchange-heading" className="ai-exchange-section">
       <div className="container">
         <div className="ai-exchange-intro">
           <div>
             <p className="eyebrow">AI Powered Exchange</p>
-            <h2 id="ai-exchange-heading" className="section-title">The network is the power.<br /><em>AI is the multiplier.</em></h2>
-            <p className="ai-exchange-lead">A global network of buyers and sellers. An intelligent operating layer that never sleeps.</p>
-            <p className="ai-exchange-copy">Property Hub Exchange puts AI to work across Property Source Exchange—from recruiting marketplace partners and sourcing property opportunities to member support, analysis, and transaction coordination. The real strength is the people and opportunities in the network. AI orchestrates the information, reduces friction, and helps buyers and sellers move forward across connected marketplaces worldwide.</p>
+            <h2 id="ai-exchange-heading" className="section-title">Your network.<br />Your agents.<br /><em>One live exchange.</em></h2>
+            <p className="ai-exchange-lead">{ai.lead}</p>
+            <p className="ai-exchange-copy">{ai.summary}</p>
+            <p className="ai-exchange-copy">{ai.service_note}</p>
           </div>
           <div className="ai-network-panel" aria-label="AI agents facilitate outreach, support, analysis, and transaction coordination around the clock">
             <div className="ai-agent-background" aria-hidden="true" />
             <div className="ai-network-topline"><span><Sparkles size={13} aria-hidden="true" /> Intelligence in motion</span><span className="ai-network-status"><span aria-hidden="true" />Always on</span></div>
             <div className="ai-agent-card-heading"><span className="ai-agent-processor"><Cpu size={24} aria-hidden="true" /></span><h3>AI agents.<br /><span>Real work. Around the clock.</span></h3></div>
-            <p className="ai-agent-card-summary"><strong>24/7</strong> An intelligent workforce supporting your marketplace.</p>
+            <p className="ai-agent-card-summary"><strong>24/7</strong> An intelligent workforce supporting the shared infrastructure.</p>
             <div className="ai-service-agents">
               <div className="ai-service-agent"><Handshake size={20} aria-hidden="true" /><div><h4>Outreach agents</h4><p>Connect partners & source deals</p></div></div>
               <div className="ai-service-agent"><MessageCircle size={20} aria-hidden="true" /><div><h4>Support agents</h4><p>Guide members by chat & voice</p></div></div>
@@ -63,10 +68,26 @@ export default function AIPoweredExchange() {
           ))}
         </div>
 
-        <div className="ai-agent-bridge">
-          <span className="ai-bridge-icon"><PlugZap size={25} aria-hidden="true" /></span>
-          <div><p className="eyebrow">Built for an agent-connected future</p><h3>Your investors bring their AI. We connect the opportunity.</h3><p>The exchange is designed to help investor-operated AI agents discover and work with property deals through connected, machine-readable interfaces. AI inside the platform and agents outside it can support a more connected real estate ecosystem.</p><small>External-agent access depends on the supported integration and its permissions.</small></div>
-          <span className="ai-bridge-mark" aria-hidden="true"><Bot size={28} /><ArrowRight size={16} /><Globe2 size={28} /></span>
+        <div className="agent-access-panel" aria-labelledby="agent-access-heading">
+          <div className="agent-access-heading">
+            <span className="ai-bridge-icon"><PlugZap size={25} aria-hidden="true" /></span>
+            <div><p className="eyebrow">{ai.gateway_eyebrow}</p><h3 id="agent-access-heading">{ai.gateway_heading}</h3><p>{ai.gateway_copy}</p></div>
+          </div>
+          <ol className="agent-access-flow">
+            {ai.workflow.map((step, index) => {
+              const Icon = workflowIcons[index];
+              return <li key={step.title}><span className="agent-flow-number">0{index + 1}</span><Icon size={21} aria-hidden="true" /><h4>{step.title}</h4><p>{step.text}</p></li>;
+            })}
+          </ol>
+          <div className="agent-access-footer"><p>{ai.access_note}</p><a href="https://app.propertysource.app/register" target="_blank" rel="noopener noreferrer" className="revenue-cta">{ai.cta}<ArrowRight size={15} aria-hidden="true" /></a></div>
+        </div>
+
+        <div className="exchange-faq" aria-labelledby="exchange-faq-heading">
+          <p className="eyebrow">Clear answers</p>
+          <h3 id="exchange-faq-heading">Live today. Clear on what comes next.</h3>
+          <div className="exchange-faq-grid">
+            {ai.faqs.map(faq => <details key={faq.question}><summary>{faq.question}<span aria-hidden="true">+</span></summary><p>{faq.answer}</p></details>)}
+          </div>
         </div>
       </div>
     </section>

@@ -1,26 +1,26 @@
 {
   "schema_version": "1.0",
-  "last_updated": "2026-10-16",
+  "last_updated": "2026-10-24",
   "organization": "Property Hub Exchange, Inc.",
-  "platform": "Property Source Exchange",
-  "section": "Executive Operations Team",
+  "platform": "Property Hub Exchange",
+  "section": "Our Leadership",
   "members": [
     {
       "id": "mark-kole",
       "name": "Mark Kole",
-      "job_title": "Founder",
-      "abbreviation": "Founder",
+      "job_title": "Founder and CEO",
+      "abbreviation": "Founder and CEO",
       "initials": "MK",
       "photo_url": "/manus-storage/mark-kole-portrait_86a50646.png"
     },
     {
-      "id": "jordan-wilde",
-      "name": "Jordan Wilde",
-      "job_title": "Chief Executive Officer",
-      "abbreviation": "CEO",
-      "initials": "JW",
-      "photo_url": "/manus-storage/jordan-wilde-portrait_4ca2f6cf.png",
-      "photo_note": "Original portrait extracted from the company-provided pitch deck team slide."
+      "id": "chris-tominelli",
+      "name": "Chris Tominelli",
+      "job_title": "Chief Financial Officer",
+      "abbreviation": "CFO",
+      "initials": "CT",
+      "photo_url": "/manus-storage/chris-tominelli-headshot-web_5f038db7.png",
+      "photo_note": "Previously approved AI-edited business headshot based on the company-provided photograph; reused without further image edits."
     },
     {
       "id": "james-huang",
@@ -32,6 +32,15 @@
       "photo_note": "Company-provided business portrait, optimized for website loading."
     },
     {
+      "id": "kris-sachtleben",
+      "name": "Kris Sachtleben",
+      "job_title": "Chief Growth Officer",
+      "abbreviation": "CGO",
+      "initials": "KS",
+      "photo_url": "/manus-storage/kris-sachtleben-white-background-web_ea2a98dd.jpg",
+      "photo_note": "AI-edited background-only business portrait based on the company-provided photograph; white background matched to the leadership portraits, preserving Kris’s likeness and attire."
+    },
+    {
       "id": "diego-vivona",
       "name": "Diego Vivona",
       "job_title": "Chief Technology Officer",
@@ -41,22 +50,71 @@
       "photo_note": "AI-edited business headshot based on the company-provided photograph."
     },
     {
-      "id": "kris-sachtleben",
-      "name": "Kris Sachtleben",
-      "job_title": "Chief Growth Officer",
-      "abbreviation": "CGO",
-      "initials": "KS",
-      "photo_url": "/manus-storage/kris-sachtleben-headshot-fitted_ff47bd2d.jpg",
-      "photo_note": "Company-provided photograph, cropped to head and upper torso and resized for the leadership card. Appearance, clothing, colors and background unchanged; no AI edits."
+      "id": "anthony-sciarretta",
+      "name": "Anthony Sciarretta",
+      "job_title": "President of Wholesaler Networks",
+      "abbreviation": "President",
+      "initials": "AS",
+      "photo_url": "/manus-storage/anthony-sciarretta-headshot-web_65dd5b72.jpg",
+      "photo_note": "Portrait extracted from the company-provided pitch deck team slide; AI-matched navy jacket, white open-collar shirt and white background, preserving Anthony’s likeness and smile."
+    },
+    {
+      "id": "stephen-grupp",
+      "name": "Stephen Grupp",
+      "job_title": "President of Lender Networks",
+      "abbreviation": "President",
+      "initials": "SG",
+      "photo_url": "/manus-storage/stephen-grupp-headshot-web_0d14aba6.jpg",
+      "photo_note": "Portrait extracted from the company-provided pitch deck team slide; AI-matched clean white background and headroom, preserving Stephen’s likeness, hair, navy jacket and white shirt."
     },
     {
       "id": "mike-shemtovi",
       "name": "Mike Shemtovi",
-      "job_title": "Chief Investment Officer",
-      "abbreviation": "CIO",
+      "job_title": "President of International Networks",
+      "abbreviation": "President",
       "initials": "MS",
       "photo_url": "/manus-storage/mike-shemtovi-headshot-web_06ffa7b2.png",
       "photo_note": "AI-edited business headshot based on the company-provided photograph; eyeglasses removed and framing matched to the executive portraits."
+    },
+    {
+      "id": "jo-stephenson",
+      "name": "Jo Stephenson",
+      "job_title": "President of Real Estate Brokerage/Agent Network",
+      "abbreviation": "President",
+      "initials": "JS",
+      "photo_url": "/manus-storage/jo-stephenson-headshot-web_8ab01e16.webp",
+      "photo_note": "Company-provided business portrait, proportionally resized and compressed for website loading without altering appearance or removing image content."
+    },
+    {
+      "id": "jordan-wilde-auction-services",
+      "name": "Jordan Wilde",
+      "job_title": "President of Auction Services",
+      "abbreviation": "President",
+      "initials": "JW",
+      "photo_url": "/manus-storage/jordan-wilde-portrait_4ca2f6cf.png",
+      "photo_note": "Existing Jordan Wilde portrait extracted from the company-provided pitch deck; reused for his President of Auction Services profile."
+    }
+  ],
+  "teams": [
+    {
+      "name": "Executive Operations Team",
+      "member_ids": [
+        "mark-kole",
+        "chris-tominelli",
+        "james-huang",
+        "kris-sachtleben",
+        "diego-vivona"
+      ]
+    },
+    {
+      "name": "Executive Channel Team",
+      "member_ids": [
+        "anthony-sciarretta",
+        "stephen-grupp",
+        "mike-shemtovi",
+        "jo-stephenson",
+        "jordan-wilde-auction-services"
+      ]
     }
   ]
 }

@@ -37,6 +37,9 @@ function ExecutiveCard({ member }: { member: Executive }) {
 }
 
 export default function ExecutiveTeam() {
+  const operationsMembers = teamDirectory.members.filter((member) => teamDirectory.teams[0].member_ids.includes(member.id));
+  const channelMembers = teamDirectory.members.filter((member) => teamDirectory.teams[1].member_ids.includes(member.id));
+
   return (
     <section id="executive-team" aria-labelledby="executive-team-heading" className="executive-team-section">
       <div className="container">
@@ -45,11 +48,25 @@ export default function ExecutiveTeam() {
             <p className="eyebrow">Our leadership</p>
             <h2 id="executive-team-heading" className="section-title">Executive <em>Operations Team.</em></h2>
           </div>
-          <p className="executive-team-intro">Meet the team behind Property Hub Exchange, Inc. and the Property Source Exchange platform.</p>
+          <p className="executive-team-intro">Meet the team behind the Property Hub Exchange platform, owned and operated by Property Hub Exchange, Inc.</p>
         </div>
-        <div className="executive-team-grid">
-          {teamDirectory.members.map((member) => <ExecutiveCard key={member.id} member={member} />)}
+        <div className="executive-operations-rail" role="region" aria-labelledby="executive-team-heading" tabIndex={0}>
+          <div className="executive-team-grid executive-operations-grid">
+            {operationsMembers.map((member) => <ExecutiveCard key={member.id} member={member} />)}
+          </div>
         </div>
+        <p className="executive-scroll-hint">Swipe to view all {operationsMembers.length} executives.</p>
+        <section className="executive-channel-team" aria-labelledby="executive-channel-team-heading">
+          <div className="executive-team-heading">
+            <h2 id="executive-channel-team-heading" className="section-title">Executive <em>Channel Team.</em></h2>
+          </div>
+          <div className="executive-operations-rail executive-channel-rail" role="region" aria-labelledby="executive-channel-team-heading" tabIndex={0}>
+            <div className="executive-team-grid executive-channel-grid">
+              {channelMembers.map((member) => <ExecutiveCard key={member.id} member={member} />)}
+            </div>
+          </div>
+          <p className="executive-scroll-hint">Swipe to view all {channelMembers.length} channel-team profiles.</p>
+        </section>
       </div>
     </section>
   );

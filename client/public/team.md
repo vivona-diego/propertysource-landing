@@ -1,28 +1,47 @@
-# Executive Operations Team
+# Our Leadership
 
-Property Hub Exchange, Inc. — Property Source Exchange
+Property Hub Exchange, Inc. — Property Hub Exchange
 
-Current leadership titles supplied by the company; updated October 16, 2026.
+Current leadership titles supplied by the company; updated October 24, 2026.
+
+## Executive Operations Team
 
 | Name | Job title |
 | --- | --- |
-| Mark Kole | Founder |
-| Jordan Wilde | Chief Executive Officer |
+| Mark Kole | Founder and CEO |
+| Chris Tominelli | Chief Financial Officer |
 | James Huang | Chief Strategy Officer |
-| Diego Vivona | Chief Technology Officer |
 | Kris Sachtleben | Chief Growth Officer |
-| Mike Shemtovi | Chief Investment Officer |
+| Diego Vivona | Chief Technology Officer |
 
-Portraits of all displayed leadership team members are published. The top row is Mark Kole (Founder), Jordan Wilde (Chief Executive Officer), and James Huang (Chief Strategy Officer). The bottom row is Diego Vivona (Chief Technology Officer), Kris Sachtleben (Chief Growth Officer), and Mike Shemtovi (Chief Investment Officer). Existing dated announcements remain historical records and may describe earlier roles.
+## Executive Channel Team
 
-Mark Kole portrait: https://propertysource.app/manus-storage/mark-kole-portrait_86a50646.png
+| Name | Job title |
+| --- | --- |
+| Anthony Sciarretta | President of Wholesaler Networks |
+| Stephen Grupp | President of Lender Networks |
+| Mike Shemtovi | President of International Networks |
+| Jo Stephenson | President of Real Estate Brokerage/Agent Network |
+| Jordan Wilde | President of Auction Services |
 
-Jordan Wilde portrait: https://propertysource.app/manus-storage/jordan-wilde-portrait_4ca2f6cf.png (Original portrait extracted from the company-provided pitch deck team slide.)
+The five operations-team profiles run left to right: Mark Kole, Chris Tominelli (Chief Financial Officer), James Huang, Kris Sachtleben, and Diego Vivona. Five channel-team profiles appear in a matching centered row below: Anthony Sciarretta, Stephen Grupp, Mike Shemtovi, Jo Stephenson, and Jordan Wilde (President of Auction Services). Jo’s company-provided portrait is displayed; all ten leadership profiles now have photographs. Chris’s CFO card uses his previously approved headshot; Jordan’s auction-services profile and portrait are unchanged. Both rows scroll horizontally on phones to keep names and titles legible. Historical announcements remain unchanged.
 
-James Huang portrait: https://propertysource.app/manus-storage/james-huang-headshot-web_d39f94d7.jpg (Company-provided business portrait, optimized for website loading.)
+Mark Kole (Founder and CEO) portrait: https://propertysource.app/manus-storage/mark-kole-portrait_86a50646.png
 
-Diego Vivona portrait: https://propertysource.app/manus-storage/diego-vivona-headshot-web_fae21cb2.png (AI-edited business headshot based on the company-provided photograph.)
+Chris Tominelli (Chief Financial Officer) portrait: https://propertysource.app/manus-storage/chris-tominelli-headshot-web_5f038db7.png
 
-Kris Sachtleben portrait: https://propertysource.app/manus-storage/kris-sachtleben-headshot-fitted_ff47bd2d.jpg (Company-provided photograph, cropped to head and upper torso and resized for the leadership card. Appearance, clothing, colors and background unchanged; no AI edits.)
+James Huang (Chief Strategy Officer) portrait: https://propertysource.app/manus-storage/james-huang-headshot-web_d39f94d7.jpg
 
-Mike Shemtovi portrait: https://propertysource.app/manus-storage/mike-shemtovi-headshot-web_06ffa7b2.png (AI-edited business headshot based on the company-provided photograph; eyeglasses removed and framing matched to the executive portraits.)
+Kris Sachtleben (Chief Growth Officer) portrait: https://propertysource.app/manus-storage/kris-sachtleben-white-background-web_ea2a98dd.jpg
+
+Diego Vivona (Chief Technology Officer) portrait: https://propertysource.app/manus-storage/diego-vivona-headshot-web_fae21cb2.png
+
+Anthony Sciarretta (President of Wholesaler Networks) portrait: https://propertysource.app/manus-storage/anthony-sciarretta-headshot-web_65dd5b72.jpg
+
+Stephen Grupp (President of Lender Networks) portrait: https://propertysource.app/manus-storage/stephen-grupp-headshot-web_0d14aba6.jpg
+
+Mike Shemtovi (President of International Networks) portrait: https://propertysource.app/manus-storage/mike-shemtovi-headshot-web_06ffa7b2.png
+
+Jo Stephenson (President of Real Estate Brokerage/Agent Network) portrait: https://propertysource.app/manus-storage/jo-stephenson-headshot-web_8ab01e16.webp
+
+Jordan Wilde (President of Auction Services) portrait: https://propertysource.app/manus-storage/jordan-wilde-portrait_4ca2f6cf.png

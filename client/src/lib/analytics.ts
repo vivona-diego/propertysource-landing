@@ -13,6 +13,7 @@ export function initializeGoogleAnalytics(
   measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID ?? DEFAULT_GA_MEASUREMENT_ID,
   enabled = import.meta.env.PROD,
 ): void {
+  if (typeof window === "undefined" || /^\/data-room(?:\/|$)/.test(window.location.pathname)) return;
   const id = measurementId.trim();
   // Local development is not tracked. Empty or "disabled" disables tracking.
   if (!enabled || !/^G-[A-Z0-9]+$/.test(id) || window.propertySourceAnalyticsId) return;

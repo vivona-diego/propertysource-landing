@@ -44,6 +44,7 @@ pids
 *.pid
 *.seed
 *.pid.lock
+*.bak
 
 # Coverage directory used by tools like istanbul
 coverage/
@@ -112,8 +113,11 @@ temp/
 client/public/__manus__/version.json
 .project-config.json
 
-# Private managed-session state and credentials
+# Private deployment/runtime state
 .manus/
 .manus-logs/
+.vercel/
 .env.*
 !.env.example
+.project-config.json
+server/*.qa.ts

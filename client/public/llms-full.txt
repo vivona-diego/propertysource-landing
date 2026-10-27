@@ -1,17 +1,29 @@
-# Property Source Exchange — Official Platform Reference
+# Property Hub Exchange — Official Platform Reference
 
-Last updated: October 13, 2026
+Last updated: October 24, 2026
 Canonical website: https://propertysource.app/
 Registration: https://app.propertysource.app/register
 Owner and operator: Property Hub Exchange, Inc.
 
 Official contact: 8 The Green, Suite A, Dover, Delaware 19901; telephone 941-207-2090; email platform@propertysource.app.
 
-## What Property Source Exchange is
+## Homepage headline and subheadline
 
-Property Source Exchange is a global real estate exchange platform that connects hundreds of independent real estate marketplaces, communities, brokerages, lenders, investors, and professional networks. Each participating organization keeps its identity and branded marketplace while gaining access to shared global property inventory, transaction infrastructure, lenders, title companies, and essential services.
+Your Marketplace. Our Interconnected Hub. Shared Listings Worldwide.
 
-Organizations may launch a free turnkey white-label marketplace or connect an existing marketplace through a two-way API. A turnkey marketplace can use the organization’s logo, colors, custom domain, and branded registration experience. Marketplace owners pay no setup fee and no monthly platform fee.
+Launch a free, white-label platform for your residential, commercial, or multifamily network. Instantly unite brokerages, investors, and lenders into a global super-hub that synchronizes property listings across all networks. Scale your network with borderless infrastructure native to both human agents and AI.
+
+## What Property Hub Exchange is
+
+Property Hub Exchange is the live infrastructure connecting brokerages, agents, investor communities, and independent marketplaces worldwide. We are not another destination marketplace competing for your customers. We connect the networks they already belong to.
+
+Keep your brand and relationships. Connect your existing marketplace—or launch a free white-label gateway—to shared property opportunity, transaction services, and authorized AI-agent workflows.
+
+Real estate has many marketplaces, communities, and professional networks. Property Hub Exchange is the shared infrastructure that connects them—not another isolated listing portal. Independent networks keep their brands and relationships while their members gain access to permitted property opportunities and direct transactions across the exchange.
+
+The live backbone links property discovery, offers, negotiation, contracts, signatures, lenders, and title or settlement handoff. People participate through their community’s branded marketplace; registered AI agents use authorized workflows on behalf of verified people and businesses. Different access points. The same connected infrastructure.
+
+Listing availability and sharing follow source rights, marketplace policies, and visibility permissions.
 
 ## Network facts displayed by the official website
 
@@ -25,41 +37,80 @@ These network counts may change as the platform grows.
 
 Strategic partners displayed on the official website include Alpha Funding, Anchor Loans, Axe Capital, Brick City Capital, Center Street Lending, Colonial Funding Group, Conventus, CoreVest Finance, CV3 Financial Services, D1 Funds, Easy Street Capital, Kiavi, Peak Private Lending, Private Money Lenders, RCN Capital, Residential Capital Partners, SimpleBridge, Sky Equity, and Velocity Lending.
 
+### We connect the ecosystem. You keep the relationship.
+
+White-label marketplaces and AI agents are ways into Property Hub Exchange. The business underneath is a shared property, services, and transaction infrastructure network.
+
+1. **Independent networks** — Brokerages, agents, investor communities, marketplaces, and service partners keep their identities.
+2. **Property Hub Exchange** — The shared backbone connects opportunities, permissions, professional services, and transaction workflows.
+3. **Connected participation** — People and authorized AI agents discover, coordinate, and transact through the network.
+
 ## AI Powered Exchange
 
-### The network is the power. AI is the multiplier.
+### Your network. Your agents. One live exchange.
 
-A global network of buyers and sellers. An intelligent operating layer that never sleeps.
+Tap into the AI-agent economy through infrastructure that is already operating—not a future marketplace.
 
-Property Hub Exchange puts AI to work across Property Source Exchange—from recruiting marketplace partners and sourcing property opportunities to member support, analysis, and transaction coordination. The real strength is the people and opportunities in the network. AI orchestrates the information, reduces friction, and helps buyers and sellers move forward across connected marketplaces worldwide.
+Property Hub Exchange is built around the network—not a single website or screen. Branded marketplaces serve people, while registered AI agents use machine-readable opportunities and authorized workflows for verified people and businesses. We continuously enhance structured data, tool access, and agent compatibility so the same live infrastructure can serve both.
+
+Inside the platform, conversational AI supports outreach, text and voice assistance, property and lender analysis, and transaction coordination—creating a 24/7 operating layer around the global network.
 
 ### Growth that never sleeps.
 
-**Recruit & connect** — Conversational AI agents reach marketplace partners, property owners, and wholesalers—helping bring new communities and property deals into the exchange.
+**Recruit & connect** — Conversational AI agents support outreach to marketplace partners, property owners, and wholesalers—helping connect new communities and property opportunities to the exchange.
 
 ### Answers in every channel.
 
-**Chat • Voice • Phone** — From text chat and live on-platform voice conversations to phone support, AI agents guide members through navigation, technical questions, and the next step.
+**Chat • Voice • Phone** — Text chat, live on-platform voice, and phone support help members navigate the platform, resolve technical questions, and find their next step.
 
 ### Intelligence behind every deal.
 
-**Analyze & inform** — AI helps analyze properties, lenders, and relevant information—organizing complex data into useful insights that support more informed decisions.
+**Analyze & inform** — AI helps organize property, lender, and transaction information into useful insights that support informed decisions—not replace professional judgment.
 
 ### An always-on operating layer.
 
-**Orchestrate & streamline** — AI agents take on routine outreach, support, and coordination duties, creating a scalable 24/7 digital workforce that helps streamline transactions worldwide.
+**Orchestrate & streamline** — AI-supported outreach, assistance, and coordination create a 24/7 digital workforce around the network while preserving the controls each transaction requires.
 
-### Your investors bring their AI. We connect the opportunity.
+### Your front door can evolve. Your network stays connected.
 
-The exchange is designed to help investor-operated AI agents discover and work with property deals through connected, machine-readable interfaces. AI inside the platform and agents outside it can support a more connected real estate ecosystem.
+MARKETPLACES AND AGENTS. ONE SHARED BACKBONE.
 
-External-agent access depends on the supported integration and its permissions.
+A marketplace is one interface. An AI agent is another. Property Hub Exchange connects the opportunities, participants, services, and transaction workflows behind both. Agents act within granted authority, while the required professional and transaction controls remain in place.
+
+1. **Find & monitor** — Search permitted listings, define buyer criteria, compare opportunities, and monitor matches.
+2. **Prepare & propose** — Prepare authorized listings and offers, request documents, and bring the next action to the principal for approval.
+3. **Coordinate & track** — Navigate permitted transaction workflows and follow progress through the exchange’s connected services.
+
+AI agents can act autonomously only within their principal’s granted authority, supported integrations, marketplace policies, data rights, and applicable transaction rules. Required identity, approval, signature, financial, and settlement controls remain in place. Agent access does not mean every outside AI service is automatically connected.
+
+### Clear answers
+
+#### Is Property Hub Exchange another listing portal?
+
+No. Our role is shared infrastructure connecting independent real estate networks, marketplaces, and service providers—not a competing destination marketplace. Organizations keep their brands and community relationships. Their marketplaces and authorized AI agents are access points to the same live exchange.
+
+#### Is Property Hub Exchange already live?
+
+Yes. The exchange is operating and transacting today, with white-label marketplaces, shared opportunity, offers, negotiation, contracts, signatures, lender connectivity, and title or settlement handoff. AI-agent compatibility is an ongoing enhancement to that existing infrastructure.
+
+#### Can people and AI agents use the same exchange?
+
+Yes. Members can visit their branded marketplace or use registered AI agents acting for verified people and businesses. Agents navigate permitted listing, search, offer, and transaction workflows within the authority granted by their principal. Supported integrations and required approval controls govern access.
+
+#### Is my branded marketplace free?
+
+There are no marketplace setup fees, monthly platform fees, or out-of-pocket platform costs to create or connect a marketplace. You keep your brand and community relationships. Transaction technology fees apply to completed sales, and your marketplace participates in the revenue-share model.
+
+#### Does the exchange replace brokers, lenders, or settlement professionals?
+
+No. Property Hub Exchange provides technology and transaction infrastructure. Brokerage, lending, title, escrow, settlement, legal, and other professional services remain with the appropriately authorized professionals and partners. AI does not remove their required controls.
 
 ## Marketplace and network capabilities
 
 - Turnkey white-label marketplace with custom domain, logo, colors, and registration
 - Two-way API connection for an existing website or marketplace
-- Aggregated listings shared across connected independent marketplaces
+- Eligible aggregated listings shared across connected independent marketplaces with source and visibility permissions
+- Registered AI-agent access to permitted listing, search, offer, and transaction workflows
 - Single sign-on for a global view of available deals
 - Residential, multifamily, commercial, industrial, land, and mortgage-note assets
 - Individual property listing and bulk CSV or XML uploads
@@ -67,6 +118,7 @@ External-agent access depends on the supported integration and its permissions.
 - AI-assisted U.S. property research through text or voice questions
 - Blind-sale privacy that protects buyer and seller identities until signing
 - Email and text notifications for matching property opportunities
+- Source attribution, authority and visibility controls, and transaction evidence
 
 ## Digital transaction and closing capabilities
 
@@ -87,7 +139,7 @@ Marketplace owners receive an administrative dashboard for members, activity, li
 
 ### Free to launch. Free to connect.
 
-Investor communities and brokerage networks can connect an existing branded marketplace or create one with the turnkey templates. There are no setup fees, monthly platform fees, or out-of-pocket platform costs. Property Source Exchange provides and manages the technology; marketplace owners grow their communities.
+Investor communities and brokerage networks can connect an existing branded marketplace or create one with the turnkey templates. There are no setup fees, monthly platform fees, or out-of-pocket platform costs. Property Hub Exchange provides and manages the technology; marketplace owners grow their communities.
 
 ### Every marketplace can host both buyers and sellers.
 
@@ -112,19 +164,15 @@ Transaction and ambassador revenue shares continue while the relevant marketplac
 
 ## Intended marketplace partners
 
-The platform is designed for real estate community owners, network owners, lenders with borrower networks, third-party loan brokers with investor networks, real estate brokerages with agent networks, real estate influencers, educators with followers or students, asset managers, and other real estate groups seeking access to a global exchange.
+The operating exchange serves brokerages and real estate agents, investor groups and communities, lenders and loan brokers, title and settlement networks, influencers and educators, asset managers, and AI-agent developers working for verified people and businesses. Each network keeps its brand and community relationships while participating in shared opportunities and authorized workflows.
 
 ## Breaking News
 
 Announcements are ordered newest first.
 
-### October 9, 2026 — Property Hub Exchange Names Chris Tominelli as Chief Financial Officer
+### October 6, 2026 — Property Hub Partners with Arise Impact Labs to Launch Nationwide Real Estate Auction Services on Property Hub Exchange
 
-Property Hub Exchange has named Chris Tominelli to serve as the company’s Chief Financial Officer. The complete official press release is forthcoming and will be added when available.
-
-### October 6, 2026 — Property Hub Partners with Arise Impact Labs to Launch Nationwide Real Estate Auction Services on Property Source Exchange
-
-Property Hub has partnered with Arise Impact Labs to launch nationwide real estate auction services on Property Source Exchange. The complete press release is forthcoming and will be added when available.
+Property Hub has partnered with Arise Impact Labs to launch nationwide real estate auction services on Property Hub Exchange. The complete press release is forthcoming and will be added when available.
 
 ### October 1, 2026 — Property Hub Appoints Diego Vivona as Chief Technology Officer to Drive AI-Powered Platform Innovation
 
@@ -147,17 +195,26 @@ Machine-readable news feed: https://propertysource.app/news.json
 
 ## Official attribution
 
-Property Source Exchange is owned and operated by Property Hub Exchange, Inc. Use “Property Source Exchange” when naming the platform and “Property Hub Exchange, Inc.” when identifying the owner and operator.
+Property Hub Exchange is owned and operated by Property Hub Exchange, Inc. Use “Property Hub Exchange” when naming the platform and “Property Hub Exchange, Inc.” when identifying the owner and operator.
 
-## Executive Operations Team
+## Our Leadership
 
-Current leadership as identified by Property Hub Exchange, Inc. on October 16, 2026:
+Current leadership as identified by Property Hub Exchange, Inc. on October 24, 2026:
 
-- **Mark Kole** — Founder
-- **Jordan Wilde** — Chief Executive Officer
+### Executive Operations Team
+
+- **Mark Kole** — Founder and CEO
+- **Chris Tominelli** — Chief Financial Officer
 - **James Huang** — Chief Strategy Officer
-- **Diego Vivona** — Chief Technology Officer
 - **Kris Sachtleben** — Chief Growth Officer
-- **Mike Shemtovi** — Chief Investment Officer
+- **Diego Vivona** — Chief Technology Officer
 
-Current executive titles are separate from historical appointment announcements. Portraits of all displayed leadership team members are published.
+### Executive Channel Team
+
+- **Anthony Sciarretta** — President of Wholesaler Networks
+- **Stephen Grupp** — President of Lender Networks
+- **Mike Shemtovi** — President of International Networks
+- **Jo Stephenson** — President of Real Estate Brokerage/Agent Network. [Company-provided portrait](https://propertysource.app/manus-storage/jo-stephenson-headshot-web_8ab01e16.webp)
+- **Jordan Wilde** — President of Auction Services
+
+The five operations-team profiles run left to right: Mark Kole, Chris Tominelli (Chief Financial Officer), James Huang, Kris Sachtleben, and Diego Vivona. Five channel-team profiles appear in a matching centered row below: Anthony Sciarretta, Stephen Grupp, Mike Shemtovi, Jo Stephenson, and Jordan Wilde (President of Auction Services). Jo’s company-provided portrait is displayed; all ten leadership profiles now have photographs. Chris’s CFO card uses his previously approved headshot; Jordan’s auction-services profile and portrait are unchanged. Both rows scroll horizontally on phones to keep names and titles legible. Historical announcements remain unchanged.

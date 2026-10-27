@@ -1,115 +1,82 @@
-# Property Source Exchange
+# Property Hub Exchange
 
-Recruiting website for Property Source Exchange, owned and operated by Property Hub Exchange, Inc.
+The complete recruiting website and private investor data room for Property Hub Exchange, Inc. This release synchronizes the managed website checkpoint **05e0cb2e** into the GitHub repository while preserving portable public images and Google Analytics.
 
-This repository contains the complete website source and development history through the October 8, 2026 checkpoint `6865a2da`, including:
+## Included in this release
 
-- Responsive recruiting homepage, official company branding, full-width strategic partner carousel, and platform features.
-- Marketplace revenue-share model, turnkey setup steps, and registration calls to action.
-- Breaking News announcement cards with independent press-release pop-ups and visible Close controls.
-- Five company announcements, including the Diego Vivona Chief Product Officer appointment, Arise Impact Labs partnership, Dreamweaver Tech agreement, and Mark Kole Chief Operating Officer appointment.
-- Search and AI discovery files: semantic HTML, Schema.org JSON-LD, robots.txt, sitemap.xml, Markdown mirrors, llms.txt, and machine-readable platform, partner, and news JSON.
-- All 22 images currently referenced by the website, bundled under `static-assets/manus-storage/` with their original storage filenames.
+The current homepage includes the updated marketplace headline, AI-powered exchange messaging, strategic partner carousel, clarified revenue model, company news and current Operations and Channel Team profiles. All 33 currently referenced public image assets are bundled under `static-assets/manus-storage/`.
 
-## Requirements
+The investor data room includes individual password logins, owner-verified administrator setup, an administration dashboard, invitations, expiration and revocation controls, PDF viewing, Excel downloads, encrypted document storage and activity history. The latest sign-in fixes remove the temporary page flash and provide an explicit standalone-tab recovery option when an embedded browser blocks its secure session cookie.
 
-- Node.js 22 or later.
-- pnpm 10.x. The package.json `packageManager` field records the original version.
+**Private investor documents, accounts, passwords, database contents and deployment secrets are not in this repository.** They remain in the configured database and private object storage.
 
-## Install and run
+## Install, test and build
+
+Use Node.js 22 and pnpm 10:
 
 ```sh
 pnpm install --frozen-lockfile
-pnpm dev:standalone
-```
-
-Open the address printed by Vite (normally http://localhost:3000). The standalone configuration serves bundled images directly, so no private managed-storage credentials are required.
-
-## Validate and build
-
-```sh
 pnpm check
+pnpm test
 pnpm build:standalone
 pnpm start
 ```
 
-The production website is generated in `dist/public/`. `build:standalone` includes the bundled images at `dist/public/manus-storage/`. `pnpm start` serves that output using the existing Express static server. Alternatively, deploy `dist/public/` to a static host with an index.html fallback for routes.
+`build:standalone` produces the frontend in `dist/public/`, copies the bundled public images, and builds the full Express server in `dist/index.js`. For local full-stack development, use `pnpm dev:standalone` after privately configuring the backend variables. The original managed `dev` and `build` scripts remain available.
 
-The original `dev` and `build` scripts and `vite.config.ts` remain available for the managed-preview workflow. For a fresh GitHub checkout, use the `:standalone` scripts above.
+The standalone server supports the application's 15 MB document-file limit. Run it behind HTTPS: investor sessions use Secure, HttpOnly cookies. Ordinary password-based investor/admin access does not require a Manus website hostname.
 
-## Deploy to Vercel
+## GitHub and Vercel deployment
 
-The repository-root `vercel.json` explicitly configures this project as a **Vite static site**:
+Pushing this repository's `main` branch should trigger the existing GitHub-linked Vercel project. The root `vercel.json` builds the Vite frontend into `dist/public/` and routes `/api/*` to the Express Function in `api/index.ts`. The API is **not** rewritten to the homepage. Investor HTML responses receive private/no-store and noindex headers.
 
-- Install command: `pnpm install --frozen-lockfile`
-- Build command: `pnpm run build:vercel`
-- Output directory: `dist/public`
-- Root directory: repository root (leave blank in Vercel)
-- SPA fallback: unmatched application paths resolve to `index.html`; existing images, scripts, styles, and AI-readable files are served normally.
+Keep the Vercel root directory set to the repository root. The configuration specifies:
 
-Vercel serves the static output directly. It must **not** publish the parent `dist/` directory or use `dist/index.js` as the homepage. That file is the optional Express server for traditional Node hosting, not a browser entry point. No `pnpm start` command or Express server process is needed on Vercel.
+- Install: `pnpm install --frozen-lockfile`
+- Build: `pnpm run build:vercel`
+- Output: `dist/public`
 
-`build:vercel` includes all bundled images, and repository configuration overrides build/output settings in the Vercel dashboard. A push to the linked production branch should trigger a new deployment.
+### Backend configuration is required
 
-## Google Analytics 4
+Set these values privately in **Vercel → Project Settings → Environment Variables**, then redeploy:
 
-The Google tag is initialized once in the page head, only in production builds. It sends the standard GA4 page-view event and supports Google's automatically collected events and any enhanced measurement enabled in the GA4 web stream. No names, email addresses, or other custom personal data are sent by this integration.
+- `DATABASE_URL`: the approved MySQL/TiDB connection, including TLS configuration where required.
+- `JWT_SECRET`: the existing server secret. Preserve it when the current private files were encrypted using this secret.
+- `BUILT_IN_FORGE_API_URL` and `BUILT_IN_FORGE_API_KEY`: credentials for the current encrypted document-storage integration.
+- `DATA_ROOM_ENCRYPTION_KEY`: only if an explicit separate encryption key was already in use. Do not introduce a different key for existing files: they would no longer decrypt.
 
-In **Vercel → Project Settings → Environment Variables**, add:
+For the optional verified-owner OAuth login and initial admin-email configuration, also supply `VITE_APP_ID`, `VITE_OAUTH_PORTAL_URL`, `OAUTH_SERVER_URL` and `OWNER_OPEN_ID`, and configure an approved OAuth callback for the new hostname. Existing individual password logins use the data-room database and do not require owner OAuth.
 
-| Name | Value | Environment |
-| --- | --- | --- |
-| `VITE_GA_MEASUREMENT_ID` | `G-9661Q40LRG` | Production |
+**Never prefix database, storage API keys or encryption secrets with `VITE_`.** Those variables are exposed to frontend builds. `.env.example` contains names and empty placeholders only; actual `.env` files are ignored.
 
-Redeploy after saving: Vite embeds `VITE_` variables at build time. The supplied measurement ID is also the default, so production tracking works without requiring additional configuration. This ID is public, not a secret.
+To preserve existing investors, administrator credentials and uploaded documents, use the approved existing database/storage and the unchanged encryption secret. Do not run the room's initial migration against a database where its tables already exist. For a fresh database, review and apply the versioned SQL under `drizzle/`, and establish the first administrator through the verified-owner setup flow.
 
-To prevent test traffic from preview builds, set `VITE_GA_MEASUREMENT_ID=disabled` for **Preview**. Local development does not load the Google tag. The initializer prevents duplicate loading and duplicate initial page views.
+Without the backend variables, the public website and sign-in page can load, but the investor data room is not operational. Login and document access fail closed; this is not a public-document fallback.
 
-After deployment, visit the website and check GA4 **Reports → Realtime**, or connect Google Tag Assistant. Browser blockers and consent settings can prevent collection. Review applicable privacy and cookie-consent requirements before using analytics; a consent-management interface is not included in this integration.
+### Important file-size constraint on Vercel
 
-## Project layout
+[Vercel Functions limit request and response payloads to 4.5 MB](https://vercel.com/docs/functions/limitations). This application's upload API submits base64 inside JSON, so it is **not suitable for 15 MB uploads through a Vercel Function**. Files of roughly 3 MB or less leave room for base64 and JSON overhead. Larger private downloads can also exceed the Function response limit.
 
-```text
-client/src/pages/Home.tsx      Homepage, partner carousel, announcements, and modal
-client/src/index.css           Branding, responsive layout, and carousel motion
-client/index.html             SEO metadata, JSON-LD, and semantic initial HTML
-client/public/                Crawlable AI/search reference files
-server/index.ts               Existing production static server
-static-assets/manus-storage/   Exact website images, portable outside hosted storage
-static-assets/manifest.json    Image manifest and source checkpoint
-vite.standalone.config.ts      Portable image serving and production asset copying
-```
+The code retains the existing 15 MB application limit for a normal Node deployment; it does not claim to bypass Vercel's platform limit. If your pitch decks or workbooks exceed the Vercel limit, use the standalone backend on a suitable HTTPS Node host or implement a separately reviewed private direct-upload/streaming workflow before advertising full 15 MB Vercel support. No confidential files should ever be placed in the static frontend output.
 
-## Executive Operations Team
+Official deployment references: [Express on Vercel](https://vercel.com/docs/frameworks/backend/express) and [Vite on Vercel](https://vercel.com/docs/frameworks/frontend/vite).
 
-The final homepage section (after Breaking News and before the footer) contains four current executive cards. `client/src/components/ExecutiveTeam.tsx` renders the photo-ready design from `client/src/data/executiveTeam.json`.
+## Google Analytics
 
-To replace a placeholder, provide the approved portrait and set the corresponding member's `photo_url` in `client/src/data/executiveTeam.json`. Keep `client/public/team.json` synchronized for AI discovery. Use the managed storage URL in the preview and include the same image in `static-assets/manus-storage/` for Vercel. Portraits use consistent proportional crops, lazy loading, descriptive alt text, and an initials fallback if an image fails to load.
+The public website uses GA4 measurement ID `G-9661Q40LRG`, with `VITE_GA_MEASUREMENT_ID` as the build-time override. The existing ID remains the default. Use `VITE_GA_MEASUREMENT_ID=disabled` for Preview deployments if you do not want test traffic counted.
 
-Keep current names and titles synchronized in `team.md`, `platform.json`, the Markdown/text mirrors, and the Person/Organization structured data in `client/index.html`. Historical company announcements intentionally retain the titles that appeared in the original dated releases.
+Analytics do not initialize on `/data-room` routes, including invitation and admin pages. No investor names, email addresses, passwords or document details are sent by the Google Analytics initializer. Review your privacy and consent requirements separately.
 
-## Updating announcements
+## Updating content
 
-The visible announcement list is defined in `client/src/pages/Home.tsx`. Preserve a unique announcement ID and an ISO date (`YYYY-MM-DD`); the list is sorted newest first. Each entry uses the shared card and modal presentation. Full press-release content is currently represented by a forthcoming-document placeholder.
+The homepage lives in `client/src/pages/Home.tsx`; shared messaging is in `client/src/data/exchangeMessaging.json`. Leadership profiles are in `client/src/data/executiveTeam.json`. Keep current public team facts synchronized in `client/public/team.json`, `team.md`, `platform.json`, the Markdown/text mirrors and JSON-LD. The two team groups retain their current card design and photo formatting.
 
-Keep announcement content synchronized with:
+Company announcement records use unique IDs and ISO dates and display newest first. Keep their card data synchronized with the public news JSON/Markdown feeds and schema. Historical news is not automatically changed when a current job title changes.
 
-- `client/public/news.json`
-- `client/public/news.md`
-- `client/public/index.md`
-- `client/public/llms-full.txt`
-- NewsArticle JSON-LD and initial semantic HTML in `client/index.html`
+Canonical marketing references currently retain `https://propertysource.app/`, and registration links retain the approved application URL. Change canonical URLs only when your final marketing domain is confirmed; working registration URLs are intentionally unchanged.
 
-## Deployment notes
+## Security
 
-- Canonical website references are currently set to `https://propertysource.app/`. Update these references and the sitemap if deploying to a different production domain.
-- Registration calls to action open `https://app.propertysource.app/register`.
-- Google Analytics uses `VITE_GA_MEASUREMENT_ID`; the unused template analytics placeholder has been removed.
-- The active marketing website does not require a database or OAuth flow. Optional template components may use managed integrations; those unused capabilities are separate from the portable recruiting site.
-- Company reference PDFs, private session configuration, temporary files, build output, and dependencies are deliberately not committed. The repository includes all deployed content and image assets.
+Passwords are salted scrypt hashes, room tokens are opaque and stored as hashes, and private file bytes use authenticated AES-GCM encryption. All file delivery rechecks account/document authorization, including after object-storage fetches. Spreadsheet downloads retain their original file bytes/formulas; format validation is not a malware scan.
 
-## Security and provenance
-
-Private API keys, authentication tokens, `.env` files, managed session metadata, runtime logs, and `node_modules/` are excluded. The GitHub portability additions were made in a separate export; they do not change the managed website preview.
-
-Company logo and partner marks are provided or approved for website use by the project owner. Bundled visuals match the live website. This repository does not establish any additional trademark license beyond that authorization.
+The repository excludes runtime secrets, private documents, QA credentials, dependency folders and generated build output. Public logos and portraits are only the images already approved for the public website.

@@ -1,0 +1,113 @@
+{
+  "updated": "2026-10-24",
+  "hero": {
+    "eyebrow": "AI-READY GLOBAL REAL ESTATE INFRASTRUCTURE",
+    "headline": "Your Marketplace. Our Interconnected Hub. Shared Listings Worldwide.",
+    "benefits": [
+      "Zero setup fees",
+      "Zero monthly platform fees",
+      "AI-agent compatible"
+    ],
+    "cta": "Set up your free marketplace",
+    "fee_note": "Marketplace setup is free. Transaction technology fees and the revenue-share model apply to completed sales.",
+    "headline_lines": [
+      "Your Marketplace.",
+      "Our Interconnected Hub.",
+      "Shared Listings Worldwide."
+    ],
+    "subheadline": "Launch a free, white-label platform for your residential, commercial, or multifamily network. Instantly unite brokerages, investors, and lenders into a global super-hub that synchronizes property listings across all networks. Scale your network with borderless infrastructure native to both human agents and AI."
+  },
+  "network": {
+    "headline": "Many networks. One backbone.",
+    "intro": "Real estate has many marketplaces, communities, and professional networks. Property Hub Exchange is the shared infrastructure that connects them—not another isolated listing portal. Independent networks keep their brands and relationships while their members gain access to permitted property opportunities and direct transactions across the exchange.",
+    "support": "The live backbone links property discovery, offers, negotiation, contracts, signatures, lenders, and title or settlement handoff. People participate through their community’s branded marketplace; registered AI agents use authorized workflows on behalf of verified people and businesses. Different access points. The same connected infrastructure.",
+    "paths": [
+      {
+        "label": "A branded front door to the network",
+        "title": "Connect your marketplace.",
+        "text": "Connect the marketplace you already operate, or use our free turnkey template. Your marketplace is your community’s access point—not the identity of the exchange."
+      },
+      {
+        "label": "An authorized agent interface to the network",
+        "title": "Connect your AI agents.",
+        "text": "Let registered agents discover permitted opportunities and navigate approved workflows for your members. The access method can evolve without changing the network behind it."
+      }
+    ],
+    "inventory_note": "Listing availability and sharing follow source rights, marketplace policies, and visibility permissions.",
+    "backbone": {
+      "eyebrow": "THE NETWORK, NOT ANOTHER PORTAL",
+      "headline": "We connect the ecosystem. You keep the relationship.",
+      "statement": "White-label marketplaces and AI agents are ways into Property Hub Exchange. The business underneath is a shared property, services, and transaction infrastructure network.",
+      "flow": [
+        {
+          "title": "Independent networks",
+          "text": "Brokerages, agents, investor communities, marketplaces, and service partners keep their identities."
+        },
+        {
+          "title": "Property Hub Exchange",
+          "text": "The shared backbone connects opportunities, permissions, professional services, and transaction workflows."
+        },
+        {
+          "title": "Connected participation",
+          "text": "People and authorized AI agents discover, coordinate, and transact through the network."
+        }
+      ]
+    }
+  },
+  "ai": {
+    "headline": "Your network. Your agents. One live exchange.",
+    "lead": "As AI changes how people discover and act on real estate, the connected infrastructure remains the operating layer.",
+    "summary": "Property Hub Exchange is built around the network—not a single website or screen. Branded marketplaces serve people, while registered AI agents use machine-readable opportunities and authorized workflows for verified people and businesses. We continuously enhance structured data, tool access, and agent compatibility so the same live infrastructure can serve both.",
+    "service_note": "Inside the platform, conversational AI supports outreach, text and voice assistance, property and lender analysis, and transaction coordination—creating a 24/7 operating layer around the global network.",
+    "gateway_eyebrow": "MARKETPLACES AND AGENTS. ONE SHARED BACKBONE.",
+    "gateway_heading": "Your front door can evolve. Your network stays connected.",
+    "gateway_copy": "A marketplace is one interface. An AI agent is another. Property Hub Exchange connects the opportunities, participants, services, and transaction workflows behind both. Agents act within granted authority, while the required professional and transaction controls remain in place.",
+    "workflow": [
+      {
+        "title": "Find & monitor",
+        "text": "Search permitted listings, define buyer criteria, compare opportunities, and monitor matches."
+      },
+      {
+        "title": "Prepare & propose",
+        "text": "Prepare authorized listings and offers, request documents, and bring the next action to the principal for approval."
+      },
+      {
+        "title": "Coordinate & track",
+        "text": "Navigate permitted transaction workflows and follow progress through the exchange’s connected services."
+      }
+    ],
+    "access_note": "AI agents can act autonomously only within their principal’s granted authority, supported integrations, marketplace policies, data rights, and applicable transaction rules. Required identity, approval, signature, financial, and settlement controls remain in place. Agent access does not mean every outside AI service is automatically connected.",
+    "cta": "Connect your community",
+    "faqs": [
+      {
+        "question": "Is Property Hub Exchange another listing portal?",
+        "answer": "No. Our role is shared infrastructure connecting independent real estate networks, marketplaces, and service providers—not a competing destination marketplace. Organizations keep their brands and community relationships. Their marketplaces and authorized AI agents are access points to the same live exchange."
+      },
+      {
+        "question": "Is Property Hub Exchange already live?",
+        "answer": "Yes. The exchange is operating and transacting today, with white-label marketplaces, shared opportunity, offers, negotiation, contracts, signatures, lender connectivity, and title or settlement handoff. AI-agent compatibility is an ongoing enhancement to that existing infrastructure."
+      },
+      {
+        "question": "Can people and AI agents use the same exchange?",
+        "answer": "Yes. Members can visit their branded marketplace or use registered AI agents acting for verified people and businesses. Agents navigate permitted listing, search, offer, and transaction workflows within the authority granted by their principal. Supported integrations and required approval controls govern access."
+      },
+      {
+        "question": "Is my branded marketplace free?",
+        "answer": "There are no marketplace setup fees, monthly platform fees, or out-of-pocket platform costs to create or connect a marketplace. You keep your brand and community relationships. Transaction technology fees apply to completed sales, and your marketplace participates in the revenue-share model."
+      },
+      {
+        "question": "Does the exchange replace brokers, lenders, or settlement professionals?",
+        "answer": "No. Property Hub Exchange provides technology and transaction infrastructure. Brokerage, lending, title, escrow, settlement, legal, and other professional services remain with the appropriately authorized professionals and partners. AI does not remove their required controls."
+      }
+    ]
+  },
+  "turnkey": {
+    "copy": "Create your free branded gateway to the global exchange in minutes. Choose your domain, upload your logo, select your colors, and invite your community—no coding required. Already operate a marketplace? Connect it instead. Property Hub Exchange provides the live shared infrastructure, transaction tools, and AI-agent-compatible operating layer behind your brand. You retain your identity, member relationships, and owner-dashboard control, while earning a 20% share of qualifying transaction technology fees. Your marketplace is the front door. Our network is the backbone."
+  },
+  "metadata": {
+    "title": "Property Hub Exchange | Free Marketplaces & Shared Listings Worldwide",
+    "description": "Launch a free white-label marketplace for residential, commercial, or multifamily networks. Connect brokerages, investors, lenders, human agents and AI worldwide.",
+    "social_title": "Your Marketplace. Our Interconnected Hub. Shared Listings Worldwide.",
+    "social_description": "Launch a free, white-label platform for your residential, commercial, or multifamily network. Instantly unite brokerages, investors, and lenders into a global super-hub that synchronizes property listings across all networks. Scale your network with borderless infrastructure native to both human agents and AI."
+  }
+}

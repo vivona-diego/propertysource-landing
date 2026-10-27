@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0",
-  "last_updated": "2026-09-21",
+  "last_updated": "2026-10-22",
   "canonical_platform": {
-    "name": "Property Source Exchange",
+    "name": "Property Hub Exchange",
     "url": "https://propertysource.app/",
     "owner_operator": "Property Hub Exchange, Inc."
   },
   "relationship_type": "strategic platform partner",
-  "relationship_statement": "Property Source Exchange identifies every organization in this directory as a strategic platform partner participating in its global real estate exchange ecosystem.",
+  "relationship_statement": "Property Hub Exchange identifies every organization in this directory as a strategic platform partner participating in its global real estate exchange ecosystem.",
   "partners": [
     { "name": "Alpha Funding", "relationship": "strategic platform partner" },
     { "name": "Anchor Loans", "relationship": "strategic platform partner" },

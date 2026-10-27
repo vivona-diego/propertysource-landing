@@ -1,37 +1,46 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Google Analytics 4: VITE_GA_MEASUREMENT_ID overrides the supplied tag ID. -->
-    <script type="module" src="/src/lib/analytics.ts"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#092d25" />
+    <script>
+      // Run before first paint so investor pages never show the marketing fallback.
+      if (/^\/data-room(?:\/|$)/.test(window.location.pathname)) {
+        document.documentElement.dataset.privatePage = "data-room";
+      }
+    </script>
+    <style>
+      html[data-private-page="data-room"],
+      html[data-private-page="data-room"] body { margin: 0; background: #f5f7f1; }
+      html[data-private-page="data-room"] #public-site-fallback { display: none; }
+    </style>
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-    <meta name="description" content="Launch a free turnkey white-label real estate marketplace, connect your community to the global Property Source Exchange, and earn evergreen revenue from qualifying transactions." />
-    <meta name="keywords" content="Property Source Exchange, white-label real estate marketplace, global real estate exchange, turnkey property marketplace, real estate transaction platform, marketplace revenue share" />
+    <meta name="description" content="Launch a free white-label marketplace for residential, commercial, or multifamily networks. Connect brokerages, investors, lenders, human agents and AI worldwide." />
+    <meta name="keywords" content="Property Hub Exchange, free white-label real estate marketplace, live global real estate exchange, authorized AI agents, brokerages, investors, AI-agent compatible infrastructure" />
     <link rel="canonical" href="https://propertysource.app/" />
     <link rel="sitemap" type="application/xml" href="https://propertysource.app/sitemap.xml" />
-    <link rel="alternate" type="text/markdown" href="https://propertysource.app/index.md" title="Property Source Exchange Markdown" />
-    <link rel="alternate" type="application/json" href="https://propertysource.app/platform.json" title="Property Source Exchange machine-readable profile" />
-    <link rel="alternate" type="text/markdown" href="https://propertysource.app/partners.md" title="Property Source Exchange strategic partner directory" />
-    <link rel="alternate" type="application/json" href="https://propertysource.app/partners.json" title="Property Source Exchange strategic partner data" />
-    <link rel="alternate" type="text/markdown" href="https://propertysource.app/news.md" title="Property Source Exchange breaking news and press releases" />
-    <link rel="alternate" type="application/json" href="https://propertysource.app/news.json" title="Property Source Exchange machine-readable news feed" />
+    <link rel="alternate" type="text/markdown" href="https://propertysource.app/index.md" title="Property Hub Exchange Markdown" />
+    <link rel="alternate" type="application/json" href="https://propertysource.app/platform.json" title="Property Hub Exchange machine-readable profile" />
+    <link rel="alternate" type="text/markdown" href="https://propertysource.app/partners.md" title="Property Hub Exchange strategic partner directory" />
+    <link rel="alternate" type="application/json" href="https://propertysource.app/partners.json" title="Property Hub Exchange strategic partner data" />
+    <link rel="alternate" type="text/markdown" href="https://propertysource.app/news.md" title="Property Hub Exchange breaking news and press releases" />
+    <link rel="alternate" type="application/json" href="https://propertysource.app/news.json" title="Property Hub Exchange machine-readable news feed" />
     <link rel="alternate" type="text/markdown" href="https://propertysource.app/ai-powered-exchange.md" title="AI Powered Exchange capabilities" />
-    <link rel="describedby" type="text/plain" href="https://propertysource.app/llms.txt" title="Property Source Exchange AI content guide" />
+    <link rel="describedby" type="text/plain" href="https://propertysource.app/llms.txt" title="Property Hub Exchange AI content guide" />
     <link rel="alternate" type="text/markdown" href="https://propertysource.app/team.md" title="Executive Operations Team" />
     <link rel="alternate" type="application/json" href="https://propertysource.app/team.json" title="Executive Operations Team data" />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Property Source Exchange" />
-    <meta property="og:title" content="Property Source Exchange | Create Your Global Real Estate Marketplace" />
-    <meta property="og:description" content="Launch a free branded real estate marketplace, access a connected global exchange, and earn evergreen revenue from your network’s transactions." />
+    <meta property="og:site_name" content="Property Hub Exchange" />
+    <meta property="og:title" content="Your Marketplace. Our Interconnected Hub. Shared Listings Worldwide." />
+    <meta property="og:description" content="Launch a free, white-label platform for your residential, commercial, or multifamily network. Instantly unite brokerages, investors, and lenders into a global super-hub that synchronizes property listings across all networks. Scale your network with borderless infrastructure native to both human agents and AI." />
     <meta property="og:url" content="https://propertysource.app/" />
     <meta property="og:image" content="https://propertysource.app/manus-storage/property-source-devices-transparent_ae62f96f.png" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Property Source Exchange | Global Real Estate Marketplace Platform" />
-    <meta name="twitter:description" content="A free turnkey white-label marketplace connected to a global real estate exchange." />
+    <meta name="twitter:title" content="Your Marketplace. Our Interconnected Hub. Shared Listings Worldwide." />
+    <meta name="twitter:description" content="Launch a free, white-label platform for your residential, commercial, or multifamily network. Instantly unite brokerages, investors, and lenders into a global super-hub that synchronizes property listings across all networks. Scale your network with borderless infrastructure native to both human agents and AI." />
     <meta name="twitter:image" content="https://propertysource.app/manus-storage/property-source-devices-transparent_ae62f96f.png" />
-    <title>Property Source Exchange | Global White-Label Real Estate Marketplace</title>
+    <title>Property Hub Exchange | Free Marketplaces &amp; Shared Listings Worldwide</title>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -42,7 +51,7 @@
             "name": "Property Hub Exchange, Inc.",
             "url": "https://propertysource.app/",
             "logo": "https://propertysource.app/manus-storage/Property_Hub_Exchange_Clean_Corners_1a5f870b.webp",
-            "description": "Property Hub Exchange, Inc. owns and operates Property Source Exchange, a global real estate exchange connecting independent branded marketplaces.",
+            "description": "Property Hub Exchange, Inc. operates the live Property Hub Exchange infrastructure network connecting independent real estate marketplaces, brokerages, agents, investors, professional services, and authorized AI agents. It provides the shared backbone, rather than a competing destination marketplace.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "8 The Green, Suite A",
@@ -64,13 +73,25 @@
                 "@id": "https://propertysource.app/#james-huang"
               },
               {
-                "@id": "https://propertysource.app/#diego-vivona"
-              },
-              {
                 "@id": "https://propertysource.app/#kris-sachtleben"
               },
               {
+                "@id": "https://propertysource.app/#diego-vivona"
+              },
+              {
+                "@id": "https://propertysource.app/#anthony-sciarretta"
+              },
+              {
+                "@id": "https://propertysource.app/#stephen-grupp"
+              },
+              {
                 "@id": "https://propertysource.app/#mike-shemtovi"
+              },
+              {
+                "@id": "https://propertysource.app/#jo-stephenson"
+              },
+              {
+                "@id": "https://propertysource.app/#chris-tominelli"
               }
             ],
             "founder": {
@@ -81,8 +102,8 @@
             "@type": "WebSite",
             "@id": "https://propertysource.app/#website",
             "url": "https://propertysource.app/",
-            "name": "Property Source Exchange",
-            "description": "A global real estate exchange platform connecting independent white-label marketplaces, shared property inventory, lenders, title companies, and digital transaction services.",
+            "name": "Property Hub Exchange",
+            "description": "Launch a free, white-label platform for your residential, commercial, or multifamily network. Instantly unite brokerages, investors, and lenders into a global super-hub that synchronizes property listings across all networks. Scale your network with borderless infrastructure native to both human agents and AI.",
             "publisher": {
               "@id": "https://propertysource.app/#organization"
             },
@@ -91,12 +112,12 @@
           {
             "@type": "SoftwareApplication",
             "@id": "https://propertysource.app/#platform",
-            "name": "Property Source Exchange",
+            "name": "Property Hub Exchange",
             "url": "https://propertysource.app/",
             "applicationCategory": "BusinessApplication",
-            "applicationSubCategory": "Real Estate Marketplace Platform",
+            "applicationSubCategory": "Real Estate Exchange Infrastructure",
             "operatingSystem": "Web",
-            "description": "A turnkey white-label real estate marketplace and digital transaction platform that connects independent communities to a shared global exchange.",
+            "description": "Launch a free white-label marketplace for residential, commercial, or multifamily networks. Connect brokerages, investors, lenders, human agents and AI worldwide.",
             "offers": {
               "@type": "Offer",
               "price": "0",
@@ -117,7 +138,9 @@
               "AI text chat, on-platform voice and phone support",
               "AI-assisted property and lender analysis",
               "24/7 AI-supported operations and transaction coordination",
-              "Designed for permissioned external investor AI-agent integration"
+              "Registered AI-agent navigation of permitted listing, search, offer, and transaction workflows",
+              "Continuous enhancement of structured data, tools and agent compatibility",
+              "Source attribution, authority controls and visibility permissions"
             ],
             "provider": {
               "@id": "https://propertysource.app/#organization"
@@ -129,8 +152,8 @@
           {
             "@type": "ItemList",
             "@id": "https://propertysource.app/#strategic-partners",
-            "name": "Property Source Exchange Strategic Platform Partners",
-            "description": "Organizations identified by Property Source Exchange as strategic platform partners participating in its global real estate exchange ecosystem.",
+            "name": "Property Hub Exchange Strategic Platform Partners",
+            "description": "Organizations identified by Property Hub Exchange as strategic platform partners participating in its global real estate exchange ecosystem.",
             "url": "https://propertysource.app/partners.md",
             "numberOfItems": 19,
             "itemListElement": [
@@ -140,7 +163,7 @@
                 "item": {
                   "@type": "Organization",
                   "name": "Alpha Funding",
-                  "description": "Strategic platform partner of Property Source Exchange"
+                  "description": "Strategic platform partner of Property Hub Exchange"
                 }
               },
               {
@@ -149,7 +172,7 @@
                 "item": {
                   "@type": "Organization",
                   "name": "Anchor Loans",
-                  "description": "Strategic platform partner of Property Source Exchange"
+                  "description": "Strategic platform partner of Property Hub Exchange"
                 }
               },
               {
@@ -158,7 +181,7 @@
                 "item": {
                   "@type": "Organization",
                   "name": "Axe Capital",
-                  "description": "Strategic platform partner of Property Source Exchange"
+                  "description": "Strategic platform partner of Property Hub Exchange"
                 }
               },
               {
@@ -167,7 +190,7 @@
                 "item": {
                   "@type": "Organization",
                   "name": "Brick City Capital",
-                  "description": "Strategic platform partner of Property Source Exchange"
+                  "description": "Strategic platform partner of Property Hub Exchange"
                 }
               },
               {
@@ -176,7 +199,7 @@
                 "item": {
                   "@type": "Organization",
                   "name": "Center Street Lending",
-                  "description": "Strategic platform partner of Property Source Exchange"
+                  "description": "Strategic platform partner of Property Hub Exchange"
                 }
               },
               {
@@ -185,7 +208,7 @@
                 "item": {
                   "@type": "Organization",
                   "name": "Colonial Funding Group",
-                  "description": "Strategic platform partner of Property Source Exchange"
+                  "description": "Strategic platform partner of Property Hub Exchange"
                 }
               },
               {
@@ -194,7 +217,7 @@
                 "item": {
                   "@type": "Organization",
                   "name": "Conventus",
-                  "description": "Strategic platform partner of Property Source Exchange"
+                  "description": "Strategic platform partner of Property Hub Exchange"
                 }
               },
               {
@@ -203,7 +226,7 @@
                 "item": {
                   "@type": "Organization",
                   "name": "CoreVest Finance",
-                  "description": "Strategic platform partner of Property Source Exchange"
+                  "description": "Strategic platform partner of Property Hub Exchange"
                 }
               },
               {
@@ -212,7 +235,7 @@
                 "item": {
                   "@type": "Organization",
                   "name": "CV3 Financial Services",
-                  "description": "Strategic platform partner of Property Source Exchange"
+                  "description": "Strategic platform partner of Property Hub Exchange"
                 }
               },
               {
@@ -221,7 +244,7 @@
                 "item": {
                   "@type": "Organization",
                   "name": "D1 Funds",
-                  "description": "Strategic platform partner of Property Source Exchange"
+                  "description": "Strategic platform partner of Property Hub Exchange"
                 }
               },
               {
@@ -230,7 +253,7 @@
                 "item": {
                   "@type": "Organization",
                   "name": "Easy Street Capital",
-                  "description": "Strategic platform partner of Property Source Exchange"
+                  "description": "Strategic platform partner of Property Hub Exchange"
                 }
               },
               {
@@ -239,7 +262,7 @@
                 "item": {
                   "@type": "Organization",
                   "name": "Kiavi",
-                  "description": "Strategic platform partner of Property Source Exchange"
+                  "description": "Strategic platform partner of Property Hub Exchange"
                 }
               },
               {
@@ -248,7 +271,7 @@
                 "item": {
                   "@type": "Organization",
                   "name": "Peak Private Lending",
-                  "description": "Strategic platform partner of Property Source Exchange"
+                  "description": "Strategic platform partner of Property Hub Exchange"
                 }
               },
               {
@@ -257,7 +280,7 @@
                 "item": {
                   "@type": "Organization",
                   "name": "Private Money Lenders",
-                  "description": "Strategic platform partner of Property Source Exchange"
+                  "description": "Strategic platform partner of Property Hub Exchange"
                 }
               },
               {
@@ -266,7 +289,7 @@
                 "item": {
                   "@type": "Organization",
                   "name": "RCN Capital",
-                  "description": "Strategic platform partner of Property Source Exchange"
+                  "description": "Strategic platform partner of Property Hub Exchange"
                 }
               },
               {
@@ -275,7 +298,7 @@
                 "item": {
                   "@type": "Organization",
                   "name": "Residential Capital Partners",
-                  "description": "Strategic platform partner of Property Source Exchange"
+                  "description": "Strategic platform partner of Property Hub Exchange"
                 }
               },
               {
@@ -284,7 +307,7 @@
                 "item": {
                   "@type": "Organization",
                   "name": "SimpleBridge",
-                  "description": "Strategic platform partner of Property Source Exchange"
+                  "description": "Strategic platform partner of Property Hub Exchange"
                 }
               },
               {
@@ -293,7 +316,7 @@
                 "item": {
                   "@type": "Organization",
                   "name": "Sky Equity",
-                  "description": "Strategic platform partner of Property Source Exchange"
+                  "description": "Strategic platform partner of Property Hub Exchange"
                 }
               },
               {
@@ -302,35 +325,18 @@
                 "item": {
                   "@type": "Organization",
                   "name": "Velocity Lending",
-                  "description": "Strategic platform partner of Property Source Exchange"
+                  "description": "Strategic platform partner of Property Hub Exchange"
                 }
               }
             ]
           },
           {
             "@type": "NewsArticle",
-            "@id": "https://propertysource.app/#chris-tominelli-chief-financial-officer-appointment",
-            "headline": "Property Hub Exchange Names Chris Tominelli as Chief Financial Officer",
-            "datePublished": "2026-10-09",
-            "dateModified": "2026-10-09",
-            "description": "Property Hub Exchange has named Chris Tominelli to serve as the company’s Chief Financial Officer. The complete official press release is forthcoming.",
-            "articleBody": "The complete official press release will be added when available.",
-            "mainEntityOfPage": "https://propertysource.app/#news",
-            "publisher": {
-              "@id": "https://propertysource.app/#organization"
-            },
-            "author": {
-              "@id": "https://propertysource.app/#organization"
-            },
-            "inLanguage": "en-US"
-          },
-          {
-            "@type": "NewsArticle",
             "@id": "https://propertysource.app/#arise-impact-labs-auction-partnership",
-            "headline": "Property Hub Partners with Arise Impact Labs to Launch Nationwide Real Estate Auction Services on Property Source Exchange",
+            "headline": "Property Hub Partners with Arise Impact Labs to Launch Nationwide Real Estate Auction Services on Property Hub Exchange",
             "datePublished": "2026-10-06",
             "dateModified": "2026-10-08",
-            "description": "Property Hub has partnered with Arise Impact Labs to launch nationwide real estate auction services on Property Source Exchange. The complete official press release is forthcoming.",
+            "description": "Property Hub has partnered with Arise Impact Labs to launch nationwide real estate auction services on Property Hub Exchange. The complete official press release is forthcoming.",
             "articleBody": "The complete official press release will be added when available.",
             "mainEntityOfPage": "https://propertysource.app/#news",
             "publisher": {
@@ -413,7 +419,7 @@
             "@type": "Person",
             "@id": "https://propertysource.app/#mark-kole",
             "name": "Mark Kole",
-            "jobTitle": "Founder",
+            "jobTitle": "Founder and CEO",
             "worksFor": {
               "@id": "https://propertysource.app/#organization"
             },
@@ -424,12 +430,13 @@
             "@type": "Person",
             "@id": "https://propertysource.app/#jordan-wilde",
             "name": "Jordan Wilde",
-            "jobTitle": "Chief Executive Officer",
+            "jobTitle": "President of Auction Services",
             "worksFor": {
               "@id": "https://propertysource.app/#organization"
             },
             "url": "https://propertysource.app/#executive-team",
-            "image": "https://propertysource.app/manus-storage/jordan-wilde-portrait_4ca2f6cf.png"
+            "image": "https://propertysource.app/manus-storage/jordan-wilde-portrait_4ca2f6cf.png",
+            "description": "Jordan Wilde serves in the Executive Channel Team as President of Auction Services."
           },
           {
             "@type": "Person",
@@ -444,6 +451,17 @@
           },
           {
             "@type": "Person",
+            "@id": "https://propertysource.app/#kris-sachtleben",
+            "name": "Kris Sachtleben",
+            "jobTitle": "Chief Growth Officer",
+            "worksFor": {
+              "@id": "https://propertysource.app/#organization"
+            },
+            "url": "https://propertysource.app/#executive-team",
+            "image": "https://propertysource.app/manus-storage/kris-sachtleben-white-background-web_ea2a98dd.jpg"
+          },
+          {
+            "@type": "Person",
             "@id": "https://propertysource.app/#diego-vivona",
             "name": "Diego Vivona",
             "jobTitle": "Chief Technology Officer",
@@ -455,20 +473,29 @@
           },
           {
             "@type": "Person",
-            "@id": "https://propertysource.app/#kris-sachtleben",
-            "name": "Kris Sachtleben",
-            "jobTitle": "Chief Growth Officer",
+            "@id": "https://propertysource.app/#anthony-sciarretta",
+            "name": "Anthony Sciarretta",
+            "jobTitle": "President of Wholesaler Networks",
             "worksFor": {
               "@id": "https://propertysource.app/#organization"
             },
-            "url": "https://propertysource.app/#executive-team",
-            "image": "https://propertysource.app/manus-storage/kris-sachtleben-headshot-fitted_ff47bd2d.jpg"
+            "image": "https://propertysource.app/manus-storage/anthony-sciarretta-headshot-web_65dd5b72.jpg"
+          },
+          {
+            "@type": "Person",
+            "@id": "https://propertysource.app/#stephen-grupp",
+            "name": "Stephen Grupp",
+            "jobTitle": "President of Lender Networks",
+            "worksFor": {
+              "@id": "https://propertysource.app/#organization"
+            },
+            "image": "https://propertysource.app/manus-storage/stephen-grupp-headshot-web_0d14aba6.jpg"
           },
           {
             "@type": "Person",
             "@id": "https://propertysource.app/#mike-shemtovi",
             "name": "Mike Shemtovi",
-            "jobTitle": "Chief Investment Officer",
+            "jobTitle": "President of International Networks",
             "worksFor": {
               "@id": "https://propertysource.app/#organization"
             },
@@ -479,15 +506,15 @@
             "@type": "WebPageElement",
             "@id": "https://propertysource.app/#ai-powered-exchange",
             "name": "AI Powered Exchange",
-            "headline": "The network is the power. AI is the multiplier.",
-            "description": "Property Hub Exchange puts AI to work across Property Source Exchange—from recruiting marketplace partners and sourcing property opportunities to member support, analysis, and transaction coordination. The real strength is the people and opportunities in the network. AI orchestrates the information, reduces friction, and helps buyers and sellers move forward across connected marketplaces worldwide.",
+            "headline": "Your network. Your agents. One live exchange.",
+            "description": "Property Hub Exchange is built around the network—not a single website or screen. Branded marketplaces serve people, while registered AI agents use machine-readable opportunities and authorized workflows for verified people and businesses. We continuously enhance structured data, tool access, and agent compatibility so the same live infrastructure can serve both.",
             "isPartOf": {
               "@id": "https://propertysource.app/#website"
             },
             "about": {
               "@id": "https://propertysource.app/#platform"
             },
-            "text": "A global network of buyers and sellers. An intelligent operating layer that never sleeps. Property Hub Exchange puts AI to work across Property Source Exchange—from recruiting marketplace partners and sourcing property opportunities to member support, analysis, and transaction coordination. The real strength is the people and opportunities in the network. AI orchestrates the information, reduces friction, and helps buyers and sellers move forward across connected marketplaces worldwide. Conversational AI agents reach marketplace partners, property owners, and wholesalers—helping bring new communities and property deals into the exchange. From text chat and live on-platform voice conversations to phone support, AI agents guide members through navigation, technical questions, and the next step. AI helps analyze properties, lenders, and relevant information—organizing complex data into useful insights that support more informed decisions. AI agents take on routine outreach, support, and coordination duties, creating a scalable 24/7 digital workforce that helps streamline transactions worldwide. The exchange is designed to help investor-operated AI agents discover and work with property deals through connected, machine-readable interfaces. AI inside the platform and agents outside it can support a more connected real estate ecosystem. External-agent access depends on the supported integration and its permissions."
+            "text": "## AI Powered Exchange\n\n### Your network. Your agents. One live exchange.\n\nTap into the AI-agent economy through infrastructure that is already operating—not a future marketplace.\n\nProperty Hub Exchange is built around the network—not a single website or screen. Branded marketplaces serve people, while registered AI agents use machine-readable opportunities and authorized workflows for verified people and businesses. We continuously enhance structured data, tool access, and agent compatibility so the same live infrastructure can serve both.\n\nInside the platform, conversational AI supports outreach, text and voice assistance, property and lender analysis, and transaction coordination—creating a 24/7 operating layer around the global network.\n\n### Growth that never sleeps.\n\n**Recruit & connect** — Conversational AI agents support outreach to marketplace partners, property owners, and wholesalers—helping connect new communities and property opportunities to the exchange.\n\n### Answers in every channel.\n\n**Chat • Voice • Phone** — Text chat, live on-platform voice, and phone support help members navigate the platform, resolve technical questions, and find their next step.\n\n### Intelligence behind every deal.\n\n**Analyze & inform** — AI helps organize property, lender, and transaction information into useful insights that support informed decisions—not replace professional judgment.\n\n### An always-on operating layer.\n\n**Orchestrate & streamline** — AI-supported outreach, assistance, and coordination create a 24/7 digital workforce around the network while preserving the controls each transaction requires.\n\n### Your front door can evolve. Your network stays connected.\n\nMARKETPLACES AND AGENTS. ONE SHARED BACKBONE.\n\nA marketplace is one interface. An AI agent is another. Property Hub Exchange connects the opportunities, participants, services, and transaction workflows behind both. Agents act within granted authority, while the required professional and transaction controls remain in place.\n\n1. **Find & monitor** — Search permitted listings, define buyer criteria, compare opportunities, and monitor matches.\n2. **Prepare & propose** — Prepare authorized listings and offers, request documents, and bring the next action to the principal for approval.\n3. **Coordinate & track** — Navigate permitted transaction workflows and follow progress through the exchange’s connected services.\n\nAI agents can act autonomously only within their principal’s granted authority, supported integrations, marketplace policies, data rights, and applicable transaction rules. Required identity, approval, signature, financial, and settlement controls remain in place. Agent access does not mean every outside AI service is automatically connected.\n\n### Clear answers\n\n#### Is Property Hub Exchange another listing portal?\n\nNo. Our role is shared infrastructure connecting independent real estate networks, marketplaces, and service providers—not a competing destination marketplace. Organizations keep their brands and community relationships. Their marketplaces and authorized AI agents are access points to the same live exchange.\n\n#### Is Property Hub Exchange already live?\n\nYes. The exchange is operating and transacting today, with white-label marketplaces, shared opportunity, offers, negotiation, contracts, signatures, lender connectivity, and title or settlement handoff. AI-agent compatibility is an ongoing enhancement to that existing infrastructure.\n\n#### Can people and AI agents use the same exchange?\n\nYes. Members can visit their branded marketplace or use registered AI agents acting for verified people and businesses. Agents navigate permitted listing, search, offer, and transaction workflows within the authority granted by their principal. Supported integrations and required approval controls govern access.\n\n#### Is my branded marketplace free?\n\nThere are no marketplace setup fees, monthly platform fees, or out-of-pocket platform costs to create or connect a marketplace. You keep your brand and community relationships. Transaction technology fees apply to completed sales, and your marketplace participates in the revenue-share model.\n\n#### Does the exchange replace brokers, lenders, or settlement professionals?\n\nNo. Property Hub Exchange provides technology and transaction infrastructure. Brokerage, lending, title, escrow, settlement, legal, and other professional services remain with the appropriately authorized professionals and partners. AI does not remove their required controls.\n\n"
           },
           {
             "@type": "WebPageElement",
@@ -500,7 +527,105 @@
             "about": {
               "@id": "https://propertysource.app/#platform"
             },
-            "text": "Revenue-share model\n\n#Free to launch. Free to connect.\n\nInvestor communities and brokerage networks can connect an existing branded marketplace or create one with the turnkey templates. There are no setup fees, monthly platform fees, or out-of-pocket platform costs. Property Source Exchange provides and manages the technology; marketplace owners grow their communities.\n\n#Every marketplace can host both buyers and sellers.\n\n| Member’s role | Technology fee | Share | Revenue-share recipient |\n| --- | --- | --- | --- |\n| Seller lists and sells a property | $500 | 20% = $100 | Owner of the independent marketplace hosting the seller |\n| Buyer purchases that property | $1,500 | 20% = $300 | Owner of the independent marketplace hosting the buyer |\n\nEvery independent marketplace can host both buyers and sellers; these are transaction roles, not marketplace types. The share follows the member. If the same marketplace hosts both the seller and buyer of a completed sale, its owner receives both shares: $100 + $300 = $400. A seller’s property can be bought by a member of any connected marketplace. In a cross-marketplace sale, Marketplace A (hosting the seller) earns $100 and Marketplace B (hosting the buyer) earns $300. Neither marketplace receives both shares merely because it hosts the listing. Shares arise from completed transactions, not simply listing or making an offer. The percentages apply to technology fees, not property sale prices. The seller technology fee is paid at settlement and disbursed by the title company.\n\n#Ambassador program — 5%\n\nEarn an ongoing 5% ambassador share from transaction activity generated by each new independent marketplace you refer to the exchange.\n\n#Free built-in banner advertising\n\nEach independent marketplace includes a free banner advertising system. Its owner may post unlimited ads for vendors, services, affiliates, or other promotions of their choice. The ads are displayed to that specific marketplace’s members, not across all independent marketplaces. Owners manage placements through their owner dashboard and retain full control and 100% of their own advertising and affiliate revenue, with no platform advertising fee or advertising revenue share.\n\n#Evergreen, not a one-time reward\n\nTransaction and ambassador revenue shares continue while the relevant marketplaces remain active and transacting. Transactions and revenue shares are tracked by the platform and visible in the marketplace-owner dashboard.\n\n"
+            "text": "Revenue-share model\n\n#Free to launch. Free to connect.\n\nInvestor communities and brokerage networks can connect an existing branded marketplace or create one with the turnkey templates. There are no setup fees, monthly platform fees, or out-of-pocket platform costs. Property Hub Exchange provides and manages the technology; marketplace owners grow their communities.\n\n#Every marketplace can host both buyers and sellers.\n\n| Member’s role | Technology fee | Share | Revenue-share recipient |\n| --- | --- | --- | --- |\n| Seller lists and sells a property | $500 | 20% = $100 | Owner of the independent marketplace hosting the seller |\n| Buyer purchases that property | $1,500 | 20% = $300 | Owner of the independent marketplace hosting the buyer |\n\nEvery independent marketplace can host both buyers and sellers; these are transaction roles, not marketplace types. The share follows the member. If the same marketplace hosts both the seller and buyer of a completed sale, its owner receives both shares: $100 + $300 = $400. A seller’s property can be bought by a member of any connected marketplace. In a cross-marketplace sale, Marketplace A (hosting the seller) earns $100 and Marketplace B (hosting the buyer) earns $300. Neither marketplace receives both shares merely because it hosts the listing. Shares arise from completed transactions, not simply listing or making an offer. The percentages apply to technology fees, not property sale prices. The seller technology fee is paid at settlement and disbursed by the title company.\n\n#Ambassador program — 5%\n\nEarn an ongoing 5% ambassador share from transaction activity generated by each new independent marketplace you refer to the exchange.\n\n#Free built-in banner advertising\n\nEach independent marketplace includes a free banner advertising system. Its owner may post unlimited ads for vendors, services, affiliates, or other promotions of their choice. The ads are displayed to that specific marketplace’s members, not across all independent marketplaces. Owners manage placements through their owner dashboard and retain full control and 100% of their own advertising and affiliate revenue, with no platform advertising fee or advertising revenue share.\n\n#Evergreen, not a one-time reward\n\nTransaction and ambassador revenue shares continue while the relevant marketplaces remain active and transacting. Transactions and revenue shares are tracked by the platform and visible in the marketplace-owner dashboard.\n\n"
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://propertysource.app/#exchange-faq",
+            "isPartOf": {
+              "@id": "https://propertysource.app/#website"
+            },
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Is Property Hub Exchange another listing portal?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "No. Our role is shared infrastructure connecting independent real estate networks, marketplaces, and service providers—not a competing destination marketplace. Organizations keep their brands and community relationships. Their marketplaces and authorized AI agents are access points to the same live exchange."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is Property Hub Exchange already live?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. The exchange is operating and transacting today, with white-label marketplaces, shared opportunity, offers, negotiation, contracts, signatures, lender connectivity, and title or settlement handoff. AI-agent compatibility is an ongoing enhancement to that existing infrastructure."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can people and AI agents use the same exchange?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Members can visit their branded marketplace or use registered AI agents acting for verified people and businesses. Agents navigate permitted listing, search, offer, and transaction workflows within the authority granted by their principal. Supported integrations and required approval controls govern access."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is my branded marketplace free?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "There are no marketplace setup fees, monthly platform fees, or out-of-pocket platform costs to create or connect a marketplace. You keep your brand and community relationships. Transaction technology fees apply to completed sales, and your marketplace participates in the revenue-share model."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Does the exchange replace brokers, lenders, or settlement professionals?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "No. Property Hub Exchange provides technology and transaction infrastructure. Brokerage, lending, title, escrow, settlement, legal, and other professional services remain with the appropriately authorized professionals and partners. AI does not remove their required controls."
+                }
+              }
+            ]
+          },
+          {
+            "@type": "WebPageElement",
+            "@id": "https://propertysource.app/#backbone-model",
+            "name": "The shared infrastructure network",
+            "headline": "We connect the ecosystem. You keep the relationship.",
+            "description": "White-label marketplaces and AI agents are ways into Property Hub Exchange. The business underneath is a shared property, services, and transaction infrastructure network.",
+            "text": "### We connect the ecosystem. You keep the relationship.\n\nWhite-label marketplaces and AI agents are ways into Property Hub Exchange. The business underneath is a shared property, services, and transaction infrastructure network.\n\n1. **Independent networks** — Brokerages, agents, investor communities, marketplaces, and service partners keep their identities.\n2. **Property Hub Exchange** — The shared backbone connects opportunities, permissions, professional services, and transaction workflows.\n3. **Connected participation** — People and authorized AI agents discover, coordinate, and transact through the network.\n\n",
+            "isPartOf": {
+              "@id": "https://propertysource.app/#website"
+            },
+            "about": {
+              "@id": "https://propertysource.app/#platform"
+            }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://propertysource.app/#jo-stephenson",
+            "name": "Jo Stephenson",
+            "jobTitle": "President of Real Estate Brokerage/Agent Network",
+            "worksFor": {
+              "@id": "https://propertysource.app/#organization"
+            },
+            "url": "https://propertysource.app/#executive-team",
+            "image": "https://propertysource.app/manus-storage/jo-stephenson-headshot-web_8ab01e16.webp",
+            "description": "Jo Stephenson serves as President of Real Estate Brokerage/Agent Network in the Executive Channel Team. Her company-provided portrait is displayed on the website."
+          },
+          {
+            "@type": "Person",
+            "@id": "https://propertysource.app/#chris-tominelli",
+            "name": "Chris Tominelli",
+            "jobTitle": "Chief Financial Officer",
+            "worksFor": {
+              "@id": "https://propertysource.app/#organization"
+            },
+            "url": "https://propertysource.app/#executive-team",
+            "image": "https://propertysource.app/manus-storage/chris-tominelli-headshot-web_5f038db7.png"
+          },
+          {
+            "@type": "WebPageElement",
+            "@id": "https://propertysource.app/#homepage-hero",
+            "headline": "Your Marketplace. Our Interconnected Hub. Shared Listings Worldwide.",
+            "text": "Launch a free, white-label platform for your residential, commercial, or multifamily network. Instantly unite brokerages, investors, and lenders into a global super-hub that synchronizes property listings across all networks. Scale your network with borderless infrastructure native to both human agents and AI.",
+            "isPartOf": {
+              "@id": "https://propertysource.app/#website"
+            },
+            "about": {
+              "@id": "https://propertysource.app/#platform"
+            }
           }
         ]
       }
@@ -508,41 +633,29 @@
   </head>
   <body>
     <div id="root">
-      <main style="background:#092d25;color:#fff;padding:48px 24px;font-family:Arial,sans-serif;line-height:1.6">
+      <main id="public-site-fallback" style="background:#092d25;color:#fff;padding:48px 24px;font-family:Arial,sans-serif;line-height:1.6">
         <article style="max-width:1040px;margin:0 auto">
           <header>
-            <p style="color:#b7e44c;font-weight:700;text-transform:uppercase;letter-spacing:.12em">Property Source Exchange</p>
-            <h1 style="font-size:clamp(38px,7vw,76px);line-height:1;margin:12px 0 20px">Create your marketplace. Give your members access to property deals around the world.</h1>
-            <p>Property Source Exchange is a global real estate exchange operated by Property Hub Exchange, Inc. It connects independent branded marketplaces into one shared property, services, and transaction network.</p>
+            <p style="color:#b7e44c;font-weight:700;text-transform:uppercase;letter-spacing:.12em">Property Hub Exchange</p>
+            <h1 style="font-size:clamp(38px,7vw,76px);line-height:1;margin:12px 0 20px">Your Marketplace. Our Interconnected Hub. Shared Listings Worldwide.</h1>
+            <p>Launch a free, white-label platform for your residential, commercial, or multifamily network. Instantly unite brokerages, investors, and lenders into a global super-hub that synchronizes property listings across all networks. Scale your network with borderless infrastructure native to both human agents and AI.</p>
+
           </header>
           <section>
             <h2>Free turnkey white-label marketplaces</h2>
             <p>Marketplace partners receive a custom-branded marketplace with no setup fee and no monthly platform fee. Partners may use a custom domain, logo, colors, owner dashboard, branded communications, and integrated property and transaction services.</p>
           </section>
-          <section id="ai-powered-exchange" aria-labelledby="ai-exchange-heading">
-            <h2 id="ai-exchange-heading">AI Powered Exchange</h2>
-            <h3>The network is the power. AI is the multiplier.</h3>
-            <p>A global network of buyers and sellers. An intelligent operating layer that never sleeps.</p>
-            <p>Property Hub Exchange puts AI to work across Property Source Exchange—from recruiting marketplace partners and sourcing property opportunities to member support, analysis, and transaction coordination. The real strength is the people and opportunities in the network. AI orchestrates the information, reduces friction, and helps buyers and sellers move forward across connected marketplaces worldwide.</p>
-            <h3>Growth that never sleeps.</h3>
-            <p>Conversational AI agents reach marketplace partners, property owners, and wholesalers—helping bring new communities and property deals into the exchange.</p>
-            <h3>Answers in every channel.</h3>
-            <p>From text chat and live on-platform voice conversations to phone support, AI agents guide members through navigation, technical questions, and the next step.</p>
-            <h3>Intelligence behind every deal.</h3>
-            <p>AI helps analyze properties, lenders, and relevant information—organizing complex data into useful insights that support more informed decisions.</p>
-            <h3>An always-on operating layer.</h3>
-            <p>AI agents take on routine outreach, support, and coordination duties, creating a scalable 24/7 digital workforce that helps streamline transactions worldwide.</p>
-            <h3>Your investors bring their AI. We connect the opportunity.</h3>
-            <p>The exchange is designed to help investor-operated AI agents discover and work with property deals through connected, machine-readable interfaces. AI inside the platform and agents outside it can support a more connected real estate ecosystem.</p>
-            <p>External-agent access depends on the supported integration and its permissions.</p>
-          </section>
+          <section id="network"><h2>Many networks. One backbone.</h2><p>Real estate has many marketplaces, communities, and professional networks. Property Hub Exchange is the shared infrastructure that connects them—not another isolated listing portal. Independent networks keep their brands and relationships while their members gain access to permitted property opportunities and direct transactions across the exchange.</p><p>The live backbone links property discovery, offers, negotiation, contracts, signatures, lenders, and title or settlement handoff. People participate through their community’s branded marketplace; registered AI agents use authorized workflows on behalf of verified people and businesses. Different access points. The same connected infrastructure.</p><h3>Connect your marketplace.</h3><p>Connect the marketplace you already operate, or use our free turnkey template. Your marketplace is your community’s access point—not the identity of the exchange.</p><h3>Connect your AI agents.</h3><p>Let registered agents discover permitted opportunities and navigate approved workflows for your members. The access method can evolve without changing the network behind it.</p><p>Listing availability and sharing follow source rights, marketplace policies, and visibility permissions.</p></section>
+          <section id="backbone-model"><h2>We connect the ecosystem. You keep the relationship.</h2><p>White-label marketplaces and AI agents are ways into Property Hub Exchange. The business underneath is a shared property, services, and transaction infrastructure network.</p><ol><li><strong>Independent networks</strong> — Brokerages, agents, investor communities, marketplaces, and service partners keep their identities.</li><li><strong>Property Hub Exchange</strong> — The shared backbone connects opportunities, permissions, professional services, and transaction workflows.</li><li><strong>Connected participation</strong> — People and authorized AI agents discover, coordinate, and transact through the network.</li></ol></section>
+          <section id="ai-powered-exchange" aria-labelledby="ai-exchange-heading"><h2 id="ai-exchange-heading">Your network. Your agents. One live exchange.</h2><p>Tap into the AI-agent economy through infrastructure that is already operating—not a future marketplace.</p><p>Property Hub Exchange is built around the network—not a single website or screen. Branded marketplaces serve people, while registered AI agents use machine-readable opportunities and authorized workflows for verified people and businesses. We continuously enhance structured data, tool access, and agent compatibility so the same live infrastructure can serve both.</p><p>Inside the platform, conversational AI supports outreach, text and voice assistance, property and lender analysis, and transaction coordination—creating a 24/7 operating layer around the global network.</p><h3>Growth that never sleeps.</h3><p>Conversational AI agents support outreach to marketplace partners, property owners, and wholesalers—helping connect new communities and property opportunities to the exchange.</p><h3>Answers in every channel.</h3><p>Text chat, live on-platform voice, and phone support help members navigate the platform, resolve technical questions, and find their next step.</p><h3>Intelligence behind every deal.</h3><p>AI helps organize property, lender, and transaction information into useful insights that support informed decisions—not replace professional judgment.</p><h3>An always-on operating layer.</h3><p>AI-supported outreach, assistance, and coordination create a 24/7 digital workforce around the network while preserving the controls each transaction requires.</p><h3>Your front door can evolve. Your network stays connected.</h3><p>A marketplace is one interface. An AI agent is another. Property Hub Exchange connects the opportunities, participants, services, and transaction workflows behind both. Agents act within granted authority, while the required professional and transaction controls remain in place.</p><ol><li><strong>Find &amp; monitor</strong> — Search permitted listings, define buyer criteria, compare opportunities, and monitor matches.</li><li><strong>Prepare &amp; propose</strong> — Prepare authorized listings and offers, request documents, and bring the next action to the principal for approval.</li><li><strong>Coordinate &amp; track</strong> — Navigate permitted transaction workflows and follow progress through the exchange’s connected services.</li></ol><p>AI agents can act autonomously only within their principal’s granted authority, supported integrations, marketplace policies, data rights, and applicable transaction rules. Required identity, approval, signature, financial, and settlement controls remain in place. Agent access does not mean every outside AI service is automatically connected.</p></section>
+          <section id="exchange-faq"><h2>Clear answers</h2><h3>Is Property Hub Exchange another listing portal?</h3><p>No. Our role is shared infrastructure connecting independent real estate networks, marketplaces, and service providers—not a competing destination marketplace. Organizations keep their brands and community relationships. Their marketplaces and authorized AI agents are access points to the same live exchange.</p><h3>Is Property Hub Exchange already live?</h3><p>Yes. The exchange is operating and transacting today, with white-label marketplaces, shared opportunity, offers, negotiation, contracts, signatures, lender connectivity, and title or settlement handoff. AI-agent compatibility is an ongoing enhancement to that existing infrastructure.</p><h3>Can people and AI agents use the same exchange?</h3><p>Yes. Members can visit their branded marketplace or use registered AI agents acting for verified people and businesses. Agents navigate permitted listing, search, offer, and transaction workflows within the authority granted by their principal. Supported integrations and required approval controls govern access.</p><h3>Is my branded marketplace free?</h3><p>There are no marketplace setup fees, monthly platform fees, or out-of-pocket platform costs to create or connect a marketplace. You keep your brand and community relationships. Transaction technology fees apply to completed sales, and your marketplace participates in the revenue-share model.</p><h3>Does the exchange replace brokers, lenders, or settlement professionals?</h3><p>No. Property Hub Exchange provides technology and transaction infrastructure. Brokerage, lending, title, escrow, settlement, legal, and other professional services remain with the appropriately authorized professionals and partners. AI does not remove their required controls.</p></section>
           <section>
             <h2>Connected platform capabilities</h2>
             <p>The platform includes aggregated listings, multiple asset types, map-powered search, bulk uploads, digital offers and contracts, negotiation, electronic signatures, online earnest money, title-company handoff, closing tracking, lenders, transaction vendors, property auctions, member management, reporting, email, SMS, advertising, and affiliate tools.</p>
           </section>
           <section>
             <h2>Strategic platform partners</h2>
-            <p>Property Source Exchange identifies Alpha Funding, Anchor Loans, Axe Capital, Brick City Capital, Center Street Lending, Colonial Funding Group, Conventus, CoreVest Finance, CV3 Financial Services, D1 Funds, Easy Street Capital, Kiavi, Peak Private Lending, Private Money Lenders, RCN Capital, Residential Capital Partners, SimpleBridge, Sky Equity, and Velocity Lending as strategic platform partners participating in its global real estate exchange ecosystem.</p>
+            <p>Property Hub Exchange identifies Alpha Funding, Anchor Loans, Axe Capital, Brick City Capital, Center Street Lending, Colonial Funding Group, Conventus, CoreVest Finance, CV3 Financial Services, D1 Funds, Easy Street Capital, Kiavi, Peak Private Lending, Private Money Lenders, RCN Capital, Residential Capital Partners, SimpleBridge, Sky Equity, and Velocity Lending as strategic platform partners participating in its global real estate exchange ecosystem.</p>
           </section>
           <section id="revenue" aria-labelledby="revenue-heading">
             <h2 id="revenue-heading">Earn Revenue — Your community transacts. Your marketplace earns.</h2>
@@ -560,15 +673,9 @@
           <section id="news">
             <h2>Breaking News</h2>
             <article>
-              <time datetime="2026-10-09">October 9, 2026</time>
-              <h3>Property Hub Exchange Names Chris Tominelli as Chief Financial Officer</h3>
-              <p>Property Hub Exchange has named Chris Tominelli to serve as the company’s Chief Financial Officer. The complete official press release is forthcoming.</p>
-              <p><a href="https://propertysource.app/news.md#october-9-2026">Read the official news archive</a></p>
-            </article>
-            <article>
               <time datetime="2026-10-06">October 6, 2026</time>
-              <h3>Property Hub Partners with Arise Impact Labs to Launch Nationwide Real Estate Auction Services on Property Source Exchange</h3>
-              <p>Property Hub has partnered with Arise Impact Labs to launch nationwide real estate auction services on Property Source Exchange. The complete official press release is forthcoming.</p>
+              <h3>Property Hub Partners with Arise Impact Labs to Launch Nationwide Real Estate Auction Services on Property Hub Exchange</h3>
+              <p>Property Hub has partnered with Arise Impact Labs to launch nationwide real estate auction services on Property Hub Exchange. The complete official press release is forthcoming.</p>
               <p><a href="https://propertysource.app/news.md#october-6-2026">Read the official news archive</a></p>
             </article>
             <article>
@@ -597,20 +704,30 @@
             </article>
           </section>
           <section id="executive-team" aria-labelledby="executive-team-heading">
-            <h2 id="executive-team-heading">Executive Operations Team</h2>
+            <h2 id="executive-team-heading">Executive Operations Team.</h2>
             <ul>
-              <li>Mark Kole — Founder</li>
-              <li>Jordan Wilde — Chief Executive Officer</li>
+              <li>Mark Kole — Founder and CEO</li>
+              <li>Chris Tominelli — Chief Financial Officer</li>
               <li>James Huang — Chief Strategy Officer</li>
-              <li>Diego Vivona — Chief Technology Officer</li>
               <li>Kris Sachtleben — Chief Growth Officer</li>
-              <li>Mike Shemtovi — Chief Investment Officer</li>
+              <li>Diego Vivona — Chief Technology Officer</li>
             </ul>
+            <section aria-labelledby="executive-channel-team-heading">
+              <h2 id="executive-channel-team-heading">Executive Channel Team.</h2>
+              <ul>
+                <li>Anthony Sciarretta — President of Wholesaler Networks</li>
+                <li>Stephen Grupp — President of Lender Networks</li>
+                <li>Mike Shemtovi — President of International Networks</li>
+                <li>Jo Stephenson — President of Real Estate Brokerage/Agent Network</li>
+                <li>Jordan Wilde — President of Auction Services</li>
+              </ul>
+            </section>
           </section>
-          <p><a href="https://app.propertysource.app/register" style="color:#b7e44c;font-weight:700">Register for a Property Source marketplace</a></p>
+          <p><a href="https://app.propertysource.app/register" style="color:#b7e44c;font-weight:700">Register for a Property Hub Exchange marketplace</a></p>
         </article>
       </main>
     </div>
     <script type="module" src="/src/main.tsx"></script>
+    <script type="module" src="/src/lib/analytics.ts"></script>
   </body>
 </html>
