@@ -9,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Skeleton } from "@/components/ui/skeleton";
 import { trpc } from "@/lib/trpc";
 import { DataRoomDocument, documentKind, formatDataRoomDate, formatDocumentSize } from "@/lib/dataRoom";
+import { createDocumentObjectUrl, documentTransferErrorMessage, isTransferCancelled } from "@/lib/dataRoomTransfers";
 import { startLogin } from "@/const";
 import {
   ArrowLeft,
@@ -29,7 +30,7 @@ import {
   UserRound,
   X,
 } from "lucide-react";
-import { FormEvent, useMemo, useState } from "react";
+import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import { useLocation } from "wouter";
 
 function readableError() {
@@ -133,24 +134,53 @@ function PasswordLogin({ checkingAccess = false }: { checkingAccess?: boolean })
   );
 }
 
-function DocumentViewer({ document, onClose }: { document: DataRoomDocument | null; onClose: () => void }) {
-  if (!document) return null;
-  const viewUrl = `/api/data-room/documents/${document.id}?mode=view`;
+function DocumentViewer({ document, onClose }: { document: DataRoomDocument; onClose: () => void }) {
+  const [viewUrl, setViewUrl] = useState<string | null>(null);
+  const [progress, setProgress] = useState(0);
+  const [error, setError] = useState<string | null>(null);
+  const [attempt, setAttempt] = useState(0);
+  const controller = useRef<AbortController | null>(null);
+
+  useEffect(() => {
+    const abortController = new AbortController();
+    controller.current = abortController;
+    let loaded: Awaited<ReturnType<typeof createDocumentObjectUrl>> | undefined;
+    setViewUrl(null);
+    setError(null);
+    setProgress(0);
+    void createDocumentObjectUrl(document, {
+      mode: "view",
+      signal: abortController.signal,
+      onProgress: value => { if (!abortController.signal.aborted) setProgress(value.percent); },
+    }).then(result => {
+      if (abortController.signal.aborted) { result.dispose(); return; }
+      loaded = result;
+      setViewUrl(result.url);
+    }).catch(error => {
+      if (!abortController.signal.aborted && !isTransferCancelled(error)) setError(documentTransferErrorMessage(error));
+    });
+    return () => {
+      abortController.abort();
+      loaded?.dispose();
+    };
+  }, [document.id, document.version, document.sizeBytes, document.filename, attempt]);
+
+  const close = () => { controller.current?.abort(); onClose(); };
   return (
-    <Dialog open={Boolean(document)} onOpenChange={open => !open && onClose()}>
+    <Dialog open onOpenChange={open => !open && close()}>
       <DialogContent showCloseButton={false} className="data-room-viewer-dialog">
         <DialogHeader className="data-room-viewer-header">
           <div className="min-w-0">
-            <DialogTitle className="truncate font-display text-lg text-[#12352b]">{document.title}</DialogTitle>
-            <DialogDescription className="mt-1">{document.filename} · Version {document.version}</DialogDescription>
+            <DialogTitle className="data-room-viewer-title font-display" title={document.title}>{document.title}</DialogTitle>
+            <DialogDescription className="data-room-viewer-description" title={`${document.filename} · Version ${document.version} · ${formatDocumentSize(document.sizeBytes)}`}>{document.filename} · Version {document.version} · {formatDocumentSize(document.sizeBytes)}</DialogDescription>
           </div>
           <div className="data-room-viewer-actions">
-            <a href={viewUrl} target="_blank" rel="noreferrer" className="data-room-icon-action" aria-label="Open PDF in a new tab"><ArrowUpRight size={17} /></a>
-            <button type="button" onClick={onClose} className="data-room-icon-action" aria-label="Close document viewer"><X size={17} /></button>
+            {viewUrl ? <a href={viewUrl} target="_blank" rel="noopener noreferrer" className="data-room-icon-action" aria-label="Open PDF in a new tab"><ArrowUpRight size={17} /></a> : <button type="button" disabled className="data-room-icon-action" aria-label="Open PDF in a new tab (available after loading)"><ArrowUpRight size={17} /></button>}
+            <button type="button" onClick={close} className="data-room-icon-action" aria-label="Close document viewer"><X size={17} /></button>
           </div>
         </DialogHeader>
         <div className="data-room-viewer-frame-wrap">
-          <iframe src={viewUrl} title={`View ${document.title}`} className="data-room-viewer-frame" />
+          {viewUrl ? <iframe src={viewUrl} title={`View ${document.title}`} className="data-room-viewer-frame" /> : error ? <div className="data-room-viewer-status" role="alert"><ShieldCheck size={24} /><p>{error}</p><Button variant="outline" onClick={() => setAttempt(value => value + 1)}>Try again</Button></div> : <div className="data-room-viewer-status" role="status" aria-live="polite"><LoaderCircle className="animate-spin" size={24} /><p>Loading secure PDF… {progress}%</p><progress value={progress} max={100} aria-label="PDF loading progress" /></div>}
         </div>
       </DialogContent>
     </Dialog>
@@ -206,18 +236,63 @@ function Library({ name, isAdmin, onLogout }: { name: string; isAdmin: boolean; 
         ) : (
           <div className="data-room-document-grid">
             {visibleDocuments.map(document => (
-              <DocumentCard key={document.id} document={document} onView={() => setViewerDocument(document)} />
+              <DocumentCard key={`${document.id}-${document.version}-${document.sizeBytes}`} document={document} onView={() => setViewerDocument({ ...document })} />
             ))}
           </div>
         )}
         <p className="data-room-confidential-note"><ShieldCheck size={15} /> <strong>Confidential · authorized investors only</strong><span>Documents can still be saved or shared by authorized viewers.</span></p>
       </main>
-      <DocumentViewer document={viewerDocument} onClose={() => setViewerDocument(null)} />
+      {viewerDocument && <DocumentViewer key={`${viewerDocument.id}-${viewerDocument.version}-${viewerDocument.sizeBytes}`} document={viewerDocument} onClose={() => setViewerDocument(null)} />}
     </DataRoomShell>
   );
 }
 
 function DocumentCard({ document, onView }: { document: DataRoomDocument; onView: () => void }) {
+  const [downloading, setDownloading] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [error, setError] = useState<string | null>(null);
+  const controller = useRef<AbortController | null>(null);
+  const downloadUrl = useRef<Awaited<ReturnType<typeof createDocumentObjectUrl>> | null>(null);
+  const revokeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  useEffect(() => () => {
+    controller.current?.abort();
+    downloadUrl.current?.dispose();
+    if (revokeTimer.current) clearTimeout(revokeTimer.current);
+  }, []);
+
+  const download = async () => {
+    if (controller.current || !document.allowDownload) return;
+    const abortController = new AbortController();
+    controller.current = abortController;
+    setDownloading(true);
+    setProgress(0);
+    setError(null);
+    downloadUrl.current?.dispose();
+    if (revokeTimer.current) clearTimeout(revokeTimer.current);
+    try {
+      const loaded = await createDocumentObjectUrl({ ...document }, {
+        mode: "download", signal: abortController.signal,
+        onProgress: value => { if (!abortController.signal.aborted) setProgress(value.percent); },
+      });
+      if (abortController.signal.aborted) { loaded.dispose(); return; }
+      downloadUrl.current = loaded;
+      const anchor = window.document.createElement("a");
+      anchor.href = loaded.url;
+      anchor.download = document.filename;
+      anchor.style.display = "none";
+      window.document.body.appendChild(anchor);
+      anchor.click();
+      anchor.remove();
+      // Let the browser start saving before releasing the temporary local URL.
+      revokeTimer.current = setTimeout(() => { loaded.dispose(); downloadUrl.current = null; }, 60_000);
+    } catch (error) {
+      if (!abortController.signal.aborted && !isTransferCancelled(error)) setError(documentTransferErrorMessage(error));
+    } finally {
+      if (!abortController.signal.aborted) setDownloading(false);
+      if (controller.current === abortController) controller.current = null;
+    }
+  };
+
   const kind = documentKind(document.filename);
   const isExcel = kind === "xlsx" || kind === "xls";
   const description = isExcel
@@ -229,8 +304,12 @@ function DocumentCard({ document, onView }: { document: DataRoomDocument; onView
       <div className="min-w-0"><h2>{document.title}</h2><p>{description}</p></div>
       <div className="data-room-document-meta"><span>{formatDocumentSize(document.sizeBytes)}</span><span>Updated {formatDataRoomDate(document.updatedAt)}</span></div>
       <div className="data-room-document-actions">
-        {isExcel ? document.allowDownload ? <a href={`/api/data-room/documents/${document.id}?mode=download`} className="data-room-download-button"><Download size={15} /> Download Excel</a> : <span className="data-room-muted">Download not enabled</span> : <><button type="button" onClick={onView} className="data-room-view-button"><FileText size={15} /> View</button>{document.allowDownload && <a href={`/api/data-room/documents/${document.id}?mode=download`} className="data-room-download-button"><Download size={15} /> Download</a>}</>}
+        {!isExcel && <button type="button" onClick={onView} className="data-room-view-button"><FileText size={15} /> View</button>}
+        {document.allowDownload ? <button type="button" disabled={downloading} onClick={() => void download()} className="data-room-download-button">{downloading ? <LoaderCircle size={15} className="animate-spin" /> : <Download size={15} />}{downloading ? `Loading… ${progress}%` : isExcel ? "Download Excel" : "Download"}</button> : isExcel && <span className="data-room-muted">Download not enabled</span>}
+        {downloading && <button type="button" className="data-room-text-button" onClick={() => { controller.current?.abort(); controller.current = null; setDownloading(false); }}>Cancel</button>}
       </div>
+      {downloading && <span className="data-room-transfer-note" role="status" aria-live="polite">Preparing secure download: {progress}%</span>}
+      {error && <p className="data-room-transfer-error" role="alert">{error}</p>}
     </article>
   );
 }

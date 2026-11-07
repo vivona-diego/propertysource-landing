@@ -1,6 +1,6 @@
 # Property Hub Exchange
 
-The complete recruiting website and private investor data room for Property Hub Exchange, Inc. This release synchronizes the managed website checkpoint **05e0cb2e** into the GitHub repository while preserving portable public images and Google Analytics.
+The complete recruiting website and private investor data room for Property Hub Exchange, Inc. The November 7, 2026 update adds a compact PDF-viewer header and secure chunked transfers for documents up to 15 MiB, while preserving the current marketing website, portable public images and Google Analytics.
 
 ## Included in this release
 
@@ -53,11 +53,15 @@ To preserve existing investors, administrator credentials and uploaded documents
 
 Without the backend variables, the public website and sign-in page can load, but the investor data room is not operational. Login and document access fail closed; this is not a public-document fallback.
 
-### Important file-size constraint on Vercel
+### Private files up to 15 MiB on Vercel
 
-[Vercel Functions limit request and response payloads to 4.5 MB](https://vercel.com/docs/functions/limitations). This application's upload API submits base64 inside JSON, so it is **not suitable for 15 MB uploads through a Vercel Function**. Files of roughly 3 MB or less leave room for base64 and JSON overhead. Larger private downloads can also exceed the Function response limit.
+[Vercel Functions limit request and response payloads to 4.5 MB](https://vercel.com/docs/functions/limitations). The administrator now uploads one 1 MiB piece per authenticated request rather than submitting an entire file in one base64 request. Each piece is encrypted before private storage. A persistent account-bound upload job tracks ordering and integrity; the server validates and assembles the complete PDF/Excel document before publishing it. Completion is atomic and idempotent, and existing encrypted-document format and keys remain unchanged.
 
-The code retains the existing 15 MB application limit for a normal Node deployment; it does not claim to bypass Vercel's platform limit. If your pitch decks or workbooks exceed the Vercel limit, use the standalone backend on a suitable HTTPS Node host or implement a separately reviewed private direct-upload/streaming workflow before advertising full 15 MB Vercel support. No confidential files should ever be placed in the static frontend output.
+The PDF viewer and download buttons request 1 MiB binary pieces and assemble an in-memory browser Blob. Every piece rechecks account access, publication/download permissions and the document version. No backing-storage URLs, storage keys or encryption keys are sent to the browser. Closing the viewer cancels incomplete transfers and releases its local Blob URL. The legacy whole-body file endpoint is limited to 3 MiB; larger documents must be opened through the updated viewer/download controls.
+
+**Apply `drizzle/0001_room_document_transfers.sql` before using the new uploader.** It adds only `room_upload_jobs`, `room_upload_chunks` and their indexes. Do not rerun the initial migration against the existing production database. The upload tables hold metadata and encrypted-object references, never plaintext file bytes. Upload jobs expire after 30 minutes; there is a maximum of three concurrent active jobs per administrator. Expired/cancelled references are cleaned lazily, but the current storage adapter does not expose permanent object deletion.
+
+The document limit remains **15 MiB (15 × 1,048,576 bytes)** for PDF, XLS and XLSX. A 6.3 MB PDF is within that limit. This design stays below the Vercel payload limit per request; it does not increase Vercel's platform limit. Each download piece currently fetches/decrypts the full encrypted object server-side, so large transfers use more storage traffic than a future range-aware format. Keep the Function duration sufficient for final assembly and test your storage latency. No confidential files belong in the static frontend output.
 
 Official deployment references: [Express on Vercel](https://vercel.com/docs/frameworks/backend/express) and [Vite on Vercel](https://vercel.com/docs/frameworks/frontend/vite).
 

@@ -40,7 +40,7 @@ type RoomDocument = {
   allowDownload: boolean;
   archived: boolean;
 };
-type Request = { params: { id: string }; query: { mode?: string } };
+type Request = { params: { id: string }; query: { mode?: string; chunk?: string; version?: string } };
 type Response = {
   statusCode: number;
   body?: unknown;
@@ -123,6 +123,10 @@ function successfulStorage(bytes: Buffer) {
 beforeEach(() => {
   vi.clearAllMocks();
   vi.stubGlobal("fetch", mocks.fetch);
+  mocks.privateHeaders.mockImplementation(({res}: {res: Response}) => {
+    res.setHeader("Cache-Control", "private, no-store, max-age=0");
+    res.setHeader("X-Robots-Tag", "noindex, nofollow, noarchive");
+  });
   mocks.createContext.mockResolvedValue({ req: {}, res: {} });
 });
 
@@ -226,5 +230,81 @@ describe("private data-room document delivery", () => {
     expect(res.body).toEqual({ error: "Document not found." });
     expect(mocks.storageGetSignedUrl).not.toHaveBeenCalled();
     expect(mocks.fetch).not.toHaveBeenCalled();
+  });
+});
+
+
+describe("version-bound private document chunks", () => {
+  const chunkBytes = 1048576;
+  function chunkRequest(index: string, version = "3", mode = "view"): Request { return { params: { id: "7" }, query: { chunk: index, version, mode } }; }
+  it.each([Math.ceil(6.3 * 1024 * 1024), 15 * 1024 * 1024])("reconstructs %i bytes using <=1MiB no-store responses with safe metadata only", async size => {
+    const bytes = Buffer.alloc(size, 45); bytes.write("%PDF-1.7\n"); bytes.write("\n%%EOF\n", size - 7);
+    const doc = roomDocument({ filename: "investment-report.pdf", sizeBytes: size, allowDownload: false });
+    const totalChunks = Math.ceil(size / chunkBytes), handler = registerHandler(), parts: Buffer[] = [];
+    mocks.getRoomActor.mockResolvedValue(investor);
+    mocks.roomDb.mockResolvedValue(selectQueue(...Array.from({ length: totalChunks * 2 }, () => [doc])));
+    successfulStorage(bytes);
+    for (let index = 0; index < totalChunks; index++) {
+      const res = response(); await handler(chunkRequest(String(index)), res);
+      expect(res.statusCode).toBe(200); expect(res.sent!.length).toBeLessThanOrEqual(chunkBytes);
+      expect(res.headers.get("Content-Length")).toBe(String(res.sent!.length));
+      expect(res.headers.get("X-Document-Size")).toBe(String(size));
+      expect(res.headers.get("X-Document-Version")).toBe("3");
+      expect(res.headers.get("X-Document-Chunk-Count")).toBe(String(totalChunks));
+      expect(res.headers.get("Cache-Control")).toBe("private, no-store, max-age=0");
+      expect(res.headers.get("X-Content-Type-Options")).toBe("nosniff");
+      expect(res.headers.get("Referrer-Policy")).toBe("no-referrer");
+      expect(res.headers.get("Content-Security-Policy")).toContain("frame-ancestors 'self'");
+      expect(JSON.stringify([...res.headers])).not.toContain(doc.storageKey); expect(res.body).toBeUndefined(); parts.push(res.sent!);
+    }
+    expect(Buffer.concat(parts).equals(bytes)).toBe(true); expect(mocks.getRoomActor).toHaveBeenCalledTimes(totalChunks * 2);
+    expect(mocks.audit).toHaveBeenCalledTimes(1);
+  });
+  it("rejects legacy whole-body responses above 3MiB before storage fetch with clear 413", async () => {
+    const doc = roomDocument({ filename: "report.pdf", sizeBytes: 3 * 1024 * 1024 + 1 });
+    const handler = registerHandler(), res = response();
+    mocks.getRoomActor.mockResolvedValue(investor); mocks.roomDb.mockResolvedValue(selectQueue([doc]));
+    await handler({ params: { id: "7" }, query: { mode: "view" } }, res);
+    expect(res.statusCode).toBe(413); expect(res.body).toEqual({ error: expect.stringContaining("chunked delivery") });
+    expect(mocks.fetch).not.toHaveBeenCalled(); expect(res.headers.get("Cache-Control")).toContain("no-store");
+  });
+  it.each([
+    ["-1", "3", 404], ["1.5", "3", 404], ["00", "3", 404], ["0", "", 404], ["0", "3.0", 404], ["0", "2", 409], ["2", "3", 416],
+  ])("rejects invalid index=%s or version=%s with %i before storage", async (chunk, version, status) => {
+    const doc = roomDocument({ filename: "report.pdf", sizeBytes: chunkBytes + 25 }), handler = registerHandler(), res = response();
+    mocks.getRoomActor.mockResolvedValue(investor); mocks.roomDb.mockResolvedValue(selectQueue([doc]));
+    await handler(chunkRequest(String(chunk), String(version)), res);
+    expect(res.statusCode).toBe(status); expect(mocks.fetch).not.toHaveBeenCalled();
+  });
+  it("denies PDF download chunks while permitting view when download is disabled", async () => {
+    const doc = roomDocument({ filename: "report.pdf", sizeBytes: 50, allowDownload: false }), handler = registerHandler(), res = response();
+    mocks.getRoomActor.mockResolvedValue(investor); mocks.roomDb.mockResolvedValue(selectQueue([doc]));
+    await handler(chunkRequest("0", "3", "download"), res);
+    expect(res.statusCode).toBe(403); expect(mocks.fetch).not.toHaveBeenCalled();
+  });
+  it("only allows Excel chunk delivery in explicit permitted download mode", async () => {
+    const bytes = Buffer.from("test-workbook-contents"), doc = roomDocument({ sizeBytes: bytes.length });
+    const handler = registerHandler(), view = response(), download = response();
+    mocks.getRoomActor.mockResolvedValue(investor); mocks.roomDb.mockResolvedValue(selectQueue([doc], [doc], [doc]));
+    successfulStorage(bytes);
+    await handler(chunkRequest("0"), view); expect(view.statusCode).toBe(400); expect(mocks.fetch).not.toHaveBeenCalled();
+    await handler(chunkRequest("0", "3", "download"), download); expect(download.statusCode).toBe(200);
+    expect(download.headers.get("Content-Disposition")).toMatch(/^attachment/); expect(download.sent!.equals(bytes)).toBe(true);
+  });
+  it.each([
+    ["replaced version", { version: 4 }, 409], ["changed storage", { storageKey: "another-private-key" }, 409],
+    ["archived", { archived: true }, 403], ["unpublished", { published: false }, 403], ["download disabled", { allowDownload: false }, 403],
+  ] as const)("blocks bytes if %s occurs during fetch", async (_label, change, status) => {
+    const bytes = Buffer.from("%PDF-1.7\n%%EOF\n"), doc = roomDocument({ filename: "report.pdf", sizeBytes: bytes.length });
+    const handler = registerHandler(), res = response(); mocks.getRoomActor.mockResolvedValue(investor);
+    mocks.roomDb.mockResolvedValue(selectQueue([doc], [{ ...doc, ...change }])); successfulStorage(bytes);
+    await handler(chunkRequest("0", "3", "download"), res);
+    expect(res.statusCode).toBe(status); expect(res.sent).toBeUndefined(); expect(mocks.audit).not.toHaveBeenCalled();
+  });
+  it("blocks a view chunk after account revocation during storage fetch", async () => {
+    const bytes = Buffer.from("%PDF-1.7\n%%EOF\n"), doc = roomDocument({ filename: "report.pdf", sizeBytes: bytes.length });
+    const handler = registerHandler(), res = response(); mocks.getRoomActor.mockResolvedValueOnce(investor).mockResolvedValueOnce(null);
+    mocks.roomDb.mockResolvedValue(selectQueue([doc], [doc])); successfulStorage(bytes);
+    await handler(chunkRequest("0"), res); expect(res.statusCode).toBe(403); expect(res.sent).toBeUndefined();
   });
 });

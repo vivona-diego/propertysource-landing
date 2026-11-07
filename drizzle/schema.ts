@@ -65,3 +65,34 @@ export const roomAuthLimits = mysqlTable("room_auth_limits", {
   attempts: int("attempts").notNull().default(0),
   windowStart: bigint("window_start", { mode: "number" }).notNull(),
 });
+
+// Upload tokens are stored only as digests. File bytes live exclusively in encrypted storage.
+export const roomUploadJobs = mysqlTable("room_upload_jobs", {
+  tokenHash: varchar("id", { length: 64 }).notNull().primaryKey(),
+  ownerHash: varchar("owner_hash", { length: 64 }).notNull(),
+  accountId: int("account_id").notNull(), // 0 denotes the verified website owner.
+  status: mysqlEnum("status", ["uploading", "finalizing", "complete", "cancelled"]).notNull().default("uploading"),
+  title: text("title").notNull(),
+  description: text("description").notNull(),
+  category: text("category").notNull(),
+  filename: varchar("filename", { length: 200 }).notNull(),
+  sizeBytes: int("size_bytes").notNull(),
+  totalChunks: int("total_chunks").notNull(),
+  nextChunk: int("next_chunk").notNull().default(0),
+  allowDownload: boolean("allow_download").notNull(),
+  published: boolean("published").notNull(),
+  replaceId: int("replace_id"),
+  documentId: int("document_id"),
+  expiresAt: bigint("expires_at", { mode: "number" }).notNull(),
+  createdAt: bigint("created_at", { mode: "number" }).notNull(),
+}, t => [index("room_upload_jobs_owner_idx").on(t.ownerHash, t.status), index("room_upload_jobs_expiry_idx").on(t.expiresAt)]);
+
+export const roomUploadChunks = mysqlTable("room_upload_chunks", {
+  // Unique per-job index also protects against accidental duplicate writes.
+  id: varchar("id", { length: 80 }).notNull().primaryKey(),
+  jobHash: varchar("upload_id", { length: 64 }).notNull(),
+  chunkIndex: int("chunk_index").notNull(),
+  contentHash: varchar("content_hash", { length: 64 }).notNull(),
+  sizeBytes: int("size_bytes").notNull(),
+  storageKey: varchar("storage_key", { length: 400 }).notNull(),
+}, t => [index("room_upload_chunks_job_idx").on(t.jobHash)]);

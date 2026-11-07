@@ -10,6 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Skeleton } from "@/components/ui/skeleton";
 import { Textarea } from "@/components/ui/textarea";
 import { DATA_ROOM_LOGO, DOCUMENT_CATEGORIES, DataRoomDocument, DataRoomInvestor, MAX_DOCUMENT_BYTES, dateTimeLocalToUtc, documentKind, formatDataRoomDate, formatDocumentSize, readDocumentAsBase64, toDateTimeLocal, useDataRoomMetadata } from "@/lib/dataRoom";
+import { DOCUMENT_CHUNK_BYTES, DocumentTransferError, documentTransferErrorMessage, isTransferCancelled } from "@/lib/dataRoomTransfers";
 import { trpc } from "@/lib/trpc";
 import {
   Activity,
@@ -35,7 +36,7 @@ import {
   Users,
   X,
 } from "lucide-react";
-import { FormEvent, useMemo, useState } from "react";
+import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import { useLocation } from "wouter";
 
 type InviteLink = { token: string; name: string; email: string } | null;
@@ -75,53 +76,160 @@ function DocumentEditor({ state, onClose, onSaved }: { state: DocumentDialogStat
   const [allowDownload, setAllowDownload] = useState(existing?.allowDownload ?? true);
   const [published, setPublished] = useState(existing?.published ?? true);
   const [error, setError] = useState<string | null>(null);
-  const upload = trpc.dataRoom.admin.uploadDocument.useMutation();
+  const [phase, setPhase] = useState<"idle" | "starting" | "uploading" | "finalizing" | "cancelling">("idle");
+  const [progress, setProgress] = useState(0);
+  const [saved, setSaved] = useState(false);
+  const operation = useRef<{ cancelled: boolean; uploadId: string | null; phase: "starting" | "uploading" | "finalizing" } | null>(null);
+  const busy = useRef(false);
+  const mounted = useRef(true);
+  const beginUpload = trpc.dataRoom.admin.beginDocumentUpload.useMutation();
+  const uploadChunk = trpc.dataRoom.admin.uploadDocumentChunk.useMutation();
+  const completeUpload = trpc.dataRoom.admin.completeDocumentUpload.useMutation();
+  const cancelUpload = trpc.dataRoom.admin.cancelDocumentUpload.useMutation();
+  const cancelMutation = useRef(cancelUpload.mutateAsync);
+  cancelMutation.current = cancelUpload.mutateAsync;
   const update = trpc.dataRoom.admin.updateDocument.useMutation();
   const isEdit = state?.mode === "edit";
   const isReplace = state?.mode === "replace";
 
+  useEffect(() => {
+    mounted.current = true;
+    const beforeUnload = (event: BeforeUnloadEvent) => {
+      if (busy.current) { event.preventDefault(); event.returnValue = ""; }
+    };
+    window.addEventListener("beforeunload", beforeUnload);
+    return () => {
+      mounted.current = false;
+      window.removeEventListener("beforeunload", beforeUnload);
+      const active = operation.current;
+      if (active && active.phase !== "finalizing") {
+        active.cancelled = true;
+        if (active.uploadId) void cancelMutation.current({ uploadId: active.uploadId }).catch(() => {});
+      }
+    };
+  }, []);
+
   if (!state) return null;
+  const pending = phase !== "idle" || update.isPending;
+  const requestClose = () => { if (!busy.current) onClose(); };
+  const cancelTransfer = () => {
+    const active = operation.current;
+    if (!active || active.phase === "finalizing" || active.cancelled) return;
+    active.cancelled = true;
+    setPhase("cancelling");
+  };
   const setSelectedFile = (candidate: File | null) => {
+    if (busy.current) return;
+    setFile(null);
     if (!candidate) { setFile(null); return; }
     if (!documentKind(candidate.name)) { setError("Please choose a PDF or Excel file."); return; }
-    if (candidate.size > MAX_DOCUMENT_BYTES) { setError("PDF or Excel files must be 15 MB or smaller."); return; }
+    if (!Number.isSafeInteger(candidate.size) || candidate.size < 1) { setError("The selected file is empty. Choose a PDF or Excel file containing data."); return; }
+    const count = Math.ceil(candidate.size / DOCUMENT_CHUNK_BYTES);
+    if (candidate.size > MAX_DOCUMENT_BYTES || count > 15) { setError("PDF or Excel files must be 15 MB (15 MiB) or smaller, with no more than 15 upload chunks."); return; }
     setError(null);
     setFile(candidate);
   };
   const submit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    if (busy.current || saved) return;
     if (!title.trim()) { setError("A document title is required."); return; }
+    setError(null);
     if (isEdit) {
-      update.mutate({ id: existing!.id, title: title.trim(), description: description.trim(), category: category.trim(), allowDownload, published }, {
-        onSuccess: async () => { await onSaved(); onClose(); },
-        onError: () => setError(genericError),
-      });
+      busy.current = true;
+      try {
+        await update.mutateAsync({ id: existing!.id, title: title.trim(), description: description.trim(), category: category.trim(), allowDownload, published });
+        setSaved(true);
+        await onSaved();
+        onClose();
+      } catch (error) {
+        if (mounted.current) setError(documentTransferErrorMessage(error));
+      } finally { busy.current = false; }
       return;
     }
     if (!file) { setError(isReplace ? "Choose the replacement PDF or Excel file." : "Choose a PDF or Excel file to upload."); return; }
+    const selectedFile = file;
+    const totalChunks = Math.ceil(selectedFile.size / DOCUMENT_CHUNK_BYTES);
+    if (selectedFile.size < 1 || selectedFile.size > MAX_DOCUMENT_BYTES || totalChunks < 1 || totalChunks > 15) { setError("Choose a non-empty PDF or Excel file of 15 MB (15 MiB) or less (1–15 chunks)."); return; }
+    const active = { cancelled: false, uploadId: null as string | null, phase: "starting" as "starting" | "uploading" | "finalizing" };
+    operation.current = active;
+    busy.current = true;
+    setPhase("starting");
+    setProgress(0);
+    const checkCancelled = () => { if (active.cancelled) throw new DOMException("Upload cancelled.", "AbortError"); };
     try {
-      const base64 = await readDocumentAsBase64(file);
-      upload.mutate({ title: title.trim(), description: description.trim(), category: category.trim(), filename: file.name, base64, allowDownload, published, ...(isReplace ? { replaceId: existing!.id } : {}) }, {
-        onSuccess: async () => { await onSaved(); onClose(); },
-        onError: () => setError(genericError),
+      const started = await beginUpload.mutateAsync({
+        title: title.trim(), description: description.trim(), category: category.trim(), filename: selectedFile.name,
+        sizeBytes: selectedFile.size, allowDownload, published, ...(isReplace ? { replaceId: existing!.id } : {}),
       });
-    } catch {
-      setError("The selected file could not be read. Please choose it again.");
+      active.uploadId = started.uploadId;
+      checkCancelled();
+      if (started.chunkBytes !== DOCUMENT_CHUNK_BYTES || started.totalChunks !== totalChunks) {
+        throw new DocumentTransferError("The server returned an unsupported upload chunk size or count. Please try again or contact the administrator.");
+      }
+      active.phase = "uploading";
+      if (mounted.current) setPhase("uploading");
+      for (let index = 0; index < totalChunks; index += 1) {
+        checkCancelled();
+        const start = index * DOCUMENT_CHUNK_BYTES;
+        const slice = selectedFile.slice(start, Math.min(start + DOCUMENT_CHUNK_BYTES, selectedFile.size));
+        // Preserve the existing reader API while only reading this bounded slice.
+        let base64: string;
+        try { base64 = await readDocumentAsBase64(new File([slice], selectedFile.name, { type: selectedFile.type })); }
+        catch { throw new DocumentTransferError("The selected file could not be read. Choose the file again and retry the upload."); }
+        checkCancelled();
+        if (slice.size > DOCUMENT_CHUNK_BYTES || base64.length !== 4 * Math.ceil(slice.size / 3)) {
+          throw new DocumentTransferError("A file chunk could not be encoded correctly. Choose the file again and retry.");
+        }
+        await uploadChunk.mutateAsync({ uploadId: started.uploadId, index, base64 });
+        checkCancelled();
+        if (mounted.current) setProgress(Math.floor(Math.min(start + slice.size, selectedFile.size) / selectedFile.size * 100));
+      }
+      checkCancelled();
+      // From this point cancellation could race the atomic document replacement.
+      active.phase = "finalizing";
+      if (mounted.current) setPhase("finalizing");
+      await completeUpload.mutateAsync({ uploadId: started.uploadId });
+      active.uploadId = null;
+      if (mounted.current) setSaved(true);
+      await onSaved();
+      if (mounted.current) onClose();
+    } catch (error) {
+      let cleanupFailed = false;
+      if (active.uploadId && active.phase !== "finalizing") {
+        try { await cancelUpload.mutateAsync({ uploadId: active.uploadId }); active.uploadId = null; }
+        catch { cleanupFailed = true; }
+      }
+      if (mounted.current) {
+        // A lost completion response must not produce a duplicate document on retry.
+        if (active.phase === "finalizing") setSaved(true);
+        if (isTransferCancelled(error) && !cleanupFailed) onClose();
+        else setError(cleanupFailed
+          ? "The upload stopped, but the server could not confirm cancellation. No new document was finalized. Refresh the page before trying again."
+          : active.phase === "finalizing"
+            ? `${documentTransferErrorMessage(error)} Finalization may have completed; refresh the document list before starting another upload.`
+            : documentTransferErrorMessage(error));
+      }
+    } finally {
+      operation.current = null;
+      busy.current = false;
+      if (mounted.current) setPhase("idle");
     }
   };
-  const pending = upload.isPending || update.isPending;
   const dialogTitle = isEdit ? "Edit document details" : isReplace ? `Replace “${existing?.title}”` : "Upload a document";
-  return <Dialog open={Boolean(state)} onOpenChange={open => !open && onClose()}>
-    <DialogContent showCloseButton={false} className="data-room-form-dialog">
-      <DialogHeader><div className="flex items-start justify-between gap-4"><div><DialogTitle className="font-display text-xl text-[#12352b]">{dialogTitle}</DialogTitle><DialogDescription className="mt-2">{isReplace ? "The file will be replaced and the document version will increase." : isEdit ? "Update access and document presentation details." : "PDF or Excel files only, up to 15 MB."}</DialogDescription></div><button type="button" onClick={onClose} className="data-room-icon-action" aria-label="Close"><X size={17} /></button></div></DialogHeader>
-      <form onSubmit={submit} className="data-room-form">
+  return <Dialog open={Boolean(state)} onOpenChange={open => !open && requestClose()}>
+    <DialogContent showCloseButton={false} className="data-room-form-dialog" onEscapeKeyDown={event => { if (busy.current) event.preventDefault(); }} onInteractOutside={event => { if (busy.current) event.preventDefault(); }}>
+      <DialogHeader><div className="flex items-start justify-between gap-4"><div><DialogTitle className="font-display text-xl text-[#12352b]">{dialogTitle}</DialogTitle><DialogDescription className="mt-2">{isReplace ? "The file will be replaced and the document version will increase." : isEdit ? "Update access and document presentation details." : "PDF or Excel files only, up to 15 MB (15 MiB)."}</DialogDescription></div><button type="button" disabled={pending} onClick={requestClose} className="data-room-icon-action" aria-label="Close"><X size={17} /></button></div></DialogHeader>
+      <form onSubmit={submit} className="data-room-form" aria-busy={pending}>
+        <fieldset disabled={pending || saved} className="data-room-upload-fields">
         <div className="data-room-form-grid"><div className="data-room-field"><Label htmlFor="document-title">Title</Label><Input id="document-title" required maxLength={160} value={title} onChange={event => setTitle(event.target.value)} className="data-room-input" /></div><div className="data-room-field"><Label htmlFor="document-category">Category</Label><Input id="document-category" list="data-room-categories" required maxLength={80} value={category} onChange={event => setCategory(event.target.value)} className="data-room-input" /><datalist id="data-room-categories">{DOCUMENT_CATEGORIES.map(item => <option value={item} key={item} />)}</datalist></div></div>
         <div className="data-room-field"><Label htmlFor="document-description">Description <span className="data-room-label-optional">Optional</span></Label><Textarea id="document-description" maxLength={1000} value={description} onChange={event => setDescription(event.target.value)} className="data-room-textarea" /></div>
         {!isEdit && <div className="data-room-field"><Label htmlFor="document-file">PDF or Excel file</Label><label className="data-room-file-input" htmlFor="document-file"><Upload size={17} /><span>{file ? file.name : isReplace ? "Choose replacement PDF or Excel" : "Choose PDF or Excel"}</span><input id="document-file" type="file" accept="application/pdf,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel,.pdf,.xlsx,.xls" onChange={event => setSelectedFile(event.target.files?.[0] ?? null)} /></label>{file && <small className="data-room-file-note">{formatDocumentSize(file.size)}</small>}</div>}
         <div className="data-room-checkbox-row"><label><input type="checkbox" checked={allowDownload} onChange={event => setAllowDownload(event.target.checked)} /> <span>Allow download</span></label><label><input type="checkbox" checked={published} onChange={event => setPublished(event.target.checked)} /> <span>Publish to investors</span></label></div>
         {!published && <p className="data-room-draft-note">This document will remain a draft and won’t be visible in the investor library.</p>}
+        </fieldset>
+        {phase !== "idle" && <div className="data-room-upload-progress" role="status" aria-live="polite"><span>{phase === "starting" ? "Preparing secure upload… 0%" : phase === "uploading" ? `Uploading… ${progress}%` : phase === "cancelling" ? "Cancelling upload safely…" : "Finalizing document… 100%. Please keep this window open."}</span><progress value={progress} max={100} aria-label="Document upload progress" /></div>}
         <InlineError error={error} />
-        <DialogFooter><Button type="button" variant="outline" onClick={onClose}>Cancel</Button><Button type="submit" disabled={pending} className="data-room-primary-button">{pending ? <LoaderCircle className="animate-spin" /> : isEdit ? <Pencil /> : <Upload />}{isEdit ? "Save changes" : isReplace ? "Replace document" : "Upload document"}</Button></DialogFooter>
+        <DialogFooter><Button type="button" variant="outline" disabled={phase === "finalizing" || phase === "cancelling" || update.isPending} onClick={pending ? cancelTransfer : requestClose}>{phase === "cancelling" ? "Cancelling…" : pending ? "Cancel upload" : saved ? "Close" : "Cancel"}</Button><Button type="submit" disabled={pending || saved} className="data-room-primary-button">{pending ? <LoaderCircle className="animate-spin" /> : isEdit ? <Pencil /> : <Upload />}{phase === "finalizing" ? "Finalizing…" : phase === "uploading" ? `Uploading… ${progress}%` : isEdit ? "Save changes" : isReplace ? "Replace document" : "Upload document"}</Button></DialogFooter>
       </form>
     </DialogContent>
   </Dialog>;

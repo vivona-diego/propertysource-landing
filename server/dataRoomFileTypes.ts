@@ -1,4 +1,5 @@
 export const MAX_DOCUMENT_BYTES = 15 * 1024 * 1024;
+export const DOCUMENT_CHUNK_BYTES = 1024 * 1024;
 export type RoomFileKind = "pdf" | "xlsx" | "xls";
 export const ROOM_FILE_MIME = {
   pdf: "application/pdf",

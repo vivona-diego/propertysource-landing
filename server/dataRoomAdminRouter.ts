@@ -8,6 +8,7 @@ import { audit, roomAdminProcedure, roomDb, validExpiry } from "./dataRoomAccess
 import { digest, encryptDocument, newToken, safeFilename } from "./dataRoomCrypto";
 import { decodeRoomDocument, MAX_DOCUMENT_BYTES } from "./dataRoomFileTypes";
 import { storagePut } from "./storage";
+import { dataRoomTransferProcedures } from "./dataRoomTransfers";
 
 const idInput=z.object({id:z.number().int().positive()});
 const expiryInput=z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER).nullable();
@@ -20,6 +21,7 @@ async function makeInvitation(account:{id:number,name:string,email:string,expire
   await db.insert(roomInvites).values({accountId:account.id,tokenHash:digest(token),expiresAt,createdAt:now});return {token,name:account.name,email:account.email};
 }
 export const dataRoomAdminRouter=router({
+  ...dataRoomTransferProcedures,
   overview:roomAdminProcedure.query(async()=>{
     const db=await roomDb();const [documents]=await db.select({n:count()}).from(roomDocuments).where(eq(roomDocuments.archived,false));const all=await db.select(investorProjection).from(roomAccounts).where(eq(roomAccounts.role,"investor"));const recentActivity=await db.select().from(roomAudit).orderBy(desc(roomAudit.id)).limit(6);return {documents:documents.n,activeInvestors:all.filter(a=>a.status==="active"&&validExpiry(a.expiresAt)).length,pendingInvites:all.filter(a=>a.status==="invited"&&validExpiry(a.expiresAt)).length,recentActivity};
   }),

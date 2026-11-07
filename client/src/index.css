@@ -474,13 +474,26 @@ a { text-decoration: none; }
 .data-room-empty-state svg { color: #61926c; }
 .data-room-empty-state h2 { margin: .2rem 0 0; font-family: 'Space Grotesk', sans-serif; color: #244b3c; font-size: 1.15rem; font-weight: 600; letter-spacing: -.03em; }
 .data-room-empty-state p { max-width: 360px; margin: 0; font-size: .78rem; line-height: 1.6; }
-.data-room-viewer-dialog { display: grid; width: min(100% - 2rem, 1060px); max-width: 1060px; height: min(90svh, 780px); gap: 0; overflow: hidden; border: 0; border-radius: 1rem; padding: 0; }
-.data-room-viewer-header { display: flex; min-height: 66px; flex-direction: row !important; align-items: center; justify-content: space-between; gap: 1rem; border-bottom: 1px solid #dce6d7; padding: .85rem 1rem .85rem 1.35rem; text-align: left; }
-.data-room-viewer-actions { display: flex; align-items: center; gap: .45rem; }
+.data-room-viewer-dialog { display: grid; grid-template-rows: auto minmax(0, 1fr); width: min(100% - 2rem, 1060px); max-width: 1060px; height: min(90svh, 780px); min-height: 0; gap: 0; overflow: hidden; border: 0; border-radius: 1rem; padding: 0; }
+.data-room-viewer-header { display: flex; min-width: 0; min-height: 54px; max-height: 58px; flex-direction: row !important; align-items: center; justify-content: space-between; gap: .75rem; border-bottom: 1px solid #dce6d7; padding: 8px 12px; overflow: hidden; text-align: left; }
+.data-room-viewer-header > :first-child { min-width: 0; flex: 1 1 auto; overflow: hidden; }
+.data-room-viewer-title { display: block; margin: 0; overflow: hidden; color: #12352b; font-size: 14px; line-height: 18px; text-overflow: ellipsis; white-space: nowrap; }
+.data-room-viewer-description { display: block; margin: 2px 0 0; overflow: hidden; color: #60736a; font-size: 12px; line-height: 16px; text-overflow: ellipsis; white-space: nowrap; }
+.data-room-viewer-actions { display: flex; flex: 0 0 auto; align-items: center; gap: .4rem; }
 .data-room-icon-action { display: grid; width: 34px; height: 34px; flex: 0 0 auto; place-items: center; border: 1px solid #d4e2cf; border-radius: .55rem; color: #3d6250; }
 .data-room-icon-action:hover { background: #eff6ea; color: #12352b; }
-.data-room-viewer-frame-wrap { min-height: 0; background: #e9eee7; }
-.data-room-viewer-frame { width: 100%; height: 100%; min-height: 500px; border: 0; }
+.data-room-viewer-actions .data-room-icon-action:disabled, .data-room-download-button:disabled { cursor: default; opacity: .5; }
+.data-room-viewer-frame-wrap { min-width: 0; min-height: 0; overflow: hidden; background: #e9eee7; }
+.data-room-viewer-frame { display: block; width: 100%; height: 100%; min-height: 0; border: 0; }
+.data-room-viewer-status { display: flex; width: 100%; height: 100%; min-height: 0; flex-direction: column; align-items: center; justify-content: center; gap: .9rem; padding: 1.5rem; overflow: auto; color: #405e50; text-align: center; }
+.data-room-viewer-status p { max-width: 440px; font-size: .85rem; line-height: 1.6; }
+.data-room-viewer-status progress, .data-room-upload-progress progress { width: min(100%, 300px); height: 6px; accent-color: #2d7f58; }
+.data-room-transfer-note, .data-room-transfer-error { font-size: .72rem; line-height: 1.5; }
+.data-room-transfer-note { color: #52695c; }
+.data-room-transfer-error { color: #a53a39; }
+.data-room-upload-progress { display: grid; gap: .5rem; border: 1px solid #cfe0ca; border-radius: .7rem; padding: .8rem; color: #405e50; font-size: .75rem; }
+.data-room-upload-fields { display: contents; }
+.data-room-upload-fields:disabled .data-room-file-input { cursor: default; opacity: .6; }
 /* Room administration shell and content. */
 .data-room-admin-shell { --sidebar: #0c382c; --sidebar-foreground: #eff6eb; --sidebar-accent: #1d5540; --sidebar-accent-foreground: #fff; --sidebar-border: rgba(255,255,255,.1); min-height: 100svh; background: #f5f7f1; }
 .data-room-admin-sidebar { background: #0c382c !important; }
@@ -584,4 +597,4 @@ a { text-decoration: none; }
 @media (min-width: 768px) { .data-room-auth-page { grid-template-columns: minmax(0,1.06fr) minmax(420px,.94fr); } .data-room-auth-panel-brand { min-height: calc(100svh - 75px); } .data-room-library-page { padding-top: 2.6rem; } .data-room-admin-document { grid-template-columns: auto minmax(0,1fr) auto; } .data-room-document-admin-actions { grid-column: auto; justify-content: end; } .data-room-investor-row { grid-template-columns: minmax(220px,1fr) auto auto; align-items: center; } .data-room-investor-actions { min-width: 120px; } }
 @media (min-width: 1080px) { .data-room-document-grid { grid-template-columns: repeat(3,minmax(0,1fr)); } .data-room-settings-grid { grid-template-columns: minmax(0,620px); } }
 @media (max-width: 767px) { .data-room-admin-logo-copy, .data-room-sidebar-label { display: none; } .data-room-admin-sidebar-header { min-height: 67px; } .data-room-admin-sidebar-footer { padding: .55rem !important; } .data-room-admin-account > div, .data-room-preview-link span, .data-room-signout span { display: none; } .data-room-admin-account { justify-content: center; } .data-room-preview-link, .data-room-signout { justify-content: center; } }
-@media (max-width: 479px) { .data-room-brand-copy { display: none; } .data-room-public-header-inner { min-height: 65px; } .data-room-library-account { width: 100%; justify-content: space-between; } .data-room-confidential-note span { flex-basis: 100%; } .data-room-confidential-note span::before { display: none; } .data-room-viewer-dialog { height: 88svh; } .data-room-viewer-frame { min-height: 420px; } }
+@media (max-width: 479px) { .data-room-brand-copy { display: none; } .data-room-public-header-inner { min-height: 65px; } .data-room-library-account { width: 100%; justify-content: space-between; } .data-room-confidential-note span { flex-basis: 100%; } .data-room-confidential-note span::before { display: none; } .data-room-viewer-dialog { height: 88svh; } .data-room-viewer-header { gap: .5rem; padding-inline: 8px; } }
